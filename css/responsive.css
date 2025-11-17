@@ -45,6 +45,11 @@
         font-size: 1rem;
     }
     
+    /* CORREÇÃO: Esconder controles do carrossel no mobile */
+    .carousel-controls {
+        display: none;
+    }
+    
     .loja-section, .pneus-section, .servicos-section {
         padding: 3rem 0;
     }
@@ -66,9 +71,65 @@
         grid-template-columns: 1fr;
     }
     
+    /* CORREÇÃO: Modal scrollável no mobile */
     .modal-content {
         width: 95%;
-        margin: 10% auto;
+        margin: 5% auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .modal-body {
+        grid-template-columns: 1fr;
+        max-height: none;
+    }
+    
+    .modal-image {
+        border-radius: 20px 20px 0 0;
+        min-height: 200px;
+    }
+    
+    .modal-info {
+        padding: 2rem 1.5rem;
+        overflow: visible;
+    }
+    
+    /* CORREÇÃO: Botão WhatsApp maior no mobile */
+    .whatsapp-btn-fixed {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 1.2rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .whatsapp-btn-fixed i {
+        font-size: 1.8rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: var(--preto);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 2rem 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
     }
 }
 
@@ -86,9 +147,21 @@
         bottom: 1rem;
     }
     
+    /* CORREÇÃO: Botão WhatsApp ainda maior em telas pequenas */
     .whatsapp-btn-fixed {
         bottom: 1rem;
         right: 1rem;
+        padding: 1.3rem 1.6rem;
+        font-size: 1.2rem;
+        min-width: auto;
+    }
+    
+    .whatsapp-btn-fixed i {
+        font-size: 2rem;
+    }
+    
+    .whatsapp-btn-fixed span {
+        display: inline-block;
     }
     
     .loja-info h3 {
@@ -97,5 +170,63 @@
     
     .endereco {
         font-size: 1rem;
+    }
+    
+    /* CORREÇÃO: Modal ainda mais adaptado para mobile pequeno */
+    .modal-content {
+        width: 98%;
+        margin: 2% auto;
+        max-height: 96vh;
+    }
+    
+    .modal-info {
+        padding: 1.5rem 1rem;
+    }
+    
+    .modal-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .modal-info p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* CORREÇÕES ESPECÍFICAS PARA O CARROSSEL NO MOBILE */
+@media (max-width: 768px) {
+    .carousel-container {
+        cursor: grab;
+    }
+    
+    .carousel-container:active {
+        cursor: grabbing;
+    }
+    
+    /* Melhorar a experiência de swipe no mobile */
+    .carousel-slide {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+}
+
+/* CORREÇÕES PARA O MODAL SCROLLÁVEL */
+.modal-content {
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+.modal-body {
+    max-height: calc(90vh - 60px);
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .modal-body {
+        max-height: calc(96vh - 60px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 }

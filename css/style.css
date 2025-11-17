@@ -162,6 +162,11 @@ body {
     width: 300%;
     height: 100%;
     transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    cursor: grab;
+}
+
+.carousel-container:active {
+    cursor: grabbing;
 }
 
 .carousel-slide {
@@ -171,6 +176,10 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .carousel-slide:nth-child(1) {
@@ -633,6 +642,8 @@ body {
     max-width: 800px;
     position: relative;
     animation: modalSlideIn 0.4s ease;
+    max-height: 90vh;
+    overflow: hidden;
 }
 
 @keyframes modalSlideIn {
@@ -665,6 +676,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 400px;
+    max-height: calc(90vh - 60px);
+    overflow-y: auto;
 }
 
 .modal-image {
@@ -736,7 +749,7 @@ body {
     box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
 }
 
-/* Botão WhatsApp Fixo */
+/* Botão WhatsApp Fixo - CORRIGIDO PARA MOBILE */
 .whatsapp-btn-fixed {
     position: fixed;
     bottom: 2rem;
@@ -752,6 +765,7 @@ body {
     box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
     transition: all 0.3s ease;
     z-index: 1000;
+    font-size: 1rem;
 }
 
 .whatsapp-btn-fixed:hover {
@@ -875,13 +889,19 @@ body {
         min-height: 200px;
     }
     
-    .whatsapp-btn-fixed span {
-        display: none;
+    /* CORREÇÃO: Botão WhatsApp maior no mobile */
+    .whatsapp-btn-fixed {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.1rem;
+        min-width: auto;
     }
     
-    .whatsapp-btn-fixed {
-        padding: 1rem;
-        border-radius: 50%;
+    .whatsapp-btn-fixed i {
+        font-size: 1.8rem;
+    }
+    
+    .whatsapp-btn-fixed span {
+        display: inline-block;
     }
     
     .footer-content {
