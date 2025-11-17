@@ -9,6 +9,10 @@
     --branco: #ffffff;
     --dourado: #f39c12;
     --verde-whatsapp: #25D366;
+    --gradient-primary: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    --gradient-dark: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
 }
 
 /* Estilos Gerais */
@@ -16,6 +20,7 @@ body {
     font-family: 'Arial', sans-serif;
     color: var(--preto);
     background-color: var(--branco);
+    overflow-x: hidden;
 }
 
 .container {
@@ -34,11 +39,11 @@ body {
     margin-right: auto;
 }
 
-/* Animações do Site - CORRIGIDAS */
+/* Animações Modernas */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
@@ -46,10 +51,39 @@ body {
     }
 }
 
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(231, 76, 60, 0.3);
+    }
+   50% {
+        box-shadow: 0 0 30px rgba(231, 76, 60, 0.6);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* Elementos que devem aparecer com animação */
 .animate-element {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -58,14 +92,16 @@ body {
     transform: translateY(0);
 }
 
-/* Header com animação de scroll */
+/* Header Moderno com Glass Effect */
 .header {
-    background: linear-gradient(135deg, var(--preto) 0%, var(--preto-claro) 100%);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateY(0);
 }
@@ -76,8 +112,8 @@ body {
 
 .header.scrolled {
     background: rgba(44, 62, 80, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(25px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 
 .nav {
@@ -89,7 +125,7 @@ body {
     margin: 0 auto;
 }
 
-/* Header - Logo Atualizado com Imagem */
+/* Header - Logo */
 .logo {
     display: flex;
     align-items: center;
@@ -100,6 +136,13 @@ body {
     height: 50px;
     width: auto;
     object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    transition: all 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
 }
 
 .logo h2 {
@@ -113,54 +156,64 @@ body {
 
 .nav-link {
     color: var(--branco);
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.4s ease;
     position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
 }
 
 .nav-link:hover {
     color: var(--vermelho);
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -2px;
     left: 50%;
     width: 0;
     height: 2px;
     background: var(--vermelho);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     transform: translateX(-50%);
 }
 
 .nav-link:hover::after {
-    width: 80%;
+    width: 60%;
 }
 
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    background: var(--glass-bg);
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
 }
 
 .bar {
     width: 25px;
-    height: 3px;
+    height: 2px;
     background: var(--branco);
     margin: 3px 0;
     transition: 0.3s;
+    border-radius: 2px;
 }
 
-/* Carrossel */
+/* Carrossel Moderno - CORREÇÃO COMPLETA */
 .carousel {
     position: relative;
     height: 100vh;
     overflow: hidden;
-    margin-top: 70px;
+    margin-top: 0;
 }
 
 .carousel-container {
@@ -168,11 +221,6 @@ body {
     width: 300%;
     height: 100%;
     transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
-    cursor: grab;
-}
-
-.carousel-container:active {
-    cursor: grabbing;
 }
 
 .carousel-slide {
@@ -182,22 +230,28 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
+/* CORREÇÃO: Backgrounds corrigidos com fallback */
 .carousel-slide:nth-child(1) {
-    background: linear-gradient(135deg, var(--preto) 0%, var(--vermelho) 100%);
+    background: 
+        linear-gradient(135deg, rgba(44, 62, 80, 0.85) 0%, rgba(52, 73, 94, 0.9) 100%),
+        url('../images/carrossel/slide1.png') center/cover no-repeat,
+        var(--preto);
 }
 
 .carousel-slide:nth-child(2) {
-    background: linear-gradient(135deg, var(--preto-claro) 0%, var(--vermelho-escuro) 100%);
+    background: 
+        linear-gradient(135deg, rgba(58, 83, 155, 0.85) 0%, rgba(26, 82, 118, 0.9) 100%),
+        url('https://images.unsplash.com/photo-1603712619669-24f4d8ec6b7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat,
+        var(--preto-claro);
 }
 
 .carousel-slide:nth-child(3) {
-    background: linear-gradient(135deg, var(--vermelho) 0%, var(--preto) 100%);
+    background: 
+        linear-gradient(135deg, rgba(109, 33, 79, 0.85) 0%, rgba(67, 36, 86, 0.9) 100%),
+        url('https://images.unsplash.com/photo-1603712619941-6215c8d140b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80') center/cover no-repeat,
+        var(--preto);
 }
 
 .carousel-slide::before {
@@ -207,7 +261,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.5);
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+    background-size: cover;
 }
 
 .slide-content {
@@ -215,78 +270,107 @@ body {
     z-index: 2;
     text-align: center;
     color: var(--branco);
-    padding: 2rem;
+    padding: 3rem;
     max-width: 800px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
 }
 
 .slide-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
+    font-weight: 800;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-    font-weight: 700;
+    line-height: 1.1;
 }
 
 .slide-content p {
     font-size: 1.3rem;
     margin-bottom: 2.5rem;
+    opacity: 0.95;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    font-weight: 500;
 }
 
 .cta-button {
-    background: var(--vermelho);
+    background: var(--gradient-primary);
     color: var(--branco);
-    padding: 1.2rem 2.5rem;
+    padding: 1.3rem 3rem;
     border-radius: 50px;
     font-size: 1.1rem;
     font-weight: bold;
-    transition: all 0.3s ease;
-    border: 2px solid var(--vermelho);
+    transition: all 0.4s ease;
+    border: 2px solid rgba(255,255,255,0.3);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
 }
 
 .cta-button:hover {
     background: transparent;
     border-color: var(--branco);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(231, 76, 60, 0.6);
+    animation: glow 2s infinite;
 }
 
-/* Controles do Carrossel */
+/* Controles do Carrossel Modernos */
 .carousel-controls {
     position: absolute;
     top: 50%;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 2rem;
+    padding: 0 3rem;
     transform: translateY(-50%);
     z-index: 3;
 }
 
 .carousel-btn {
-    background: rgba(255,255,255,0.2);
+    background: var(--glass-bg);
     color: var(--branco);
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.3);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(20px);
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 .carousel-btn:hover {
     background: var(--vermelho);
-    transform: scale(1.1);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 12px 30px rgba(231, 76, 60, 0.5);
 }
 
 .carousel-dots {
     position: absolute;
-    bottom: 2rem;
+    bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -295,45 +379,61 @@ body {
 }
 
 .dot {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: var(--branco);
     opacity: 0.5;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
 }
 
 .dot.active {
     opacity: 1;
     background: var(--vermelho);
-    transform: scale(1.3);
+    transform: scale(1.4);
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.6);
 }
 
-/* Seção Nossa Loja */
+/* Seção Nossa Loja Moderna */
 .loja-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--cinza) 0%, var(--branco) 100%);
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, var(--branco) 50%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.loja-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--vermelho), transparent);
 }
 
 .loja-section h2 {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
     margin-bottom: 3rem;
     color: var(--preto);
     text-align: center;
     position: relative;
+    font-weight: 800;
 }
 
 .loja-section h2::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: var(--vermelho);
-    border-radius: 2px;
+    width: 120px;
+    height: 5px;
+    background: var(--gradient-primary);
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
 }
 
 .loja-content {
@@ -344,51 +444,116 @@ body {
 }
 
 .loja-info h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--vermelho);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.loja-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
 }
 
 .endereco {
     font-size: 1.2rem;
     color: var(--preto-claro);
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 1.5rem;
     background: var(--branco);
-    border-radius: 10px;
-    border-left: 4px solid var(--vermelho);
+    border-radius: 15px;
+    border-left: 5px solid var(--vermelho);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.endereco::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.05), transparent);
+    transition: left 0.5s ease;
+}
+
+.endereco:hover::before {
+    left: 100%;
+}
+
+.endereco:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
 }
 
 .endereco i {
     color: var(--vermelho);
     margin-right: 0.5rem;
+    font-size: 1.3rem;
 }
 
-/* Link do Maps - MELHOR ESPAÇADO */
+/* Link do Maps Moderno */
 .maps-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
-    background: #e74c3c;
+    gap: 1rem;
+    background: var(--gradient-primary);
     color: var(--branco);
-    padding: 1.2rem 2.2rem;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    padding: 1.3rem 2.5rem;
+    border-radius: 15px;
+    font-weight: 700;
+    transition: all 0.4s ease;
     text-decoration: none;
-    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
     font-size: 1.1rem;
-    margin: 1.5rem 0 2rem 0;
+    margin: 2rem 0 3rem 0;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.maps-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.maps-link:hover::before {
+    left: 100%;
 }
 
 .maps-link:hover {
-    background: var(--vermelho-escuro);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+    background: transparent;
+    border-color: var(--vermelho);
+    color: var(--vermelho);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(231, 76, 60, 0.5);
+    animation: glow 2s infinite;
 }
 
 .maps-link i {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.maps-link:hover i {
+    transform: scale(1.2);
 }
 
 .loja-descricao {
@@ -402,203 +567,323 @@ body {
 }
 
 .especialidades {
-    margin: 2rem 0;
+    margin: 2.5rem 0;
 }
 
 .especialidade-item {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
-    padding: 0.5rem 0;
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+    background: var(--branco);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.especialidade-item:hover {
+    transform: translateX(10px);
+    border-left-color: var(--vermelho);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
 .especialidade-item i {
     color: var(--vermelho);
-    margin-right: 1rem;
-    font-size: 1.1rem;
+    margin-right: 1.2rem;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.especialidade-item:hover i {
+    transform: scale(1.2);
+    color: var(--vermelho-escuro);
 }
 
 .loja-horarios {
-    background: var(--preto);
+    background: var(--gradient-dark);
     color: var(--branco);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.loja-horarios::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle fill="rgba(255,255,255,0.05)" cx="50" cy="50" r="2"/></svg>');
+    background-size: 50px 50px;
 }
 
 .loja-horarios h4 {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    color: var(--vermelho);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--branco);
+    position: relative;
+    z-index: 2;
 }
 
 .loja-horarios h4 i {
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
+    color: var(--vermelho);
 }
 
 .horarios-lista {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .horario-item {
     display: flex;
     justify-content: space-between;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.3s ease;
+}
+
+.horario-item:hover {
+    transform: translateX(5px);
+    border-bottom-color: var(--vermelho);
 }
 
 .horario-item:last-child {
     border-bottom: none;
 }
 
-/* Seção Pneus */
+/* Seção Pneus Moderna */
 .pneus-section {
-    padding: 5rem 0;
+    padding: 6rem 0;
     background: var(--branco);
+    position: relative;
+}
+
+.pneus-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--vermelho), transparent);
 }
 
 .pneus-section h2 {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
     margin-bottom: 1rem;
     color: var(--preto);
     text-align: center;
     position: relative;
+    font-weight: 800;
 }
 
 .pneus-section h2::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: var(--vermelho);
-    border-radius: 2px;
+    width: 120px;
+    height: 5px;
+    background: var(--gradient-primary);
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
 }
 
 .marcas-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 2.5rem;
+    margin-top: 4rem;
 }
 
 .marca-card {
     background: var(--branco);
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
     border: 2px solid transparent;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.marca-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.05), transparent);
+    transition: left 0.6s ease;
+}
+
+.marca-card:hover::before {
+    left: 100%;
 }
 
 .marca-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     border-color: var(--vermelho);
+    animation: float 3s ease-in-out infinite;
 }
 
 .marca-logo {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
 }
 
 .marca-logo i {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--vermelho);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.marca-card:hover .marca-logo i {
+    transform: scale(1.2) rotate(10deg);
+    color: var(--vermelho-escuro);
 }
 
 .marca-logo h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--preto);
+    font-weight: 700;
 }
 
 .marca-info p {
     color: var(--preto-claro);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 .preco {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: var(--cinza);
-    border-radius: 10px;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa, var(--branco));
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid rgba(231, 76, 60, 0.1);
 }
 
 .preco-label {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--preto-claro);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
 }
 
 .preco-valor {
-    font-size: 1.8rem;
-    font-weight: bold;
+    font-size: 2rem;
+    font-weight: 800;
     color: var(--vermelho);
+    text-shadow: 0 2px 4px rgba(231, 76, 60, 0.2);
 }
 
 .btn-orcamento {
-    background: var(--vermelho);
+    background: var(--gradient-primary);
     color: var(--branco);
-    padding: 1rem 2rem;
+    padding: 1.2rem 2rem;
     border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    transition: all 0.4s ease;
     width: 100%;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.btn-orcamento::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-orcamento:hover::before {
+    left: 100%;
 }
 
 .btn-orcamento:hover {
-    background: var(--vermelho-escuro);
-    transform: translateY(-2px);
+    background: transparent;
+    border-color: var(--vermelho);
+    color: var(--vermelho);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(231, 76, 60, 0.5);
 }
 
-/* Seção Serviços */
+/* Seção Serviços Moderna */
 .servicos-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--cinza) 0%, var(--branco) 100%);
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, var(--branco) 50%, #f8f9fa 100%);
+    position: relative;
+}
+
+.servicos-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--vermelho), transparent);
 }
 
 .servicos-section h2 {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
     margin-bottom: 1rem;
     color: var(--preto);
     text-align: center;
     position: relative;
+    font-weight: 800;
 }
 
 .servicos-section h2::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: var(--vermelho);
-    border-radius: 2px;
+    width: 120px;
+    height: 5px;
+    background: var(--gradient-primary);
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
 }
 
 .servicos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
 }
 
 .servico-item {
     background: var(--branco);
-    padding: 2.5rem 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
     text-align: center;
-    border-left: 5px solid var(--vermelho);
+    border-left: 6px solid var(--vermelho);
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -611,8 +896,8 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.1), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.08), transparent);
+    transition: left 0.6s ease;
 }
 
 .servico-item:hover::before {
@@ -620,27 +905,29 @@ body {
 }
 
 .servico-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    border-left-color: var(--vermelho-escuro);
 }
 
 .servico-item i {
-    font-size: 3.5rem;
+    font-size: 4rem;
     color: var(--vermelho);
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
 }
 
 .servico-item:hover i {
-    transform: scale(1.2);
+    transform: scale(1.2) rotate(10deg);
     color: var(--vermelho-escuro);
 }
 
 .servico-item h3 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
     color: var(--preto);
     transition: all 0.3s ease;
+    font-weight: 700;
 }
 
 .servico-item:hover h3 {
@@ -649,11 +936,11 @@ body {
 
 .servico-item p {
     color: var(--preto-claro);
-    line-height: 1.6;
-    font-size: 0.95rem;
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
-/* Modal */
+/* Modal Moderno */
 .modal {
     display: none;
     position: fixed;
@@ -662,167 +949,236 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    backdrop-filter: blur(5px);
+    background-color: rgba(0,0,0,0.9);
+    backdrop-filter: blur(10px);
 }
 
 .modal-content {
     background-color: var(--branco);
     margin: 5% auto;
     padding: 0;
-    border-radius: 20px;
+    border-radius: 25px;
     width: 90%;
-    max-width: 800px;
+    max-width: 900px;
     position: relative;
-    animation: modalSlideIn 0.4s ease;
+    animation: modalSlideIn 0.5s ease;
     max-height: 90vh;
     overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 @keyframes modalSlideIn {
     from {
         opacity: 0;
-        transform: translateY(-50px);
+        transform: translateY(-60px) scale(0.9);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
 .close-modal {
     position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 2rem;
+    right: 25px;
+    top: 20px;
+    font-size: 2.2rem;
     color: var(--preto);
     cursor: pointer;
     z-index: 10;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--glass-border);
 }
 
 .close-modal:hover {
     color: var(--vermelho);
+    transform: rotate(90deg) scale(1.1);
+    background: rgba(231, 76, 60, 0.1);
 }
 
 .modal-body {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 400px;
+    min-height: 500px;
     max-height: calc(90vh - 60px);
     overflow-y: auto;
 }
 
 .modal-image {
-    background: linear-gradient(135deg, var(--preto) 0%, var(--vermelho) 100%);
-    border-radius: 20px 0 0 20px;
+    background: var(--gradient-primary);
+    border-radius: 25px 0 0 25px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+    background-size: cover;
 }
 
 .modal-image img {
     max-width: 100%;
-    max-height: 300px;
-    border-radius: 10px;
+    max-height: 350px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 2;
 }
 
 .modal-info {
-    padding: 3rem 2rem;
+    padding: 3rem 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: linear-gradient(135deg, #f8f9fa, var(--branco));
 }
 
 .modal-info h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--preto);
-    margin-bottom: 1.5rem;
-    border-bottom: 3px solid var(--vermelho);
-    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 4px solid var(--vermelho);
+    padding-bottom: 1rem;
+    font-weight: 800;
 }
 
 .modal-info p {
     color: var(--preto-claro);
     line-height: 1.8;
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    font-size: 1.15rem;
 }
 
 .modal-cta {
-    background: var(--cinza);
-    padding: 1.5rem;
-    border-radius: 10px;
+    background: var(--branco);
+    padding: 2rem;
+    border-radius: 15px;
     text-align: center;
-    border-left: 4px solid var(--vermelho);
+    border-left: 5px solid var(--vermelho);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 .modal-cta p {
-    margin-bottom: 1rem;
-    font-weight: bold;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
     color: var(--preto);
+    font-size: 1.1rem;
 }
 
 .whatsapp-btn-modal {
     background: var(--verde-whatsapp);
     color: var(--branco);
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 2rem;
     border-radius: 50px;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    gap: 0.8rem;
+    font-weight: 700;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-btn-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.whatsapp-btn-modal:hover::before {
+    left: 100%;
 }
 
 .whatsapp-btn-modal:hover {
     background: #20bd5a;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
 }
 
-/* Botão WhatsApp Fixo - CORRIGIDO PARA MOBILE */
+/* Botão WhatsApp Fixo Moderno */
 .whatsapp-btn-fixed {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 2.5rem;
+    right: 2.5rem;
     background: var(--verde-whatsapp);
     color: var(--branco);
-    padding: 1rem 1.5rem;
+    padding: 1.3rem 2rem;
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-    transition: all 0.3s ease;
+    gap: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+    transition: all 0.4s ease;
     z-index: 1000;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    border: 2px solid transparent;
+    animation: float 3s ease-in-out infinite;
 }
 
 .whatsapp-btn-fixed:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+    transform: scale(1.08) translateY(-5px);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.7);
     background: #20bd5a;
+    animation: none;
 }
 
 .whatsapp-btn-fixed i {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
-/* Footer */
+/* Footer Moderno */
 .footer {
-    background: var(--preto);
+    background: var(--gradient-dark);
     color: var(--branco);
-    padding: 3rem 0 1rem;
+    padding: 4rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle fill="rgba(255,255,255,0.05)" cx="50" cy="50" r="2"/></svg>');
+    background-size: 80px 80px;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    margin-bottom: 2rem;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
 }
 
 .footer-info h3 {
@@ -830,38 +1186,46 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 800;
 }
 
 .footer-info p {
     color: var(--cinza);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
 }
 
 .footer-contato h4 {
     color: var(--branco);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
 }
 
 .footer-contato a {
     color: var(--cinza);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    transition: color 0.3s ease;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .footer-contato a:hover {
     color: var(--verde-whatsapp);
+    transform: translateX(5px);
 }
 
 .footer-copy {
     text-align: center;
     color: var(--cinza-escuro);
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    position: relative;
+    z-index: 2;
+    font-size: 1rem;
 }
 
 /* Responsive */
@@ -873,14 +1237,16 @@ body {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 80px;
         flex-direction: column;
-        background: var(--preto);
+        background: rgba(44, 62, 80, 0.95);
+        backdrop-filter: blur(20px);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        transition: 0.4s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.1);
         padding: 2rem 0;
+        gap: 1rem;
     }
     
     .nav-menu.active {
@@ -888,29 +1254,31 @@ body {
     }
     
     .slide-content h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
     
     .carousel-controls {
-        padding: 0 1rem;
+        padding: 0 1.5rem;
     }
     
     .carousel-btn {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
     }
     
     .loja-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
     }
     
     .marcas-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .servicos-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .modal-body {
@@ -918,41 +1286,50 @@ body {
     }
     
     .modal-image {
-        border-radius: 20px 20px 0 0;
-        min-height: 200px;
+        border-radius: 25px 25px 0 0;
+        min-height: 250px;
+        padding: 2rem;
     }
     
-    /* CORREÇÃO: Botão WhatsApp maior no mobile */
     .whatsapp-btn-fixed {
-        padding: 1.2rem 1.5rem;
-        font-size: 1.1rem;
-        min-width: auto;
+        padding: 1.2rem 1.8rem;
+        font-size: 1rem;
+        bottom: 2rem;
+        right: 2rem;
     }
     
     .whatsapp-btn-fixed i {
         font-size: 1.8rem;
     }
     
-    .whatsapp-btn-fixed span {
-        display: inline-block;
-    }
-    
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
     }
     
     /* Logo no mobile */
     .logo-img {
-        height: 50px;
+        height: 40px;
     }
     
     /* Maps link no mobile */
     .maps-link {
-        padding: 1rem 1.8rem;
+        padding: 1.2rem 2rem;
         font-size: 1rem;
         width: 100%;
         justify-content: center;
-        margin: 1.5rem 0 2rem 0;
+        margin: 2rem 0 2.5rem 0;
+    }
+    
+    /* Títulos responsivos */
+    .loja-section h2,
+    .pneus-section h2,
+    .servicos-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .slide-content {
+        margin: 0 1rem;
+        padding: 2rem 1.5rem;
     }
 }
