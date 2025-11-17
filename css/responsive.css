@@ -1,0 +1,101 @@
+/* Tablets */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .slide-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .servicos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .marcas-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav {
+        padding: 1rem;
+    }
+    
+    .logo h2 {
+        font-size: 1.2rem;
+    }
+    
+    .carousel {
+        height: 70vh;
+        margin-top: 60px;
+    }
+    
+    .slide-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .slide-content p {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .loja-section, .pneus-section, .servicos-section {
+        padding: 3rem 0;
+    }
+    
+    .loja-section h2, .pneus-section h2, .servicos-section h2 {
+        font-size: 2.2rem;
+    }
+    
+    .servicos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .servico-item {
+        padding: 2rem 1.5rem;
+    }
+    
+    .marcas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+}
+
+/* Mobile Pequeno */
+@media (max-width: 480px) {
+    .slide-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .slide-content p {
+        font-size: 0.9rem;
+    }
+    
+    .carousel-dots {
+        bottom: 1rem;
+    }
+    
+    .whatsapp-btn-fixed {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    .loja-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .endereco {
+        font-size: 1rem;
+    }
+}

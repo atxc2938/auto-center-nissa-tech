@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Center Nissa Tech - Oficina Especializada</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <h2>Auto Center Nissa Tech</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#loja" class="nav-link">Nossa Loja</a></li>
+                <li><a href="#pneus" class="nav-link">Pneus</a></li>
+                <li><a href="#servicos" class="nav-link">Serviços</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Carrossel -->
+    <section id="home" class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <div class="slide-content">
+                    <h1>Bem-vindo à Auto Center Nissa Tech</h1>
+                    <p>Especialistas em serviços automotivos de alta qualidade</p>
+                    <button class="cta-button" onclick="scrollToServicos()">Conheça Nossos Serviços</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="slide-content">
+                    <h1>Pneus das Melhores Marcas</h1>
+                    <p>Preços competitivos e instalação profissional</p>
+                    <button class="cta-button" onclick="scrollToPneus()">Ver Pneus</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="slide-content">
+                    <h1>Manutenção Especializada</h1>
+                    <p>Cuide do seu veículo com os melhores profissionais</p>
+                    <button class="cta-button" onclick="scrollToServicos()">Agendar Serviço</button>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- Seção Nossa Loja -->
+    <section id="loja" class="loja-section">
+        <div class="container">
+            <h2>Nossa Loja</h2>
+            <div class="loja-content">
+                <div class="loja-info">
+                    <h3>Auto Center Nissa Tech</h3>
+                    <p class="endereco">
+                        <i class="fas fa-map-marker-alt"></i>
+                        RUA A LOTE 11 QUADRA 02, ITAIPU NITEROI<br>
+                        Niterói, RJ, Brazil
+                    </p>
+                    <div class="loja-descricao">
+                        <p>A <strong>Auto Center Nissa Tech</strong> é uma referência em Niterói quando o assunto é qualidade e confiança em serviços automotivos. Com anos de experiência no mercado, nos especializamos em:</p>
+                        
+                        <div class="especialidades">
+                            <div class="especialidade-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Manutenção de veículos de todas as marcas</span>
+                            </div>
+                            <div class="especialidade-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Venda e instalação de pneus das principais marcas</span>
+                            </div>
+                            <div class="especialidade-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Troca de óleo e filtros com produtos premium</span>
+                            </div>
+                            <div class="especialidade-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Serviços de mecânica geral e elétrica</span>
+                            </div>
+                        </div>
+
+                        <p>Nossa missão é oferecer serviços de excelência com transparência e preços justos, garantindo a satisfação total de nossos clientes.</p>
+                    </div>
+                </div>
+                <div class="loja-horarios">
+                    <h4><i class="fas fa-clock"></i> Horário de Funcionamento</h4>
+                    <div class="horarios-lista">
+                        <div class="horario-item">
+                            <span>Segunda - Sexta</span>
+                            <span>08:00 - 18:00</span>
+                        </div>
+                        <div class="horario-item">
+                            <span>Sábado</span>
+                            <span>08:00 - 14:00</span>
+                        </div>
+                        <div class="horario-item">
+                            <span>Domingo</span>
+                            <span>Fechado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Pneus -->
+    <section id="pneus" class="pneus-section">
+        <div class="container">
+            <h2>Pneus</h2>
+            <p class="section-subtitle">Trabalhamos com as melhores marcas do mercado</p>
+            
+            <div class="marcas-grid">
+                <!-- Pirelli -->
+                <div class="marca-card">
+                    <div class="marca-logo">
+                        <i class="fas fa-tire"></i>
+                        <h3>Pirelli</h3>
+                    </div>
+                    <div class="marca-info">
+                        <p>Alta performance e tecnologia italiana</p>
+                        <div class="preco">
+                            <span class="preco-label">A partir de:</span>
+                            <span class="preco-valor">R$ 0,00</span>
+                        </div>
+                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                    </div>
+                </div>
+
+                <!-- Michelin -->
+                <div class="marca-card">
+                    <div class="marca-logo">
+                        <i class="fas fa-tire"></i>
+                        <h3>Michelin</h3>
+                    </div>
+                    <div class="marca-info">
+                        <p>Durabilidade e eficiência comprovadas</p>
+                        <div class="preco">
+                            <span class="preco-label">A partir de:</span>
+                            <span class="preco-valor">R$ 0,00</span>
+                        </div>
+                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                    </div>
+                </div>
+
+                <!-- Bridgestone -->
+                <div class="marca-card">
+                    <div class="marca-logo">
+                        <i class="fas fa-tire"></i>
+                        <h3>Bridgestone</h3>
+                    </div>
+                    <div class="marca-info">
+                        <p>Qualidade japonesa e confiabilidade</p>
+                        <div class="preco">
+                            <span class="preco-label">A partir de:</span>
+                            <span class="preco-valor">R$ 0,00</span>
+                        </div>
+                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                    </div>
+                </div>
+
+                <!-- Goodyear -->
+                <div class="marca-card">
+                    <div class="marca-logo">
+                        <i class="fas fa-tire"></i>
+                        <h3>Goodyear</h3>
+                    </div>
+                    <div class="marca-info">
+                        <p>Inovação e segurança americana</p>
+                        <div class="preco">
+                            <span class="preco-label">A partir de:</span>
+                            <span class="preco-valor">R$ 0,00</span>
+                        </div>
+                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                    </div>
+                </div>
+
+                <!-- Continental -->
+                <div class="marca-card">
+                    <div class="marca-logo">
+                        <i class="fas fa-tire"></i>
+                        <h3>Continental</h3>
+                    </div>
+                    <div class="marca-info">
+                        <p>Tecnologia alemã de precisão</p>
+                        <div class="preco">
+                            <span class="preco-label">A partir de:</span>
+                            <span class="preco-valor">R$ 0,00</span>
+                        </div>
+                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                    </div>
+                </div>
+
+                <!-- Dunlop -->
+                <div class="marca-card">
+                    <div class="marca-logo">
+                        <i class="fas fa-tire"></i>
+                        <h3>Dunlop</h3>
+                    </div>
+                    <div class="marca-info">
+                        <p>Performance esportiva e conforto</p>
+                        <div class="preco">
+                            <span class="preco-label">A partir de:</span>
+                            <span class="preco-valor">R$ 0,00</span>
+                        </div>
+                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Serviços -->
+    <section id="servicos" class="servicos-section">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <p class="section-subtitle">Serviços completos para seu veículo</p>
+            
+            <div class="servicos-grid">
+                <!-- Os 12 serviços serão inseridos aqui pelo JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Serviço -->
+    <div id="servicoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalServicoImg" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h3 id="modalServicoTitulo"></h3>
+                    <p id="modalServicoDescricao"></p>
+                    <div class="modal-cta">
+                        <p>Entre em contato para solicitar um orçamento personalizado!</p>
+                        <a href="https://wa.me/5521965238075?text=Olá! Gostaria de solicitar um orçamento para o serviço de " 
+                           class="whatsapp-btn-modal" 
+                           target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Peça agora o seu orçamento
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão WhatsApp Fixo -->
+    <a href="https://wa.me/5521965238075?text=Olá! Gostaria de solicitar um orçamento" 
+       class="whatsapp-btn-fixed" 
+       target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Peça agora o seu orçamento</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Auto Center Nissa Tech</h3>
+                    <p>RUA A LOTE 11 QUADRA 02, ITAIPU NITEROI</p>
+                    <p>Niterói, RJ, Brazil</p>
+                </div>
+                <div class="footer-contato">
+                    <h4>Contato</h4>
+                    <a href="https://wa.me/5521965238075" target="_blank">
+                        <i class="fab fa-whatsapp"></i> (21) 96523-8075
+                    </a>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2024 Auto Center Nissa Tech. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
