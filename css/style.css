@@ -215,7 +215,6 @@ p {
 .logo-img {
     height: 60px;
     width: auto;
-    /* Logo vermelha - removendo filtro branco */
     transition: all 0.3s ease;
 }
 
@@ -364,29 +363,29 @@ p {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.8s ease 1.2s forwards;
-    align-items: stretch; /* Adicionado */
+    align-items: stretch;
 }
 
 .stat-item {
     text-align: center;
     flex: 1;
-    min-height: 90px; /* Aumentado */
+    min-height: 90px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Alterado */
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem 0.5rem; /* Adicionado */
+    padding: 1rem 0.5rem;
 }
 
 .stat-number {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.2rem; /* Aumentado */
+    font-size: 2.2rem;
     font-weight: 800;
     color: var(--primary);
     line-height: 1;
-    min-height: 3rem; /* Garantir altura */
+    min-height: 3rem;
     margin-bottom: 0.5rem;
     white-space: nowrap;
 }
@@ -395,7 +394,7 @@ p {
     font-size: 0.9rem;
     color: var(--text-lighter);
     line-height: 1.2;
-    margin-top: auto; /* Empurrar para baixo */
+    margin-top: auto;
 }
 
 .hero-image {
@@ -1372,6 +1371,185 @@ p {
 
 .float-text {
     font-size: 1rem;
+}
+
+/* ========== CORREÇÕES PARA ANIMAÇÕES E MAPA ========== */
+
+/* Aumentar significativamente o placeholder do mapa */
+.map-placeholder {
+    min-height: 500px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: linear-gradient(135deg, var(--background-lighter) 0%, var(--secondary-light) 100%) !important;
+    border-radius: 20px !important;
+    border: 2px solid var(--border) !important;
+    box-shadow: var(--shadow-xl) !important;
+    margin: 2rem 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.map-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(255, 59, 48, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255, 59, 48, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.map-placeholder i {
+    font-size: 4rem !important;
+    color: var(--primary) !important;
+    margin-bottom: 1.5rem !important;
+    z-index: 2;
+    position: relative;
+    animation: float 3s ease-in-out infinite !important;
+}
+
+.map-placeholder p {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+    color: var(--text) !important;
+    font-weight: 600 !important;
+    z-index: 2;
+    position: relative;
+    text-align: center;
+}
+
+.map-placeholder p:first-of-type {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: var(--primary) !important;
+}
+
+/* Melhorar detecção de animação para serviços e pneus */
+.servicos-section,
+.produtos-section {
+    position: relative;
+}
+
+.servico-card,
+.marca-card,
+.tire-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.servico-card.animate-in,
+.marca-card.animate-in,
+.tire-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Aumentar área de detecção para animações */
+.animation-trigger-area {
+    min-height: 300px;
+    position: relative;
+}
+
+/* Otimizações específicas para mobile */
+@media (max-width: 768px) {
+    .map-placeholder {
+        min-height: 400px !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .map-placeholder i {
+        font-size: 3rem !important;
+    }
+    
+    .map-placeholder p {
+        font-size: 1.1rem !important;
+    }
+    
+    .map-placeholder p:first-of-type {
+        font-size: 1.3rem !important;
+    }
+    
+    /* Melhorar visibilidade dos elementos em mobile */
+    .servico-card,
+    .marca-card {
+        margin-bottom: 1.5rem;
+        padding: 1.5rem !important;
+    }
+    
+    .servico-title,
+    .marca-title {
+        font-size: 1.3rem !important;
+    }
+    
+    .servico-description,
+    .marca-description {
+        font-size: 1rem !important;
+    }
+}
+
+/* Melhorar performance das animações */
+@media (prefers-reduced-motion: reduce) {
+    .servico-card,
+    .marca-card,
+    .tire-item {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* ========== ANIMAÇÕES OTIMIZADAS ========== */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Aplicar animações melhoradas */
+.servico-card.animate-in,
+.marca-card.animate-in {
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+.feature-item.animate-in,
+.info-card.animate-in,
+.extra-card.animate-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Garantir que as seções tenham altura suficiente */
+.servicos-section,
+.produtos-section {
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Feedback visual durante o loading */
+body:not(.loaded) .animate-element {
+    opacity: 0;
+}
+
+body.loaded .animate-element {
+    transition: all 0.6s ease-out;
 }
 
 /* Animações Modernas */
