@@ -1,11 +1,11 @@
 // Dados e configurações
 const CONFIG = {
-    whatsapp: '5521990188094',
+    whatsapp: '5521965238075',
     telefone2: '552126093611',
     empresa: 'Nissa Tech',
-    endereco: 'Rua A, Lote 11, Quadra 2 - Itaipu, Niterói - RJ, 24346-176',
+    endereco: 'Av. Visconde do Rio Branco, 881 - Centro, Niterói - RJ',
     instagram: '@nissatechautomotiva',
-    horarioFuncionamento: 'Seg-Sex: 8h-18h, Sáb: 8h-13h'
+    horarioFuncionamento: 'Seg-Sex: 7h-19h, Sáb: 8h-13h'
 };
 
 // Dados dos serviços baseados no repositório
@@ -168,7 +168,7 @@ const SERVICOS_DATA = {
     }
 };
 
-// Sistema principal
+// Sistema principal - CORREÇÕES PARA ANIMAÇÕES
 class NissaTechApp {
     constructor() {
         this.animatedElements = new Set();
@@ -187,6 +187,97 @@ class NissaTechApp {
         this.setupServiceModals();
         this.preloadImages();
         this.setupMobileOptimizations();
+        
+        // Inicializar observador imediatamente
+        this.setupIntersectionObserver();
+    }
+
+    // Configuração do observador de interseção MELHORADA
+    setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !this.animatedElements.has(entry.target)) {
+                    this.animateElement(entry.target);
+                    this.animatedElements.add(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            // AUMENTAR a área de detecção (threshold mais baixo)
+            threshold: 0.05, // Reduzido de 0.1 para 0.05
+            // AUMENTAR a margem de detecção
+            rootMargin: '0px 0px -10% 0px' // Reduzido de -50px para -10%
+        });
+
+        // Observar elementos animáveis - MAIS ELEMENTOS
+        const animateElements = document.querySelectorAll(
+            '.servico-card, .marca-card, .feature-item, .info-card, ' +
+            '.extra-card, .grid-item, .contato-map, .sobre-features, ' +
+            '.pneus-extra, .hero-stats, .image-container'
+        );
+        
+        animateElements.forEach(element => {
+            element.classList.add('animate-element');
+            observer.observe(element);
+        });
+
+        console.log(`Observando ${animateElements.length} elementos para animação`);
+    }
+
+    // Método melhorado para animar elementos
+    animateElement(element) {
+        const index = Array.from(element.parentElement.children).indexOf(element);
+        const delay = index * 100; // Delay progressivo
+        
+        setTimeout(() => {
+            element.classList.add('animate-in');
+            
+            // Adicionar delay CSS para animação em cascata
+            element.style.transitionDelay = `${index * 0.1}s`;
+            
+            console.log(`Elemento animado:`, element);
+        }, delay);
+    }
+
+    // Efeitos de scroll MELHORADOS
+    setupScrollEffects() {
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            // Header scroll
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Animação de elementos na viewport - MAIS AGressiva
+            this.animateOnScroll();
+            
+            lastScrollY = window.scrollY;
+        });
+
+        // Forçar verificação inicial
+        setTimeout(() => {
+            this.animateOnScroll();
+        }, 1000);
+    }
+
+    // Animação on scroll MELHORADA
+    animateOnScroll() {
+        const elements = document.querySelectorAll('.animate-element');
+        const windowHeight = window.innerHeight;
+        const triggerPoint = windowHeight * 0.85; // 85% da tela (aumentado)
+        
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            
+            if (elementTop < triggerPoint && !this.animatedElements.has(element)) {
+                this.animateElement(element);
+                this.animatedElements.add(element);
+            }
+        });
     }
 
     // Menu mobile
@@ -248,73 +339,6 @@ class NissaTechApp {
                     });
                 }
             });
-        });
-    }
-
-    // Efeitos de scroll
-    setupScrollEffects() {
-        const header = document.getElementById('header');
-        let lastScrollY = window.scrollY;
-
-        window.addEventListener('scroll', () => {
-            // Header scroll
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-
-            // Animação de elementos na viewport
-            this.animateOnScroll();
-            
-            lastScrollY = window.scrollY;
-        });
-
-        // Inicializar observador de interseção
-        this.setupIntersectionObserver();
-    }
-
-    setupIntersectionObserver() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !this.animatedElements.has(entry.target)) {
-                    entry.target.classList.add('animate-in');
-                    this.animatedElements.add(entry.target);
-                    
-                    // Adicionar delay progressivo para elementos em sequência
-                    if (entry.target.classList.contains('servico-card') || 
-                        entry.target.classList.contains('marca-card') ||
-                        entry.target.classList.contains('feature-item')) {
-                        const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
-                        entry.target.style.transitionDelay = `${index * 0.1}s`;
-                    }
-                    
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        // Observar elementos animáveis
-        const animateElements = document.querySelectorAll('.servico-card, .marca-card, .feature-item, .info-card, .extra-card, .grid-item, .contato-map');
-        animateElements.forEach(element => {
-            element.classList.add('animate-element');
-            observer.observe(element);
-        });
-    }
-
-    animateOnScroll() {
-        const elements = document.querySelectorAll('.animate-element');
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible && !this.animatedElements.has(element)) {
-                element.classList.add('animate-in');
-                this.animatedElements.add(element);
-            }
         });
     }
 
@@ -466,7 +490,7 @@ class NissaTechApp {
         if (mapButton) {
             mapButton.addEventListener('click', (e) => {
                 e.preventDefault();
-                const mapsUrl = 'https://maps.google.com/maps?q=NISSA+TECH+OFICINA+Rua+A+Lote+11+Quadra+2+Itaipu+Niteroi+RJ';
+                const mapsUrl = 'https://maps.google.com/maps?q=NISSA+TECH+OFICINA+Av.+Visconde+do+Rio+Branco,+881+Centro+Niteroi+RJ';
                 window.open(mapsUrl, '_blank');
             });
         }
@@ -513,7 +537,7 @@ class NissaTechApp {
             current += step;
             if (current >= target) {
                 element.textContent = target + (element.textContent.includes('+') ? '+' : '');
-                clearInterval(timer);
+                clearInterval(ttimer);
             } else {
                 element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
             }
@@ -691,24 +715,21 @@ class NissaTechApp {
     }
 }
 
-// Inicialização da aplicação
+// Inicialização MELHORADA
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Inicializando NissaTechApp...');
     new NissaTechApp();
 });
 
-// Efeitos de performance
+// Forçar animações após o carregamento completo
 window.addEventListener('load', function() {
-    // Remover classe de loading se existir
     document.body.classList.add('loaded');
     
-    // Otimizar performance após carregamento
-    if (window.innerWidth <= 768) {
-        // Reduzir efeitos visuais pesados em mobile
-        const heavyElements = document.querySelectorAll('.servico-card::before, .cta-button::before');
-        heavyElements.forEach(el => {
-            if (el.style) el.style.display = 'none';
-        });
-    }
+    // Verificação final de elementos não animados
+    setTimeout(() => {
+        const app = document.querySelector('script')?.app || new NissaTechApp();
+        app.animateOnScroll();
+    }, 2000);
 });
 
 // Adicionar estilo para efeito ripple
