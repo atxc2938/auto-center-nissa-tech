@@ -186,6 +186,7 @@ class NissaTechApp {
         this.setupMapButton();
         this.setupServiceModals();
         this.preloadImages();
+        this.setupMobileOptimizations();
     }
 
     // Menu mobile
@@ -198,6 +199,7 @@ class NissaTechApp {
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
             });
         }
 
@@ -205,6 +207,7 @@ class NissaTechApp {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                document.body.style.overflow = '';
             });
         });
 
@@ -213,6 +216,16 @@ class NissaTechApp {
             if (!navMenu.contains(e.target) && !hamburger.contains(e.target) && navMenu.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Fechar menu ao rolar
+        window.addEventListener('scroll', () => {
+            if (navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
     }
@@ -267,6 +280,15 @@ class NissaTechApp {
                 if (entry.isIntersecting && !this.animatedElements.has(entry.target)) {
                     entry.target.classList.add('animate-in');
                     this.animatedElements.add(entry.target);
+                    
+                    // Adicionar delay progressivo para elementos em sequência
+                    if (entry.target.classList.contains('servico-card') || 
+                        entry.target.classList.contains('marca-card') ||
+                        entry.target.classList.contains('feature-item')) {
+                        const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
+                        entry.target.style.transitionDelay = `${index * 0.1}s`;
+                    }
+                    
                     observer.unobserve(entry.target);
                 }
             });
@@ -499,59 +521,64 @@ class NissaTechApp {
     }
 
     setupHoverEffects() {
-        // Efeito de tilt moderno nos cards
-        const cards = document.querySelectorAll('.servico-card, .marca-card');
-        
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const angleY = (x - centerX) / 25;
-                const angleX = (centerY - y) / 25;
-                
-                card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-8px)`;
-            });
+        // Efeito de tilt moderno nos cards (apenas para desktop)
+        if (window.innerWidth > 768) {
+            const cards = document.querySelectorAll('.servico-card, .marca-card');
             
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(-8px)';
-                setTimeout(() => {
-                    card.style.transform = '';
-                }, 300);
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const angleY = (x - centerX) / 25;
+                    const angleX = (centerY - y) / 25;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-8px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(-8px)';
+                    setTimeout(() => {
+                        card.style.transform = '';
+                    }, 300);
+                });
             });
-        });
+        }
 
         // Efeito de ripple nos botões
         const buttons = document.querySelectorAll('.cta-button, .map-button');
         buttons.forEach(button => {
             button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.6);
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                `;
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
+                // Criar efeito ripple apenas se não for mobile
+                if (window.innerWidth > 768) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.6);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                }
             });
         });
     }
@@ -570,6 +597,98 @@ class NissaTechApp {
             img.src = src;
         });
     }
+
+    // Otimizações para mobile
+    setupMobileOptimizations() {
+        // Melhorar feedback visual para toque
+        const touchElements = document.querySelectorAll('.cta-button, .servico-card, .marca-card, .nav-link');
+        
+        touchElements.forEach(element => {
+            element.addEventListener('touchstart', function() {
+                if (window.innerWidth <= 768) {
+                    this.style.transform = 'scale(0.98)';
+                    this.style.transition = 'transform 0.1s ease';
+                }
+            });
+
+            element.addEventListener('touchend', function() {
+                if (window.innerWidth <= 768) {
+                    this.style.transform = '';
+                }
+            });
+
+            element.addEventListener('touchcancel', function() {
+                if (window.innerWidth <= 768) {
+                    this.style.transform = '';
+                }
+            });
+        });
+
+        // Prevenir zoom duplo-toque em botões
+        const buttons = document.querySelectorAll('button, a');
+        buttons.forEach(button => {
+            button.addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        });
+
+        // Otimizar performance em mobile
+        if ('connection' in navigator) {
+            if (navigator.connection.saveData || navigator.connection.effectiveType.includes('2g')) {
+                this.reduceAnimations();
+            }
+        }
+
+        // Lazy loading para imagens fora da viewport
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                        }
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Melhorar acessibilidade em mobile
+        document.addEventListener('touchstart', function() {}, { passive: true });
+
+        // Detectar modo touch
+        document.addEventListener('touchstart', function() {
+            document.body.classList.add('touch-mode');
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('touch-mode');
+        });
+
+        // Otimizar animações para mobile
+        if (window.innerWidth <= 768) {
+            document.documentElement.style.setProperty('--animation-duration', '0.3s');
+        }
+    }
+
+    reduceAnimations() {
+        // Reduzir animações em conexões lentas
+        document.documentElement.style.setProperty('--animation-duration', '0.1s');
+        
+        const animatedElements = document.querySelectorAll('*');
+        animatedElements.forEach(el => {
+            el.style.animationDuration = '0.1s !important';
+            el.style.transitionDuration = '0.1s !important';
+        });
+    }
 }
 
 // Inicialização da aplicação
@@ -581,6 +700,15 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     // Remover classe de loading se existir
     document.body.classList.add('loaded');
+    
+    // Otimizar performance após carregamento
+    if (window.innerWidth <= 768) {
+        // Reduzir efeitos visuais pesados em mobile
+        const heavyElements = document.querySelectorAll('.servico-card::before, .cta-button::before');
+        heavyElements.forEach(el => {
+            if (el.style) el.style.display = 'none';
+        });
+    }
 });
 
 // Adicionar estilo para efeito ripple
@@ -596,6 +724,40 @@ style.textContent = `
     .cta-button, .map-button {
         position: relative;
         overflow: hidden;
+    }
+
+    /* Melhorias de acessibilidade para mobile */
+    @media (max-width: 768px) {
+        .touch-mode *:focus {
+            outline: none;
+        }
+        
+        .touch-mode .cta-button:active,
+        .touch-mode .servico-btn:active,
+        .touch-mode .marca-btn:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease;
+        }
+
+        .touch-mode .servico-card:active,
+        .touch-mode .marca-card:active {
+            transform: scale(0.99);
+            transition: transform 0.1s ease;
+        }
+    }
+
+    /* Otimizações de performance para mobile */
+    @media (max-width: 768px) {
+        .servico-card::before,
+        .cta-button::before {
+            display: none;
+        }
+        
+        .servico-card,
+        .marca-card,
+        .cta-button {
+            transition: all 0.2s ease;
+        }
     }
 `;
 document.head.appendChild(style);

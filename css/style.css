@@ -1662,3 +1662,81 @@ p {
         text-align: center;
     }
 }
+
+/* Melhorias específicas para mobile */
+@media (max-width: 768px) {
+    /* Melhorar legibilidade geral */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Headers mais responsivos */
+    h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        line-height: 1.4;
+    }
+
+    /* Botões mais touch-friendly */
+    .cta-button {
+        min-height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+    }
+
+    /* Cards com melhor espaçamento */
+    .servico-card, .marca-card {
+        margin-bottom: 1rem;
+    }
+
+    /* Melhor hierarquia visual */
+    .section-header {
+        margin-bottom: 3rem;
+    }
+
+    /* Contraste melhorado */
+    .text-light {
+        color: var(--text-light) !important;
+        font-weight: 500;
+    }
+
+    /* Feedback visual para interações */
+    .cta-button:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+
+    /* Loading states */
+    .loading {
+        opacity: 0.7;
+        pointer-events: none;
+    }
+}
+
+/* Melhorias de performance para mobile */
+@media (max-width: 768px) {
+    /* Otimizar animações para mobile */
+    .servico-card,
+    .marca-card,
+    .cta-button {
+        transition: all 0.2s ease;
+    }
+
+    /* Reduzir efeitos pesados em mobile */
+    .servico-card::before,
+    .cta-button::before {
+        display: none;
+    }
+}
