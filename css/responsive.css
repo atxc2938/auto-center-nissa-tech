@@ -946,6 +946,50 @@
         border-radius: 15px !important;
     }
     
+    /* ========== CORREÇÕES MOBILE PARA MAPA ========== */
+    .map-placeholder {
+        min-height: 400px !important;
+        margin: 1rem 0 !important;
+        padding: 2rem 1rem !important;
+    }
+    
+    .map-placeholder i {
+        font-size: 3rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .map-placeholder p {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .map-placeholder p:first-of-type {
+        font-size: 1.3rem !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Melhorar animações em mobile */
+    .servico-card,
+    .marca-card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .servico-card.animate-in,
+    .marca-card.animate-in {
+        transform: translateY(0) !important;
+    }
+    
+    /* Garantir que elementos sejam visíveis */
+    .servico-card,
+    .marca-card {
+        margin-bottom: 1.5rem !important;
+        padding: 1.5rem !important;
+        border: 2px solid var(--border) !important;
+        background: var(--background-lighter) !important;
+    }
+    
     /* ========== FOOTER MOBILE GIGANTE ========== */
     .footer {
         background: var(--secondary-light) !important;
