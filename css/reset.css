@@ -1,8 +1,11 @@
-/* Reset CSS */
+/* Reset CSS Moderno */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -10,27 +13,47 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
 
-ul {
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+/* Remove list styles */
+ul, ol {
     list-style: none;
 }
 
+/* Remove link underline */
 a {
     text-decoration: none;
     color: inherit;
 }
 
+/* Remove button styles */
 button {
+    background: none;
     border: none;
-    outline: none;
     cursor: pointer;
-    font-family: inherit;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+/* Focus styles for accessibility */
+:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }

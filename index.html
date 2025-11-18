@@ -3,310 +3,923 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Center Nissa Tech - Oficina Especializada</title>
+    <title>Nissa Tech - Centro Automotivo</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">
-                <img src="images/logo/nissatech.png" alt="Auto Center Nissa Tech" class="logo-img">
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#loja" class="nav-link">Nossa Loja</a></li>
-                <li><a href="#pneus" class="nav-link">Pneus</a></li>
-                <li><a href="#servicos" class="nav-link">Serviços</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#home" class="logo">
+                    <img src="images/logo/nissatech.png" alt="Nissa Tech" class="logo-img">
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#pneus" class="nav-link">Pneus</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+
+                <div class="nav-cta">
+                    <a href="https://wa.me/5521965238075" class="cta-button primary nav-button">
+                        <i class="fab fa-whatsapp"></i>Orçamento
+                    </a>
+                </div>
+
+                <button class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
     </header>
 
-    <!-- Carrossel -->
-    <section id="home" class="carousel">
-        <div class="carousel-container">
-            <div class="carousel-slide active">
-                <div class="slide-content">
-                    <h1>Bem-vindo à Auto Center Nissa Tech</h1>
-                    <p>Especialistas em serviços automotivos de alta qualidade</p>
-                    <button class="cta-button" onclick="scrollToServicos()">Conheça Nossos Serviços</button>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <div class="slide-content">
-                    <h1>Pneus Premium</h1>
-                    <p>As melhores marcas com instalação profissional e garantia</p>
-                    <button class="cta-button" onclick="scrollToPneus()">Ver Catálogo de Pneus</button>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <div class="slide-content">
-                    <h1>Mecânica Especializada</h1>
-                    <p>Manutenção preventiva e corretiva para todos os modelos</p>
-                    <button class="cta-button" onclick="scrollToServicos()">Agendar Manutenção</button>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-controls">
-            <button class="carousel-btn prev-btn">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="carousel-btn next-btn">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-        <div class="carousel-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
-
-    <!-- Seção Nossa Loja -->
-    <section id="loja" class="loja-section">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
         <div class="container">
-            <h2>Nossa Loja</h2>
-            <div class="loja-content">
-                <div class="loja-info">
-                    <h3>Auto Center Nissa Tech</h3>
-                    <p class="endereco">
-                        <i class="fas fa-map-marker-alt"></i>
-                        RUA A LOTE 11 QUADRA 02, ITAIPU NITEROI<br>
-                        Niterói, RJ, Brazil
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Centro Automotivo</span>
+                        <span class="title-line highlight">Nissa Tech</span>
+                    </h1>
+                    <p class="hero-description">
+                        Especialistas em manutenção automotiva com qualidade e tecnologia. 
+                        Seu carro em boas mãos há mais de 8 anos em Niterói.
                     </p>
-                    
-                    <!-- Botão do Maps - SIMPLES E ORGANIZADO -->
-                    <a href="https://maps.google.com/?q=NISSA TECH OFICINA Niterói" 
-                       class="maps-link" 
-                       target="_blank">
-                        <i class="fas fa-map-marked-alt"></i>
-                        Abrir no Google Maps
-                    </a>
-                    
-                    <div class="loja-descricao">
-                        <p>A <strong>Auto Center Nissa Tech</strong> é uma referência em Niterói quando o assunto é qualidade e confiança em serviços automotivos. Com anos de experiência no mercado, nos especializamos em:</p>
-                        
-                        <div class="especialidades">
-                            <div class="especialidade-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Manutenção de veículos de todas as marcas</span>
-                            </div>
-                            <div class="especialidade-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Venda e instalação de pneus das principais marcas</span>
-                            </div>
-                            <div class="especialidade-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Troca de óleo e filtros com produtos premium</span>
-                            </div>
-                            <div class="especialidade-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Serviços de mecânica geral e elétrica</span>
-                            </div>
+                    <div class="hero-buttons">
+                        <a href="#servicos" class="cta-button primary">
+                            <i class="fas fa-tools"></i>Nossos Serviços
+                        </a>
+                        <a href="https://wa.me/5521965238075" class="cta-button secondary whatsapp-large">
+                            <i class="fab fa-whatsapp"></i>Fale Conosco
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-label">Anos de Experiência</span>
                         </div>
-
-                        <p>Nossa missão é oferecer serviços de excelência com transparência e preços justos, garantindo a satisfação total de nossos clientes.</p>
+                        <div class="stat-item">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Clientes Satisfeitos</span>
+                        </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24&#x2060;h</span>
+                                <span class="stat-label">Atendimento</span>
+                        </div>
                     </div>
                 </div>
-                <div class="loja-horarios">
-                    <h4><i class="fas fa-clock"></i> Horário de Funcionamento</h4>
-                    <div class="horarios-lista">
-                        <div class="horario-item">
-                            <span>Segunda - Sexta</span>
-                            <span>08:00 - 18:00</span>
-                        </div>
-                        <div class="horario-item">
-                            <span>Sábado</span>
-                            <span>08:00 - 14:00</span>
-                        </div>
-                        <div class="horario-item">
-                            <span>Domingo</span>
-                            <span>Fechado</span>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="images/carrossel/slide1.png" alt="Oficina Nissa Tech" class="hero-img">
+                        <div class="image-badge">
+                            <i class="fas fa-star"></i>Qualidade Garantida
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Role para explorar</span>
+        </div>
     </section>
 
-    <!-- Seção Pneus -->
-    <section id="pneus" class="pneus-section">
+    <!-- Serviços Section -->
+    <section class="section-padding servicos-section" id="servicos">
         <div class="container">
-            <h2>Pneus</h2>
-            <p class="section-subtitle">Trabalhamos com as melhores marcas do mercado</p>
-            
+            <div class="section-header">
+                <span class="section-subtitle">Nossos Serviços</span>
+                <h2 class="section-title">Serviços Especializados</h2>
+                <p class="section-description">
+                    Oferecemos serviços completos para manter seu veículo em perfeito estado 
+                    com tecnologia de ponta e profissionais qualificados.
+                </p>
+            </div>
+
+            <div class="servicos-grid">
+                <!-- Alinhamento e Balanceamento -->
+                <div class="servico-card animate-element" data-servico="alinhamento-balanceamento">
+                    <div class="servico-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="servico-title">Alinhamento e Balanceamento</h3>
+                    <p class="servico-description">
+                        Precisão total na geometria das rodas para maior segurança e durabilidade dos pneus.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Alinhamento 3D computadorizado</li>
+                        <li><i class="fas fa-check"></i> Balanceamento dinâmico</li>
+                        <li><i class="fas fa-check"></i> Geometria completa</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Alinhamento e Balanceamento">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Troca de Óleo e Filtros -->
+                <div class="servico-card animate-element" data-servico="troca-oleo">
+                    <div class="servico-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3 class="servico-title">Troca de Óleo e Filtros</h3>
+                    <p class="servico-description">
+                        Manutenção preventiva essencial para a vida útil e performance do motor.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Óleo sintético e mineral</li>
+                        <li><i class="fas fa-check"></i> Filtros originais</li>
+                        <li><i class="fas fa-check"></i> Limpeza completa</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Troca de Óleo e Filtros">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Suspensão e Amortecedores -->
+                <div class="servico-card animate-element" data-servico="suspensao">
+                    <div class="servico-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3 class="servico-title">Suspensão e Amortecedores</h3>
+                    <p class="servico-description">
+                        Conforto e estabilidade garantidos com sistema de suspensão revisado.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Diagnóstico completo</li>
+                        <li><i class="fas fa-check"></i> Peças de qualidade</li>
+                        <li><i class="fas fa-check"></i> Teste de estrada</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Suspensão e Amortecedores">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sistema de Freios -->
+                <div class="servico-card animate-element" data-servico="freios">
+                    <div class="servico-icon">
+                        <i class="fas fa-stop-circle"></i>
+                    </div>
+                    <h3 class="servico-title">Sistema de Freios</h3>
+                    <p class="servico-description">
+                        Segurança em primeiro lugar com revisão completa do sistema de frenagem.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Pastilhas e discos</li>
+                        <li><i class="fas fa-check"></i> Troca de fluido</li>
+                        <li><i class="fas fa-check"></i> Teste de eficiência</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Sistema de Freios">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pneus e Rodas -->
+                <div class="servico-card animate-element" data-servico="pneus">
+                    <div class="servico-icon">
+                        <i class="fas fa-tire"></i>
+                    </div>
+                    <h3 class="servico-title">Pneus e Rodas</h3>
+                    <p class="servico-description">
+                        Pneus novos e usados das melhores marcas com garantia e procedência.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Marcas premium</li>
+                        <li><i class="fas fa-check"></i> Garantia total</li>
+                        <li><i class="fas fa-check"></i> Montagem profissional</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Pneus e Rodas">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Elétrica e Bateria -->
+                <div class="servico-card animate-element" data-servico="eletrica">
+                    <div class="servico-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="servico-title">Elétrica e Bateria</h3>
+                    <p class="servico-description">
+                        Diagnóstico e reparo completo do sistema elétrico e eletrônico.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Scanner profissional</li>
+                        <li><i class="fas fa-check"></i> Baterias originais</li>
+                        <li><i class="fas fa-check"></i> Instalação especializada</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Elétrica e Bateria">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Ar Condicionado -->
+                <div class="servico-card animate-element" data-servico="ar-condicionado">
+                    <div class="servico-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 class="servico-title">Ar Condicionado</h3>
+                    <p class="servico-description">
+                        Manutenção e reparo do sistema de ar condicionado para máximo conforto.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Limpeza completa</li>
+                        <li><i class="fas fa-check"></i> Gás original</li>
+                        <li><i class="fas fa-check"></i> Teste de temperatura</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Ar Condicionado">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Transmissão e Câmbio -->
+                <div class="servico-card animate-element" data-servico="cambio">
+                    <div class="servico-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="servico-title">Transmissão e Câmbio</h3>
+                    <p class="servico-description">
+                        Reparo e manutenção de câmbios manuais e automáticos com tecnologia avançada.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Câmbio manual/automático</li>
+                        <li><i class="fas fa-check"></i> Troca de óleo</li>
+                        <li><i class="fas fa-check"></i> Reprogramação</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Transmissão e Câmbio">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Injeção Eletrônica -->
+                <div class="servico-card animate-element" data-servico="injecao">
+                    <div class="servico-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="servico-title">Injeção Eletrônica</h3>
+                    <p class="servico-description">
+                        Diagnóstico e reparo do sistema de injeção eletrônica para melhor performance.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Scanner digital</li>
+                        <li><i class="fas fa-check"></i> Limpeza de bicos</li>
+                        <li><i class="fas fa-check"></i> Calibração</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Injeção Eletrônica">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Direção Hidráulica -->
+                <div class="servico-card animate-element" data-servico="direcao">
+                    <div class="servico-icon">
+                        <i class="fas fa-steering-wheel"></i>
+                    </div>
+                    <h3 class="servico-title">Direção Hidráulica</h3>
+                    <p class="servico-description">
+                        Manutenção do sistema de direção para maior suavidade e controle.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Troca de fluido</li>
+                        <li><i class="fas fa-check"></i> Reparo de bombas</li>
+                        <li><i class="fas fa-check"></i> Alinhamento</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Direção Hidráulica">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Escapamento -->
+                <div class="servico-card animate-element" data-servico="escapamento">
+                    <div class="servico-icon">
+                        <i class="fas fa-exhaust"></i>
+                    </div>
+                    <h3 class="servico-title">Escapamento</h3>
+                    <p class="servico-description">
+                        Reparo e substituição do sistema de escapamento para redução de ruído.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> Solda especializada</li>
+                        <li><i class="fas fa-check"></i> Catalisador</li>
+                        <li><i class="fas fa-check"></i> Abafadores</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Escapamento">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Revisão Preventiva -->
+                <div class="servico-card animate-element" data-servico="revisao">
+                    <div class="servico-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="servico-title">Revisão Preventiva</h3>
+                    <p class="servico-description">
+                        Check-up completo do veículo para prevenir problemas futuros.
+                    </p>
+                    <ul class="servico-features">
+                        <li><i class="fas fa-check"></i> 50 itens verificados</li>
+                        <li><i class="fas fa-check"></i> Laudo detalhado</li>
+                        <li><i class="fas fa-check"></i> Manutenção programada</li>
+                    </ul>
+                    <div class="servico-cta">
+                        <div class="servico-price">
+                            A partir de <strong>R$ 0,00</strong>
+                        </div>
+                        <button class="cta-button primary small servico-btn" data-servico="Revisão Preventiva">
+                            <i class="fab fa-whatsapp"></i>Orçamento
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-cta">
+                <p>Precisa de um serviço específico? Entre em contato conosco!</p>
+                <a href="https://wa.me/5521965238075" class="cta-button primary large whatsapp-large">
+                    <i class="fab fa-whatsapp"></i>Falar com Especialista
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pneus Section -->
+    <section class="section-padding" id="pneus">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Pneus</span>
+                <h2 class="section-title">Marcas Premium</h2>
+                <p class="section-description">
+                    Trabalhamos com as melhores marcas de pneus do mercado, 
+                    garantindo segurança e desempenho para seu veículo.
+                </p>
+            </div>
+
             <div class="marcas-grid">
                 <!-- Pirelli -->
-                <div class="marca-card">
-                    <div class="marca-logo">
-                        <i class="fas fa-tire"></i>
-                        <h3>Pirelli</h3>
-                    </div>
-                    <div class="marca-info">
-                        <p>Alta performance e tecnologia italiana</p>
-                        <div class="preco">
-                            <span class="preco-label">A partir de:</span>
-                            <span class="preco-valor">R$ 0,00</span>
+                <div class="marca-card animate-element">
+                    <div class="marca-header">
+                        <div class="marca-logo">
+                            <i class="fas fa-gem"></i>
                         </div>
-                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                        <h3 class="marca-title">Pirelli</h3>
+                        <span class="marca-tag">Premium</span>
+                    </div>
+                    <p class="marca-description">
+                        Alta performance e tecnologia italiana para máximo conforto e segurança.
+                    </p>
+                    <div class="marca-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Durabilidade superior
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Baixo ruído
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Eco-friendly
+                        </div>
+                    </div>
+                    <div class="marca-pricing">
+                        <div class="price-range">
+                            <span class="price-label">A partir de</span>
+                            <span class="price-value">R$ 0,00</span>
+                        </div>
+                        <button class="cta-button primary small pneu-btn" data-marca="Pirelli">
+                            <i class="fab fa-whatsapp"></i>Consultar
+                        </button>
                     </div>
                 </div>
 
                 <!-- Michelin -->
-                <div class="marca-card">
-                    <div class="marca-logo">
-                        <i class="fas fa-tire"></i>
-                        <h3>Michelin</h3>
-                    </div>
-                    <div class="marca-info">
-                        <p>Durabilidade e eficiência comprovadas</p>
-                        <div class="preco">
-                            <span class="preco-label">A partir de:</span>
-                            <span class="preco-valor">R$ 0,00</span>
+                <div class="marca-card animate-element">
+                    <div class="marca-header">
+                        <div class="marca-logo">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                        <h3 class="marca-title">Michelin</h3>
+                        <span class="marca-tag">Top Line</span>
+                    </div>
+                    <p class="marca-description">
+                        Tecnologia francesa de ponta para eficiência e segurança incomparáveis.
+                    </p>
+                    <div class="marca-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Baixo consumo
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Máxima aderência
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Longa vida útil
+                        </div>
+                    </div>
+                    <div class="marca-pricing">
+                        <div class="price-range">
+                            <span class="price-label">A partir de</span>
+                            <span class="price-value">R$ 0,00</span>
+                        </div>
+                        <button class="cta-button primary small pneu-btn" data-marca="Michelin">
+                            <i class="fab fa-whatsapp"></i>Consultar
+                        </button>
                     </div>
                 </div>
 
                 <!-- Bridgestone -->
-                <div class="marca-card">
-                    <div class="marca-logo">
-                        <i class="fas fa-tire"></i>
-                        <h3>Bridgestone</h3>
-                    </div>
-                    <div class="marca-info">
-                        <p>Qualidade japonesa e confiabilidade</p>
-                        <div class="preco">
-                            <span class="preco-label">A partir de:</span>
-                            <span class="preco-valor">R$ 0,00</span>
+                <div class="marca-card animate-element">
+                    <div class="marca-header">
+                        <div class="marca-logo">
+                            <i class="fas fa-flag"></i>
                         </div>
-                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                        <h3 class="marca-title">Bridgestone</h3>
+                        <span class="marca-tag">Performance</span>
+                    </div>
+                    <p class="marca-description">
+                        Qualidade japonesa reconhecida mundialmente por durabilidade e conforto.
+                    </p>
+                    <div class="marca-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Estabilidade
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Conforto
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Performance
+                        </div>
+                    </div>
+                    <div class="marca-pricing">
+                        <div class="price-range">
+                            <span class="price-label">A partir de</span>
+                            <span class="price-value">R$ 0,00</span>
+                        </div>
+                        <button class="cta-button primary small pneu-btn" data-marca="Bridgestone">
+                            <i class="fab fa-whatsapp"></i>Consultar
+                        </button>
                     </div>
                 </div>
 
                 <!-- Goodyear -->
-                <div class="marca-card">
-                    <div class="marca-logo">
-                        <i class="fas fa-tire"></i>
-                        <h3>Goodyear</h3>
-                    </div>
-                    <div class="marca-info">
-                        <p>Inovação e segurança americana</p>
-                        <div class="preco">
-                            <span class="preco-label">A partir de:</span>
-                            <span class="preco-valor">R$ 0,00</span>
+                <div class="marca-card animate-element">
+                    <div class="marca-header">
+                        <div class="marca-logo">
+                            <i class="fas fa-award"></i>
                         </div>
-                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                        <h3 class="marca-title">Goodyear</h3>
+                        <span class="marca-tag">Conforto</span>
                     </div>
-                </div>
-
-                <!-- Continental -->
-                <div class="marca-card">
-                    <div class="marca-logo">
-                        <i class="fas fa-tire"></i>
-                        <h3>Continental</h3>
-                    </div>
-                    <div class="marca-info">
-                        <p>Tecnologia alemã de precisão</p>
-                        <div class="preco">
-                            <span class="preco-label">A partir de:</span>
-                            <span class="preco-valor">R$ 0,00</span>
+                    <p class="marca-description">
+                        Tecnologia americana focada em conforto e durabilidade em todas as condições.
+                    </p>
+                    <div class="marca-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Conforto superior
                         </div>
-                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Baixa rolagem
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Versatilidade
+                        </div>
+                    </div>
+                    <div class="marca-pricing">
+                        <div class="price-range">
+                            <span class="price-label">A partir de</span>
+                            <span class="price-value">R$ 0,00</span>
+                        </div>
+                        <button class="cta-button primary small pneu-btn" data-marca="Goodyear">
+                            <i class="fab fa-whatsapp"></i>Consultar
+                        </button>
                     </div>
                 </div>
 
                 <!-- Dunlop -->
-                <div class="marca-card">
-                    <div class="marca-logo">
-                        <i class="fas fa-tire"></i>
-                        <h3>Dunlop</h3>
-                    </div>
-                    <div class="marca-info">
-                        <p>Performance esportiva e conforto</p>
-                        <div class="preco">
-                            <span class="preco-label">A partir de:</span>
-                            <span class="preco-valor">R$ 0,00</span>
+                <div class="marca-card animate-element">
+                    <div class="marca-header">
+                        <div class="marca-logo">
+                            <i class="fas fa-tachometer-alt"></i>
                         </div>
-                        <button class="btn-orcamento">Solicitar Orçamento</button>
+                        <h3 class="marca-title">Dunlop</h3>
+                        <span class="marca-tag">Esportivo</span>
+                    </div>
+                    <p class="marca-description">
+                        Performance esportiva com tecnologia avançada para dirigibilidade dinâmica.
+                    </p>
+                    <div class="marca-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Alta performance
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Estabilidade
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Durabilidade
+                        </div>
+                    </div>
+                    <div class="marca-pricing">
+                        <div class="price-range">
+                            <span class="price-label">A partir de</span>
+                            <span class="price-value">R$ 0,00</span>
+                        </div>
+                        <button class="cta-button primary small pneu-btn" data-marca="Dunlop">
+                            <i class="fab fa-whatsapp"></i>Consultar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Continental -->
+                <div class="marca-card animate-element">
+                    <div class="marca-header">
+                        <div class="marca-logo">
+                            <i class="fas fa-globe-europe"></i>
+                        </div>
+                        <h3 class="marca-title">Continental</h3>
+                        <span class="marca-tag">Tecnologia</span>
+                    </div>
+                    <p class="marca-description">
+                        Inovação alemã em segurança e tecnologia para máxima performance.
+                    </p>
+                    <div class="marca-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Tecnologia alemã
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Segurança
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i> Eficiência
+                        </div>
+                    </div>
+                    <div class="marca-pricing">
+                        <div class="price-range">
+                            <span class="price-label">A partir de</span>
+                            <span class="price-value">R$ 0,00</span>
+                        </div>
+                        <button class="cta-button primary small pneu-btn" data-marca="Continental">
+                            <i class="fab fa-whatsapp"></i>Consultar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pneus-extra">
+                <div class="extra-card animate-element">
+                    <div class="extra-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="extra-content">
+                        <h4>Montagem e Balanceamento</h4>
+                        <p>Serviço profissional de montagem com equipamentos de última geração</p>
+                        <div class="extra-price">R$ 0,00</div>
+                    </div>
+                </div>
+                <div class="extra-card animate-element">
+                    <div class="extra-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="extra-content">
+                        <h4>Pneus Usados</h4>
+                        <p>Pneus seminovos com qualidade verificada e garantia</p>
+                        <div class="extra-price">R$ 0,00</div>
+                    </div>
+                </div>
+                <div class="extra-card animate-element">
+                    <div class="extra-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="extra-content">
+                        <h4>Entrega Grátis</h4>
+                        <p>Entregamos e retiramos seu veículo em Niterói e região</p>
+                        <span class="extra-tag">Grátis</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Serviços -->
-    <section id="servicos" class="servicos-section">
+    <!-- Sobre Section -->
+    <section class="section-padding" id="sobre">
         <div class="container">
-            <h2>Nossos Serviços</h2>
-            <p class="section-subtitle">Serviços completos para seu veículo</p>
-            
-            <div class="servicos-grid">
-                <!-- Os 12 serviços serão inseridos aqui pelo JavaScript -->
+            <div class="section-header">
+                <span class="section-subtitle">Sobre Nós</span>
+                <h2 class="section-title">Nossa História</h2>
+                <p class="section-description">
+                    Há mais de 15 anos oferecendo serviços automotivos de qualidade 
+                    com transparência e compromisso em Niterói.
+                </p>
+            </div>
+
+            <div class="sobre-content">
+                <div class="sobre-text">
+                    <h3>Centro Automotivo de Confiança</h3>
+                    <p>
+                        A Nissa Tech nasceu da paixão por automóveis e do compromisso 
+                        em oferecer serviços de excelência. Ao longo dos anos, nos 
+                        tornamos referência em Niterói pela qualidade do nosso trabalho 
+                        e atendimento personalizado.
+                    </p>
+                    
+                    <div class="sobre-features">
+                        <div class="feature-item animate-element">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Qualidade Garantida</h4>
+                                <p>Utilizamos apenas peças e produtos de marcas reconhecidas no mercado</p>
+                            </div>
+                        </div>
+                        <div class="feature-item animate-element">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Equipe Especializada</h4>
+                                <p>Profissionais certificados e com vasta experiência em todas as marcas</p>
+                            </div>
+                        </div>
+                        <div class="feature-item animate-element">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Garantia Total</h4>
+                                <p>Todos os nossos serviços possuem garantia e acompanhamento pós-venda</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sobre-cta">
+                        <a href="#contato" class="cta-button primary">
+                            <i class="fas fa-map-marker-alt"></i>Visite Nossa Oficina
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sobre-images">
+                    <div class="image-grid">
+                        <div class="grid-item main animate-element">
+                            <img src="images/carrossel/slide3.png" alt="Oficina Nissa Tech">
+                        </div>
+                        <div class="grid-item animate-element">
+                            <img src="images/carrossel/slide2.png" alt="Equipamentos Modernos">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Modal de Serviço -->
-    <div id="servicoModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <div class="modal-image">
-                    <img id="modalServicoImg" src="" alt="">
+    <!-- Contato Section -->
+    <section class="section-padding contato-section" id="contato">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Contato</span>
+                <h2 class="section-title">Fale Conosco</h2>
+                <p class="section-description">
+                    Estamos prontos para atender você! Venha nos visitar ou entre em contato.
+                </p>
+            </div>
+
+            <div class="contato-content">
+                <div class="contato-info">
+                    <div class="info-card animate-element">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Endereço</h4>
+                            <p>Av. Visconde do Rio Branco, 881</p>
+                            <p>Centro, Niterói - RJ</p>
+                            <span class="info-note">Próximo à Praça do Rink</span>
+                        </div>
+                    </div>
+
+                    <div class="info-card animate-element">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Segunda a Sexta: 7h às 19h</p>
+                            <p>Sábado: 8h às 13h</p>
+                            <span class="info-note">Atendimento 24h para emergências</span>
+                        </div>
+                    </div>
+
+                    <div class="info-card animate-element">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Telefone & WhatsApp</h4>
+                            <p>(21) 96523-8075</p>
+                            <p>(21) 2710-3344</p>
+                            <span class="info-note">Atendimento rápido via WhatsApp</span>
+                        </div>
+                    </div>
+
+                    <div class="info-card animate-element">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>E-mail</h4>
+                            <p>contato@nissatech.com.br</p>
+                            <p>orcamentos@nissatech.com.br</p>
+                            <span class="info-note">Respondemos em até 2 horas</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-info">
-                    <h3 id="modalServicoTitulo"></h3>
-                    <p id="modalServicoDescricao"></p>
-                    <div class="modal-cta">
-                        <p>Entre em contato para solicitar um orçamento personalizado!</p>
-                        <a href="https://wa.me/5521965238075?text=Olá! Gostaria de solicitar um orçamento para o serviço de " 
-                           class="whatsapp-btn-modal" 
-                           target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Peça agora o seu orçamento
+
+                <div class="contato-map animate-element">
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map"></i>
+                            <p>Localização da Nissa Tech</p>
+                            <p>Niterói - RJ</p>
+                        </div>
+                    </div>
+                    <div class="map-actions">
+                        <a href="#" class="map-button whatsapp-large">
+                            <i class="fas fa-directions"></i>Como Chegar no Maps
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Botão WhatsApp Fixo -->
-    <a href="https://wa.me/5521965238075?text=Olá! Gostaria de solicitar um orçamento" 
-       class="whatsapp-btn-fixed" 
-       target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        <span>Peça agora o seu orçamento</span>
-    </a>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Auto Center Nissa Tech</h3>
-                    <p>RUA A LOTE 11 QUADRA 02, ITAIPU NITEROI</p>
-                    <p>Niterói, RJ, Brazil</p>
+                <div class="footer-section">
+                    <div class="logo">
+                        <img src="images/logo/nissatech.png" alt="Nissa Tech" class="logo-img" style="height: 35px;">
+                    </div>
+                    <p class="footer-description">
+                        Centro automotivo de confiança em Niterói. 
+                        Qualidade, transparência e compromisso com seu veículo.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/5521965238075" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
-                <div class="footer-contato">
+
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="#servicos">Alinhamento</a></li>
+                        <li><a href="#servicos">Troca de Óleo</a></li>
+                        <li><a href="#servicos">Suspensão</a></li>
+                        <li><a href="#servicos">Freios</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#pneus">Pneus</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section footer-contact">
                     <h4>Contato</h4>
-                    <a href="https://wa.me/5521965238075" target="_blank">
-                        <i class="fab fa-whatsapp"></i> (21) 96523-8075
-                    </a>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Visconde do Rio Branco, 881 - Centro, Niterói</p>
+                    <p><i class="fas fa-phone"></i> (21) 96523-8075</p>
+                    <p><i class="fas fa-clock"></i> Seg-Sex: 7h-19h | Sáb: 8h-13h</p>
                 </div>
             </div>
-            <p class="footer-copy">&copy; 2024 Auto Center Nissa Tech. Todos os direitos reservados.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nissa Tech. Todos os direitos reservados.</p>
+                <div class="footer-dev">
+                    <i class="fas fa-code"></i>
+                    <span>Desenvolvido com paixão por automóveis</span>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5521965238075" class="whatsapp-float whatsapp-large">
+        <i class="fab fa-whatsapp"></i>
+        <span class="float-text">Fale Conosco</span>
+    </a>
+
+    <!-- Modal Serviço -->
+    <div class="servico-modal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="modal-title">Alinhamento e Balanceamento</h3>
+                <p class="modal-subtitle">Precisão e Segurança</p>
+            </div>
+
+            <div class="importancia-content">
+                <h4 class="importancia-title">
+                    <i class="fas fa-info-circle"></i>Importância deste Serviço
+                </h4>
+                <p class="importancia-text">
+                    O alinhamento e balanceamento são essenciais para a segurança e durabilidade do seu veículo. 
+                    Eles garantem que as rodas estejam posicionadas corretamente e que o peso seja distribuído 
+                    uniformemente, prevenindo desgaste irregular dos pneus, melhorando a estabilidade e 
+                    proporcionando uma direção mais suave.
+                </p>
+
+                <h4 class="importancia-title">
+                    <i class="fas fa-check-circle"></i>Benefícios
+                </h4>
+                <ul class="beneficios-list">
+                    <li><i class="fas fa-check"></i> Maior segurança na direção</li>
+                    <li><i class="fas fa-check"></i> Economia de combustível</li>
+                    <li><i class="fas fa-check"></i> Aumento da vida útil dos pneus</li>
+                    <li><i class="fas fa-check"></i> Melhor estabilidade em curvas</li>
+                    <li><i class="fas fa-check"></i> Direção mais suave e confortável</li>
+                </ul>
+            </div>
+
+            <div class="modal-cta">
+                <button class="cta-button primary large modal-cta-button whatsapp-large">
+                    <i class="fab fa-whatsapp"></i>Solicitar Orçamento
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>

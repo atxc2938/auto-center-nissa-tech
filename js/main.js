@@ -1,622 +1,601 @@
-// Funções de Scroll para os botões do carrossel
-function scrollToServicos() {
-    const servicosSection = document.getElementById('servicos');
-    const header = document.querySelector('.header');
-    
-    // 1. Primeiro esconder o header
-    header.classList.add('hidden');
-    
-    // 2. Depois de esconder, calcular a posição CORRETA
-    setTimeout(() => {
-        const offsetTop = servicosSection.offsetTop;
-        window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-        });
-    }, 10);
-}
+// Dados e configurações
+const CONFIG = {
+    whatsapp: '5521990188094',
+    telefone2: '552126093611',
+    empresa: 'Nissa Tech',
+    endereco: 'Rua A, Lote 11, Quadra 2 - Itaipu, Niterói - RJ, 24346-176',
+    instagram: '@nissatechautomotiva',
+    horarioFuncionamento: 'Seg-Sex: 8h-18h, Sáb: 8h-13h'
+};
 
-function scrollToPneus() {
-    const pneusSection = document.getElementById('pneus');
-    const header = document.querySelector('.header');
-    
-    // 1. Primeiro esconder o header
-    header.classList.add('hidden');
-    
-    // 2. Depois de esconder, calcular a posição CORRETA
-    setTimeout(() => {
-        const offsetTop = pneusSection.offsetTop;
-        window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-        });
-    }, 10);
-}
+// Dados dos serviços baseados no repositório
+const SERVICOS_DATA = {
+    'alinhamento-balanceamento': {
+        titulo: 'Alinhamento e Balanceamento',
+        subtitulo: 'Precisão e Segurança',
+        icon: 'fas fa-cogs',
+        importancia: 'O alinhamento e balanceamento são essenciais para a segurança e durabilidade do seu veículo. Eles garantem que as rodas estejam posicionadas corretamente e que o peso seja distribuído uniformemente, prevenindo desgaste irregular dos pneus, melhorando a estabilidade e proporcionando uma direção mais suave.',
+        beneficios: [
+            'Maior segurança na direção',
+            'Economia de combustível',
+            'Aumento da vida útil dos pneus',
+            'Melhor estabilidade em curvas',
+            'Direção mais suave e confortável'
+        ]
+    },
+    'troca-oleo': {
+        titulo: 'Troca de Óleo e Filtros',
+        subtitulo: 'Performance do Motor',
+        icon: 'fas fa-oil-can',
+        importancia: 'A troca regular de óleo e filtros é vital para a saúde do motor do seu veículo. O óleo lubrifica as peças móveis, reduz o atrito, previne o superaquecimento e remove impurezas. Filtros novos garantem que apenas ar e combustível limpos entrem no motor.',
+        beneficios: [
+            'Proteção contra desgaste do motor',
+            'Melhor performance e economia',
+            'Redução de consumo de combustível',
+            'Prevenção de superaquecimento',
+            'Aumento da vida útil do motor'
+        ]
+    },
+    'suspensao': {
+        titulo: 'Suspensão e Amortecedores',
+        subtitulo: 'Conforto e Estabilidade',
+        icon: 'fas fa-car-side',
+        importancia: 'O sistema de suspensão é responsável pelo conforto e estabilidade do veículo. Amortecedores e molas em bom estado absorvem impactos, mantêm as rodas no chão e garantem aderência, especialmente em curvas e frenagens.',
+        beneficios: [
+            'Conforto na dirigibilidade',
+            'Estabilidade em curvas',
+            'Melhor aderência ao solo',
+            'Proteção do chassi do veículo',
+            'Segurança em frenagens'
+        ]
+    },
+    'freios': {
+        titulo: 'Sistema de Freios',
+        subtitulo: 'Segurança Total',
+        icon: 'fas fa-stop-circle',
+        importancia: 'O sistema de freios é um dos componentes mais importantes para a segurança do veículo. Pastilhas, discos e fluido em bom estado garantem frenagem eficiente e previsível, podendo evitar acidentes em situações críticas.',
+        beneficios: [
+            'Frenagem eficiente e segura',
+            'Redução da distância de parada',
+            'Prevenção de aquaplanagem',
+            'Durabilidade do sistema',
+            'Segurança para todos os ocupantes'
+        ]
+    },
+    'lavagem-simples': {
+        titulo: 'Lavagem Simples',
+        subtitulo: 'Limpeza Externa',
+        icon: 'fas fa-spray-can',
+        importancia: 'A lavagem regular mantém a estética do veículo e previne a corrosão da pintura. Além da aparência, remove sujeiras e resíduos que podem danificar a lataria e componentes externos.',
+        beneficios: [
+            'Conservação da pintura',
+            'Prevenção de corrosão',
+            'Melhor aparência',
+            'Remoção de contaminantes',
+            'Valorização do veículo'
+        ]
+    },
+    'lavagem-premium': {
+        titulo: 'Lavagem Premium',
+        subtitulo: 'Limpeza Completa',
+        icon: 'fas fa-sparkles',
+        importancia: 'A lavagem premium oferece uma limpeza completa interna e externa, utilizando produtos específicos que protegem e revitalizam todas as superfícies do veículo, garantindo máximo cuidado.',
+        beneficios: [
+            'Limpeza interna profunda',
+            'Proteção da pintura',
+            'Hidratação de plásticos',
+            'Aspiração profissional',
+            'Produtos premium'
+        ]
+    },
+    'eletrica': {
+        titulo: 'Elétrica e Bateria',
+        subtitulo: 'Sistema Elétrico Confiável',
+        icon: 'fas fa-bolt',
+        importancia: 'O sistema elétrico é o coração do veículo moderno. Desde a partida até os sistemas de entretenimento, tudo depende de uma bateria e sistema elétrico em perfeito estado. Manutenção preventiva evita pane elétrica e garante o funcionamento de todos os componentes.',
+        beneficios: [
+            'Partida confiável do motor',
+            'Funcionamento de todos os sistemas',
+            'Prevenção de pane elétrica',
+            'Durabilidade da bateria',
+            'Segurança dos sistemas eletrônicos'
+        ]
+    },
+    'ar-condicionado': {
+        titulo: 'Ar Condicionado',
+        subtitulo: 'Conforto Climático',
+        icon: 'fas fa-snowflake',
+        importancia: 'O sistema de ar condicionado não é apenas conforto, mas também segurança. Mantém o interior do veículo em temperatura adequada, previne o embaçamento dos vidros e filtra o ar, removendo impurezas e alergênicos.',
+        beneficios: [
+            'Conforto térmico ideal',
+            'Prevenção de embaçamento',
+            'Ar filtrado e limpo',
+            'Melhor concentração ao dirigir',
+            'Valorização do veículo'
+        ]
+    },
+    'cambio': {
+        titulo: 'Transmissão e Câmbio',
+        subtitulo: 'Troca de Marchas Suave',
+        icon: 'fas fa-cog',
+        importancia: 'O sistema de transmissão é responsável por transferir a potência do motor para as rodas. Seja câmbio manual ou automático, a manutenção adequada garante trocas suaves, economia de combustível e prevenção de reparos custosos.',
+        beneficios: [
+            'Trocas de marcha suaves',
+            'Economia de combustível',
+            'Prevenção de reparos caros',
+            'Melhor performance do veículo',
+            'Durabilidade do sistema'
+        ]
+    },
+    'injecao': {
+        titulo: 'Injeção Eletrônica',
+        subtitulo: 'Performance Otimizada',
+        icon: 'fas fa-microchip',
+        importancia: 'O sistema de injeção eletrônica controla precisamente a mistura ar-combustível, garantindo melhor desempenho e economia. Manutenção preventiva evita falhas e mantém o motor funcionando em sua melhor condição.',
+        beneficios: [
+            'Melhor desempenho do motor',
+            'Economia de combustível',
+            'Redução de emissões',
+            'Partida mais fácil',
+            'Diagnóstico preciso de falhas'
+        ]
+    },
+    'direcao': {
+        titulo: 'Direção Hidráulica',
+        subtitulo: 'Controle Preciso',
+        icon: 'fas fa-steering-wheel',
+        importancia: 'A direção hidráulica proporciona conforto e facilidade na dirigibilidade. Manutenção adequada garante suavidade nas manobras e previne desgaste prematuro dos componentes.',
+        beneficios: [
+            'Manobras mais suaves',
+            'Redução do esforço ao dirigir',
+            'Melhor controle do veículo',
+            'Prevenção de ruídos',
+            'Segurança nas curvas'
+        ]
+    },
+    'escapamento': {
+        titulo: 'Escapamento',
+        subtitulo: 'Desempenho e Silêncio',
+        icon: 'fas fa-exhaust',
+        importancia: 'O sistema de escapamento é crucial para o desempenho do motor e conforto acústico. Além de reduzir ruídos, controla emissões e melhora a eficiência do motor.',
+        beneficios: [
+            'Redução de ruídos',
+            'Melhor desempenho do motor',
+            'Controle de emissões',
+            'Proteção ambiental',
+            'Conforto acústico'
+        ]
+    }
+};
 
-// Dados dos Serviços com imagens
-const servicos = [
-    {
-        id: 1,
-        titulo: "Troca de Óleo",
-        descricao: "Realizamos a troca completa de óleo do motor e filtro, utilizando produtos de alta qualidade que garantem a proteção e durabilidade do seu motor. Serviço essencial para manter o desempenho e evitar desgastes prematuros. Usamos apenas óleos certificados e filtros originais para garantir a máxima eficiência do seu veículo.",
-        icone: "fas fa-oil-can",
-        imagem: "https://images.unsplash.com/photo-1603712619941-6215c8d140b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80"
-    },
-    {
-        id: 2,
-        titulo: "Alinhamento",
-        descricao: "Serviço de alinhamento que garante a direção reta e estável do seu veículo, evitando o desgaste irregular dos pneus e proporcionando maior segurança nas curvas. Corrigimos os ângulos das rodas conforme as especificações do fabricante para um desempenho ideal.",
-        icone: "fas fa-compass",
-        imagem: "https://images.unsplash.com/photo-1621905251186-4e4d4a1f87da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-        id: 3,
-        titulo: "Balanceamento",
-        descricao: "Balanceamento profissional das rodas que elimina vibrações no volante, proporciona maior conforto na dirigibilidade e aumenta a vida útil dos pneus e componentes da suspensão. Realizamos o balanceamento estático e dinâmico para perfeito equilíbrio.",
-        icone: "fas fa-braille",
-        imagem: "https://images.unsplash.com/photo-1603712619669-24f4d8ec6b7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-        id: 4,
-        titulo: "Mecânica Geral",
-        descricao: "Serviços completos de mecânica preventiva e corretiva, incluindo troca de correias, filtros, velas e todos os componentes essenciais para o perfeito funcionamento do veículo. Nossa equipe especializada diagnostica e repara qualquer problema mecânico.",
-        icone: "fas fa-tools",
-        imagem: "https://images.unsplash.com/photo-1565689221356-006d1978a535?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-        id: 5,
-        titulo: "Elétrica Automotiva",
-        descricao: "Diagnóstico e reparo de todo o sistema elétrico do veículo, incluindo alternador, bateria, partida, iluminação e todos os componentes eletrônicos. Solucionamos problemas elétricos complexos com equipamentos de última geração.",
-        icone: "fas fa-bolt",
-        imagem: "https://images.unsplash.com/photo-1603712619500-3c2c56f831b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-        id: 6,
-        titulo: "Ar Condicionado",
-        descricao: "Manutenção, limpeza e recarga do sistema de ar condicionado, garantindo o perfeito funcionamento e a qualidade do ar dentro do veículo. Realizamos higienização completa e troca de filtros para sua saúde e conforto.",
-        icone: "fas fa-fan",
-        imagem: "https://images.unsplash.com/photo-1621905252566-8e1bb31d10e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
-    },
-    {
-        id: 7,
-        titulo: "Baterias",
-        descricao: "Venda e instalação de baterias das melhores marcas, com teste gratuito do sistema de carga e partida para garantir o melhor desempenho. Oferecemos garantia e assistência técnica especializada para seu sistema elétrico.",
-        icone: "fas fa-car-battery",
-        imagem: "https://images.unsplash.com/photo-1603712619669-24f4d8ec6b7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-        id: 8,
-        titulo: "Freios",
-        descricao: "Troca de pastilhas, discos, tambores, lonas e fluído de freio. Realizamos teste completo do sistema de freios para garantir sua segurança. Utilizamos apenas componentes de alta qualidade para máxima eficiência na frenagem.",
-        icone: "fas fa-exclamation-triangle",
-        imagem: "https://images.unsplash.com/photo-1603712619669-24f4d8ec6b7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-        id: 9,
-        titulo: "Injeção Eletrônica",
-        descricao: "Diagnóstico computadorizado e reparo do sistema de injeção eletrônica, garantindo o melhor desempenho do motor e economia de combustível. Identificamos e corrigimos falhas no sistema de alimentação e ignição.",
-        icone: "fas fa-gas-pump",
-        imagem: "https://images.unsplash.com/photo-1603712619669-24f4d8ec6b7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-        id: 10,
-        titulo: "Suspensão",
-        descricao: "Reparo e substituição de amortecedores, molas, coxins e todos os componentes do sistema de suspensão para maior conforto e estabilidade. Garantimos uma dirigibilidade suave e segura em qualquer tipo de piso.",
-        icone: "fas fa-sync-alt",
-        imagem: "https://images.unsplash.com/photo-1603712619669-24f4d8ec6b7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-        id: 11,
-        titulo: "Geometria",
-        descricao: "Geometria computadorizada avançada que ajusta os ângulos das rodas conforme as especificações do fabricante, garantindo segurança e durabilidade. Corrigimos cambagem, caster e convergência para direção perfeita.",
-        icone: "fas fa-car-crash",
-        imagem: "https://images.unsplash.com/photo-1621905251186-4e4d4a1f87da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-        id: 12,
-        titulo: "Rodízio de Pneus",
-        descricao: "Rodízio periódico dos pneus para garantir desgaste uniforme, calibragem precisa e inspeção completa do estado dos pneus. Aumente a vida útil dos seus pneus e mantenha a segurança em dia.",
-        icone: "fas fa-snowflake",
-        imagem: "https://images.unsplash.com/photo-1603712618944-1a41ef25281c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    }
-];
-
-// Animação de Scroll do Header
-class ScrollHeader {
-    constructor() {
-        this.header = document.querySelector('.header');
-        this.lastScrollY = window.scrollY;
-        this.previousScrollY = window.scrollY;
-        this.ticking = false;
-        
-        this.init();
-    }
-    
-    init() {
-        window.addEventListener('scroll', () => {
-            this.lastScrollY = window.scrollY;
-            
-            if (!this.ticking) {
-                window.requestAnimationFrame(() => {
-                    this.updateHeader();
-                    this.ticking = false;
-                });
-                this.ticking = true;
-            }
-        });
-    }
-    
-    updateHeader() {
-        const scrolled = this.lastScrollY > 100;
-        
-        if (scrolled) {
-            this.header.classList.add('scrolled');
-        } else {
-            this.header.classList.remove('scrolled');
-        }
-        
-        // Esconder/mostrar header baseado na direção do scroll
-        if (this.lastScrollY > this.previousScrollY && this.lastScrollY > 100) {
-            // Scroll para baixo - esconder
-            this.header.classList.add('hidden');
-        } else {
-            // Scroll para cima - mostrar
-            this.header.classList.remove('hidden');
-        }
-        
-        this.previousScrollY = this.lastScrollY;
-    }
-}
-
-// Sistema de Animação
-class AnimationSystem {
+// Sistema principal
+class NissaTechApp {
     constructor() {
         this.animatedElements = new Set();
         this.init();
     }
-    
+
     init() {
-        // Marcar todos os elementos que devem ser animados
-        this.markElementsForAnimation();
+        this.setupMobileMenu();
+        this.setupSmoothScroll();
+        this.setupScrollEffects();
+        this.setupServiceButtons();
+        this.setupProdutoButtons();
+        this.setupAnimations();
+        this.setupWhatsApp();
+        this.setupMapButton();
+        this.setupServiceModals();
+        this.preloadImages();
+    }
+
+    // Menu mobile
+    setupMobileMenu() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target) && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+
+    // Scroll suave
+    setupSmoothScroll() {
+        const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
         
-        // Observar elementos para animação
-        this.observer = new IntersectionObserver((entries) => {
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+    // Efeitos de scroll
+    setupScrollEffects() {
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            // Header scroll
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Animação de elementos na viewport
+            this.animateOnScroll();
+            
+            lastScrollY = window.scrollY;
+        });
+
+        // Inicializar observador de interseção
+        this.setupIntersectionObserver();
+    }
+
+    setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !this.animatedElements.has(entry.target)) {
-                    this.animateElement(entry.target);
+                    entry.target.classList.add('animate-in');
                     this.animatedElements.add(entry.target);
+                    observer.unobserve(entry.target);
                 }
             });
         }, {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
-        
-        // Observar todos os elementos marcados
-        const elementsToAnimate = document.querySelectorAll('.animate-element');
-        elementsToAnimate.forEach(element => {
-            this.observer.observe(element);
-        });
-    }
-    
-    markElementsForAnimation() {
-        // Marcar títulos das seções
-        const sectionTitles = document.querySelectorAll('section h2');
-        sectionTitles.forEach(title => {
-            title.classList.add('animate-element');
-        });
-        
-        // Marcar subtítulos
-        const subtitles = document.querySelectorAll('.section-subtitle');
-        subtitles.forEach(subtitle => {
-            subtitle.classList.add('animate-element');
-        });
-        
-        // Marcar cards de marcas
-        const marcaCards = document.querySelectorAll('.marca-card');
-        marcaCards.forEach(card => {
-            card.classList.add('animate-element');
-        });
-        
-        // Marcar cards de serviços
-        const servicoItems = document.querySelectorAll('.servico-item');
-        servicoItems.forEach(item => {
-            item.classList.add('animate-element');
-        });
-        
-        // Marcar conteúdo da loja
-        const lojaContent = document.querySelectorAll('.loja-content > *');
-        lojaContent.forEach(element => {
+
+        // Observar elementos animáveis
+        const animateElements = document.querySelectorAll('.servico-card, .marca-card, .feature-item, .info-card, .extra-card, .grid-item, .contato-map');
+        animateElements.forEach(element => {
             element.classList.add('animate-element');
+            observer.observe(element);
         });
     }
-    
-    animateElement(element) {
-        element.classList.add('animate-in');
-        
-        // Se for um grid, animar os filhos com delay
-        if (element.classList.contains('marcas-grid') || element.classList.contains('servicos-grid')) {
-            const children = element.children;
-            Array.from(children).forEach((child, index) => {
-                setTimeout(() => {
-                    child.classList.add('animate-in');
-                }, index * 100);
-            });
-        }
-    }
-}
 
-// SCROLL SUAVE CORRIGIDO DEFINITIVAMENTE
-class SmoothScroll {
-    constructor() {
-        this.navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-        this.header = document.querySelector('.header');
-        this.init();
-    }
-    
-    init() {
-        this.navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                this.scrollToSection(targetId);
-            });
-        });
-    }
-    
-    scrollToSection(targetId) {
-        const targetElement = document.querySelector(targetId);
-        
-        if (!targetElement) return;
-        
-        // 1. PRIMEIRO: Sempre esconder o header imediatamente
-        this.header.classList.add('hidden');
-        
-        // 2. DEPOIS: Calcular a posição CORRETA após o header sumir
-        setTimeout(() => {
-            let targetPosition;
+    animateOnScroll() {
+        const elements = document.querySelectorAll('.animate-element');
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
             
-            if (targetId === '#home') {
-                targetPosition = 0;
-            } else {
-                // CORREÇÃO DEFINITIVA: Usar offsetTop SEM descontar headerHeight
-                // Porque o header já está INVISÍVEL e não ocupa mais espaço
-                targetPosition = targetElement.offsetTop;
-            }
-            
-            // Scroll suave para a posição calculada CORRETAMENTE
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }, 10);
-        
-        // Fechar menu mobile se estiver aberto
-        const mobileMenu = document.querySelector('.nav-menu');
-        const hamburger = document.querySelector('.hamburger');
-        if (mobileMenu && mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-        }
-    }
-}
-
-// CARROSSEL OTIMIZADO PARA MOBILE COM TOUCH
-class Carousel {
-    constructor() {
-        this.carousel = document.querySelector('.carousel-container');
-        this.slides = document.querySelectorAll('.carousel-slide');
-        this.dots = document.querySelectorAll('.dot');
-        this.prevBtn = document.querySelector('.prev-btn');
-        this.nextBtn = document.querySelector('.next-btn');
-        this.currentSlide = 0;
-        this.slideCount = this.slides.length;
-        this.interval = null;
-        this.isAnimating = false;
-        this.startX = 0;
-        this.endX = 0;
-        this.isSwiping = false;
-        
-        this.init();
-    }
-    
-    init() {
-        this.showSlide(0);
-        this.startAutoSlide();
-        this.addEventListeners();
-        this.addTouchEvents();
-    }
-    
-    showSlide(index) {
-        // Atualizar transform do container
-        this.carousel.style.transform = `translateX(-${index * 33.333}%)`;
-        
-        // Atualizar dots
-        this.dots.forEach(dot => dot.classList.remove('active'));
-        this.dots[index].classList.add('active');
-        
-        this.currentSlide = index;
-    }
-    
-    nextSlide() {
-        if (this.isAnimating) return;
-        this.isAnimating = true;
-        
-        const nextIndex = (this.currentSlide + 1) % this.slideCount;
-        this.showSlide(nextIndex);
-        
-        setTimeout(() => {
-            this.isAnimating = false;
-        }, 800);
-    }
-    
-    prevSlide() {
-        if (this.isAnimating) return;
-        this.isAnimating = true;
-        
-        const prevIndex = this.currentSlide === 0 ? this.slideCount - 1 : this.currentSlide - 1;
-        this.showSlide(prevIndex);
-        
-        setTimeout(() => {
-            this.isAnimating = false;
-        }, 800);
-    }
-    
-    goToSlide(index) {
-        if (this.isAnimating || index === this.currentSlide) return;
-        this.isAnimating = true;
-        
-        this.showSlide(index);
-        
-        setTimeout(() => {
-            this.isAnimating = false;
-        }, 800);
-        
-        this.resetAutoSlide();
-    }
-    
-    startAutoSlide() {
-        this.interval = setInterval(() => {
-            this.nextSlide();
-        }, 5000);
-    }
-    
-    addEventListeners() {
-        // Botões anterior/próximo (só em desktop)
-        if (this.prevBtn && this.nextBtn) {
-            this.prevBtn.addEventListener('click', () => {
-                this.prevSlide();
-                this.resetAutoSlide();
-            });
-            
-            this.nextBtn.addEventListener('click', () => {
-                this.nextSlide();
-                this.resetAutoSlide();
-            });
-        }
-        
-        // Dots
-        this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                this.goToSlide(index);
-            });
-        });
-        
-        // Pausar no hover (só em desktop)
-        if (this.carousel) {
-            this.carousel.addEventListener('mouseenter', () => {
-                clearInterval(this.interval);
-            });
-            
-            this.carousel.addEventListener('mouseleave', () => {
-                this.startAutoSlide();
-            });
-        }
-    }
-    
-    addTouchEvents() {
-        // Touch events otimizados para mobile
-        this.carousel.addEventListener('touchstart', (e) => {
-            this.startX = e.touches[0].clientX;
-            this.isSwiping = true;
-            clearInterval(this.interval); // Pausar auto-slide durante swipe
-        }, { passive: true });
-        
-        this.carousel.addEventListener('touchmove', (e) => {
-            if (!this.isSwiping) return;
-            this.endX = e.touches[0].clientX;
-        }, { passive: true });
-        
-        this.carousel.addEventListener('touchend', () => {
-            if (!this.isSwiping) return;
-            this.isSwiping = false;
-            this.handleSwipe();
-            this.startAutoSlide(); // Retomar auto-slide após swipe
-        }, { passive: true });
-    }
-    
-    handleSwipe() {
-        const diff = this.startX - this.endX;
-        const minSwipeDistance = 50;
-        
-        if (Math.abs(diff) > minSwipeDistance) {
-            if (diff > 0) {
-                // Swipe para esquerda - próximo slide
-                this.nextSlide();
-            } else {
-                // Swipe para direita - slide anterior
-                this.prevSlide();
-            }
-            this.resetAutoSlide();
-        }
-    }
-    
-    resetAutoSlide() {
-        clearInterval(this.interval);
-        this.startAutoSlide();
-    }
-}
-
-// Menu Mobile
-class MobileMenu {
-    constructor() {
-        this.hamburger = document.querySelector('.hamburger');
-        this.navMenu = document.querySelector('.nav-menu');
-        this.navLinks = document.querySelectorAll('.nav-link');
-        
-        this.init();
-    }
-    
-    init() {
-        this.hamburger.addEventListener('click', () => {
-            this.toggleMenu();
-        });
-        
-        this.navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                this.closeMenu();
-            });
-        });
-        
-        document.addEventListener('click', (e) => {
-            if (!this.navMenu.contains(e.target) && !this.hamburger.contains(e.target)) {
-                this.closeMenu();
+            if (elementTop < window.innerHeight - elementVisible && !this.animatedElements.has(element)) {
+                element.classList.add('animate-in');
+                this.animatedElements.add(element);
             }
         });
     }
-    
-    toggleMenu() {
-        this.hamburger.classList.toggle('active');
-        this.navMenu.classList.toggle('active');
-        
-        const bars = this.hamburger.querySelectorAll('.bar');
-        if (this.hamburger.classList.contains('active')) {
-            bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-            bars[1].style.opacity = '0';
-            bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
-        } else {
-            bars[0].style.transform = 'none';
-            bars[1].style.opacity = '1';
-            bars[2].style.transform = 'none';
-        }
-    }
-    
-    closeMenu() {
-        this.hamburger.classList.remove('active');
-        this.navMenu.classList.remove('active');
-        
-        const bars = this.hamburger.querySelectorAll('.bar');
-        bars[0].style.transform = 'none';
-        bars[1].style.opacity = '1';
-        bars[2].style.transform = 'none';
-    }
-}
 
-// Gerenciador de Serviços
-class ServicosManager {
-    constructor() {
-        this.servicosGrid = document.querySelector('.servicos-grid');
-        this.modal = document.getElementById('servicoModal');
-        this.init();
-    }
-    
-    init() {
-        this.renderServicos();
-        this.addModalEvents();
-    }
-    
-    renderServicos() {
-        this.servicosGrid.innerHTML = servicos.map(servico => `
-            <div class="servico-item animate-element" data-servico-id="${servico.id}">
-                <i class="${servico.icone}"></i>
-                <h3>${servico.titulo}</h3>
-                <p>${servico.descricao.substring(0, 100)}...</p>
-            </div>
-        `).join('');
+    // Configuração dos modais de serviço
+    setupServiceModals() {
+        const serviceCards = document.querySelectorAll('.servico-card');
+        const modal = document.querySelector('.servico-modal');
+        const modalClose = document.querySelector('.modal-close');
         
-        this.addServicoEvents();
-    }
-    
-    addServicoEvents() {
-        const servicoItems = document.querySelectorAll('.servico-item');
-        servicoItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const servicoId = parseInt(item.getAttribute('data-servico-id'));
-                this.openModal(servicoId);
+        if (!modal || !modalClose) {
+            console.error('Modal elements not found');
+            return;
+        }
+
+        serviceCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('servico-btn')) {
+                    const serviceId = card.getAttribute('data-servico');
+                    this.openServiceModal(serviceId);
+                }
             });
         });
-    }
-    
-    addModalEvents() {
-        const closeBtn = document.querySelector('.close-modal');
-        
-        closeBtn.addEventListener('click', () => {
-            this.closeModal();
+
+        // Fechar modal
+        modalClose.addEventListener('click', () => {
+            this.closeServiceModal();
         });
-        
-        this.modal.addEventListener('click', (e) => {
-            if (e.target === this.modal) {
-                this.closeModal();
+
+        // Fechar modal clicando fora
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                this.closeServiceModal();
             }
         });
-        
+
+        // Fechar com ESC
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                this.closeModal();
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                this.closeServiceModal();
             }
         });
     }
-    
-    openModal(servicoId) {
-        const servico = servicos.find(s => s.id === servicoId);
-        if (!servico) return;
+
+    openServiceModal(serviceId) {
+        const modal = document.querySelector('.servico-modal');
+        const serviceData = SERVICOS_DATA[serviceId];
         
-        document.getElementById('modalServicoTitulo').textContent = servico.titulo;
-        document.getElementById('modalServicoDescricao').textContent = servico.descricao;
-        document.getElementById('modalServicoImg').src = servico.imagem;
-        document.getElementById('modalServicoImg').alt = servico.titulo;
-        
-        const whatsappBtn = document.querySelector('.whatsapp-btn-modal');
-        const mensagem = `Olá! Gostaria de solicitar um orçamento para o serviço de ${servico.titulo}`;
-        whatsappBtn.href = `https://wa.me/5521965238075?text=${encodeURIComponent(mensagem)}`;
-        
-        this.modal.style.display = 'block';
+        if (!serviceData || !modal) return;
+
+        // Preencher modal com dados do serviço
+        const modalIcon = modal.querySelector('.modal-icon i');
+        const modalTitle = modal.querySelector('.modal-title');
+        const modalSubtitle = modal.querySelector('.modal-subtitle');
+        const importanciaText = modal.querySelector('.importancia-text');
+        const beneficiosList = modal.querySelector('.beneficios-list');
+        const modalButton = modal.querySelector('.modal-cta-button');
+
+        if (modalIcon) modalIcon.className = serviceData.icon;
+        if (modalTitle) modalTitle.textContent = serviceData.titulo;
+        if (modalSubtitle) modalSubtitle.textContent = serviceData.subtitulo;
+        if (importanciaText) importanciaText.textContent = serviceData.importancia;
+
+        // Preencher benefícios
+        if (beneficiosList) {
+            beneficiosList.innerHTML = '';
+            serviceData.beneficios.forEach(beneficio => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check"></i> ${beneficio}`;
+                beneficiosList.appendChild(li);
+            });
+        }
+
+        // Configurar botão do modal
+        if (modalButton) {
+            modalButton.setAttribute('data-servico', serviceData.titulo);
+            modalButton.innerHTML = `<i class="fab fa-whatsapp"></i> Orçamento para ${serviceData.titulo}`;
+        }
+
+        // Abrir modal
+        modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
-    
-    closeModal() {
-        this.modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
 
-// Botões de Orçamento
-class OrcamentoButtons {
-    constructor() {
-        this.buttons = document.querySelectorAll('.btn-orcamento');
-        this.init();
+    closeServiceModal() {
+        const modal = document.querySelector('.servico-modal');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     }
-    
-    init() {
-        this.buttons.forEach(button => {
+
+    // Botões de serviços
+    setupServiceButtons() {
+        const serviceButtons = document.querySelectorAll('.servico-btn');
+        
+        serviceButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
-                const marca = button.closest('.marca-card').querySelector('h3').textContent;
-                const mensagem = `Olá! Gostaria de solicitar um orçamento para pneus da marca ${marca}`;
-                const url = `https://wa.me/5521965238075?text=${encodeURIComponent(mensagem)}`;
-                window.open(url, '_blank');
+                e.stopPropagation();
+                const service = button.getAttribute('data-servico');
+                this.openWhatsApp(`Olá! Gostaria de solicitar um orçamento para o serviço de ${service} na Nissa Tech`);
             });
+        });
+
+        // Botão do modal
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-cta-button')) {
+                const service = e.target.getAttribute('data-servico');
+                this.openWhatsApp(`Olá! Gostaria de solicitar um orçamento para o serviço de ${service} na Nissa Tech`);
+                this.closeServiceModal();
+            }
+        });
+    }
+
+    // Botões de produtos
+    setupProdutoButtons() {
+        const produtoButtons = document.querySelectorAll('.produto-btn');
+        
+        produtoButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const produto = button.getAttribute('data-produto');
+                this.openWhatsApp(`Olá! Gostaria de consultar preços e disponibilidade para ${produto} na Nissa Tech`);
+            });
+        });
+    }
+
+    // Configuração do WhatsApp
+    setupWhatsApp() {
+        // Todos os botões genéricos do WhatsApp
+        const whatsappButtons = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
+        
+        whatsappButtons.forEach(button => {
+            if (!button.getAttribute('data-processed')) {
+                button.setAttribute('data-processed', 'true');
+                button.addEventListener('click', (e) => {
+                    if (!button.getAttribute('href').includes('text=')) {
+                        e.preventDefault();
+                        this.openWhatsApp('Olá! Gostaria de mais informações sobre os serviços da Nissa Tech.');
+                    }
+                });
+            }
+        });
+    }
+
+    // Configuração do botão do Maps
+    setupMapButton() {
+        const mapButton = document.querySelector('.map-button');
+        if (mapButton) {
+            mapButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                const mapsUrl = 'https://maps.google.com/maps?q=NISSA+TECH+OFICINA+Rua+A+Lote+11+Quadra+2+Itaipu+Niteroi+RJ';
+                window.open(mapsUrl, '_blank');
+            });
+        }
+    }
+
+    // Abrir WhatsApp
+    openWhatsApp(message) {
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+    }
+
+    // Animações
+    setupAnimations() {
+        // Contadores animados
+        this.setupCounters();
+        
+        // Efeitos de hover modernos
+        this.setupHoverEffects();
+    }
+
+    setupCounters() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        statNumbers.forEach(stat => observer.observe(stat));
+    }
+
+    animateCounter(element) {
+        const target = parseInt(element.textContent);
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                element.textContent = target + (element.textContent.includes('+') ? '+' : '');
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
+            }
+        }, 16);
+    }
+
+    setupHoverEffects() {
+        // Efeito de tilt moderno nos cards
+        const cards = document.querySelectorAll('.servico-card, .marca-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const angleY = (x - centerX) / 25;
+                const angleX = (centerY - y) / 25;
+                
+                card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-8px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(-8px)';
+                setTimeout(() => {
+                    card.style.transform = '';
+                }, 300);
+            });
+        });
+
+        // Efeito de ripple nos botões
+        const buttons = document.querySelectorAll('.cta-button, .map-button');
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.6);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    }
+
+    // Preload de imagens
+    preloadImages() {
+        const images = [
+            'images/logo/nissatech.png',
+            'images/carrossel/slide1.png',
+            'images/carrossel/slide3.png',
+            'images/carrossel/slide2.png'
+        ];
+
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
         });
     }
 }
 
-// Inicialização quando o DOM estiver carregado
+// Inicialização da aplicação
 document.addEventListener('DOMContentLoaded', function() {
-    new Carousel();
-    new MobileMenu();
-    new ServicosManager();
-    new SmoothScroll();
-    new ScrollHeader();
-    new OrcamentoButtons();
-    new AnimationSystem();
+    new NissaTechApp();
 });
+
+// Efeitos de performance
+window.addEventListener('load', function() {
+    // Remover classe de loading se existir
+    document.body.classList.add('loaded');
+});
+
+// Adicionar estilo para efeito ripple
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    
+    .cta-button, .map-button {
+        position: relative;
+        overflow: hidden;
+    }
+`;
+document.head.appendChild(style);
