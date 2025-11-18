@@ -5,15 +5,17 @@
     }
     
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
     
     .servicos-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     .marcas-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     .footer-content {
@@ -23,26 +25,28 @@
 
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2.5rem;
         text-align: center;
     }
     
     .hero-buttons {
         justify-content: center;
+        flex-wrap: wrap;
     }
     
     .hero-stats {
         justify-content: center;
+        flex-wrap: wrap;
     }
     
     .sobre-content {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2.5rem;
     }
     
     .contato-content {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2.5rem;
     }
 
     .social-grid {
@@ -51,11 +55,11 @@
     }
 
     .image-grid {
-        height: 400px;
+        height: 350px;
     }
 
     .nav-menu {
-        gap: 1.5rem;
+        gap: 1.2rem;
     }
 
     .nav-link {
@@ -65,10 +69,15 @@
     .section-title {
         font-size: 2.2rem;
     }
+
+    .hero-img {
+        height: 400px;
+    }
 }
 
 /* Tablets Pequenos e Mobile Grande */
 @media (max-width: 768px) {
+    /* CORREÇÃO: Menu mobile */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -79,7 +88,7 @@
         width: 100%;
         text-align: center;
         transition: 0.3s ease;
-        padding: 2rem 0;
+        padding: 1rem 0;
         gap: 0;
         z-index: 1000;
         height: calc(100vh - 70px);
@@ -92,13 +101,16 @@
     
     .nav-link {
         display: block;
-        padding: 1.2rem 2rem;
+        padding: 1.2rem 1.5rem;
         margin: 0;
         border-radius: 0;
         background: transparent;
         border-bottom: 1px solid var(--border);
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
+        font-size: 1rem;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .nav-link:hover {
@@ -108,6 +120,9 @@
     .hamburger {
         display: flex;
         z-index: 1001;
+        background: transparent;
+        border: none;
+        padding: 0.5rem;
     }
     
     .hamburger.active .bar:nth-child(1) {
@@ -125,441 +140,487 @@
     .nav-cta {
         display: none;
     }
-    
+
+    /* CORREÇÃO: Hero section */
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2.5rem;
+        gap: 2rem;
+        padding: 2rem 0;
     }
     
     .hero-title {
-        font-size: 2.5rem;
-        line-height: 1.1;
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
     }
     
     .hero-buttons {
         justify-content: center;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-buttons .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 1.5rem;
     }
     
     .hero-stats {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1.5rem;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+        margin: 0 auto;
+        max-width: 100%;
+        overflow-x: auto;
+        padding: 0.5rem 0;
     }
     
+    .stat-item {
+        min-width: 100px;
+        flex: none;
+        padding: 0.5rem;
+    }
+    
+    .stat-number {
+        font-size: 1.6rem;
+        min-height: 2rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    /* CORREÇÃO: Serviços grid */
     .servicos-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
     }
     
+    .servico-card {
+        padding: 1.5rem;
+        margin: 0;
+    }
+    
+    .servico-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+    
+    .servico-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .servico-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .servico-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .servico-cta {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .servico-price {
+        text-align: center;
+        order: 2;
+    }
+    
+    .servico-btn {
+        order: 1;
+        width: 100%;
+    }
+    
+    /* CORREÇÃO: Produtos grid */
     .marcas-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
     }
     
+    .marca-card {
+        padding: 1.5rem;
+    }
+    
+    .marca-logo {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0.8rem;
+    }
+    
+    .marca-logo i {
+        font-size: 1.3rem;
+    }
+    
+    .marca-title {
+        font-size: 1.2rem;
+    }
+    
+    /* CORREÇÃO: Sobre section */
     .sobre-content {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
     }
     
+    .image-grid {
+        height: 250px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr;
+        gap: 0.8rem;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .feature-icon {
+        margin: 0 auto;
+    }
+    
+    /* CORREÇÃO: Contato section */
     .contato-content {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
     }
     
+    .info-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.2rem;
+    }
+    
+    .info-icon {
+        margin: 0 auto;
+    }
+    
+    .map-container {
+        height: 250px;
+    }
+    
+    .map-button {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    /* CORREÇÃO: Footer */
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
         text-align: center;
     }
     
-    .section-padding {
-        padding: 60px 0;
-    }
-
-    .map-button {
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
-        width: 100%;
+    .social-links {
         justify-content: center;
     }
-
-    .modal-content {
-        padding: 2rem;
-        margin: 1rem;
-        width: 95%;
-    }
-
-    .modal-title {
-        font-size: 1.5rem;
-    }
-
-    .whatsapp-large {
-        padding: 1rem 1.5rem !important;
-        font-size: 1rem !important;
-        width: 100%;
+    
+    .footer-contact p {
         justify-content: center;
-    }
-
-    .social-grid {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-    }
-
-    .social-card {
-        padding: 1.2rem;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .hero-img {
-        height: 350px;
-    }
-
-    .image-grid {
-        height: 300px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 2fr 1fr;
-    }
-
-    .servico-card {
-        padding: 1.8rem;
-    }
-
-    .marca-card {
-        padding: 1.5rem;
-    }
-
-    .info-card {
-        padding: 1.2rem;
-    }
-
-    .extra-card {
-        padding: 1.5rem;
-        flex-direction: column;
         text-align: center;
-        gap: 1rem;
     }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .hero-description {
-        font-size: 1.1rem;
-    }
-
+    
     .footer-bottom {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+        padding-top: 1.5rem;
+    }
+    
+    /* CORREÇÃO: Section geral */
+    .section-padding {
+        padding: 3rem 0;
+    }
+    
+    .section-header {
+        margin-bottom: 2.5rem;
+        padding: 0 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .section-description {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+    }
+    
+    /* CORREÇÃO: Extra cards */
+    .pneus-extra {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .extra-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .extra-icon {
+        margin: 0 auto;
+    }
+    
+    /* CORREÇÃO: Modal */
+    .modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+        width: calc(100% - 2rem);
+        max-height: 85vh;
+    }
+    
+    .modal-title {
+        font-size: 1.4rem;
+    }
+    
+    .modal-cta-button {
+        width: 100%;
+    }
+    
+    /* CORREÇÃO: WhatsApp float */
+    .whatsapp-float {
+        padding: 0.8rem;
+        border-radius: 50%;
+        bottom: 1.5rem;
+        right: 1.5rem;
     }
     
     .whatsapp-float .float-text {
         display: none;
     }
     
-    .whatsapp-float {
-        padding: 1rem;
-        border-radius: 50%;
-        bottom: 1.5rem;
-        right: 1.5rem;
+    /* CORREÇÃO: Hero image */
+    .hero-img {
+        height: 280px;
+        width: 100%;
+        object-fit: cover;
     }
-
-    .logo-img {
-        height: 35px;
+    
+    .image-badge {
+        top: 10px;
+        right: 10px;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
     }
-
+    
+    /* CORREÇÃO: Scroll indicator */
     .scroll-indicator {
         bottom: 1rem;
-    }
-
-    .image-badge {
-        top: 15px;
-        right: 15px;
-        padding: 0.6rem 1.2rem;
         font-size: 0.8rem;
     }
-
-    .pneus-extra {
+    
+    .scroll-line {
+        height: 30px;
+    }
+    
+    /* CORREÇÃO: Redes sociais */
+    .social-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 0.8rem;
     }
-
-    .servico-cta {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: stretch;
+    
+    .social-card {
+        padding: 1rem;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.8rem;
     }
-
-    .servico-price {
-        text-align: center;
-    }
-
-    .hero-stats .stat-item {
-        flex: 0 0 calc(50% - 1rem);
-    }
-
-    .feature-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .feature-icon {
-        margin: 0 auto;
+    
+    /* CORREÇÃO: Container padding */
+    .container {
+        padding: 0 15px;
     }
 }
 
 /* Mobile Pequeno */
 @media (max-width: 480px) {
     .container {
-        padding: 0 15px;
+        padding: 0 12px;
     }
 
     .hero-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
+        font-size: 1.8rem;
     }
 
     .hero-description {
-        font-size: 1rem;
-        margin-bottom: 2rem;
+        font-size: 0.9rem;
+        padding: 0;
     }
 
     .section-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .section-subtitle {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.8rem;
+    .hero-buttons .cta-button {
+        padding: 0.9rem 1.2rem;
+        font-size: 0.9rem;
     }
 
     .hero-stats {
-        flex-direction: column;
-        gap: 1rem;
+        gap: 0.3rem;
     }
 
     .stat-item {
-        width: 100%;
+        min-width: 85px;
+        padding: 0.3rem;
     }
 
     .stat-number {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
+        min-height: 1.8rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
     }
 
     .hero-img {
-        height: 280px;
+        height: 220px;
     }
 
     .image-grid {
-        height: 250px;
+        height: 200px;
     }
 
     .servico-card {
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
 
     .servico-icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 1rem;
+        width: 50px;
+        height: 50px;
     }
 
     .servico-icon i {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .servico-title {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+    }
+
+    .servico-features li {
+        font-size: 0.8rem;
     }
 
     .marca-card {
         padding: 1.2rem;
     }
 
-    .marca-logo {
-        width: 50px;
-        height: 50px;
+    .marca-title {
+        font-size: 1.1rem;
     }
 
-    .marca-logo i {
-        font-size: 1.3rem;
+    .marca-description {
+        font-size: 0.85rem;
     }
 
     .info-card {
         padding: 1rem;
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
     }
 
-    .info-icon {
-        margin: 0 auto;
+    .feature-content h4 {
+        font-size: 1rem;
     }
 
-    .extra-card {
-        padding: 1.2rem;
-    }
-
-    .extra-icon {
-        width: 50px;
-        height: 50px;
-    }
-
-    .extra-icon i {
-        font-size: 1.3rem;
-    }
-
-    .modal-content {
-        padding: 1.5rem;
-        margin: 0.5rem;
-    }
-
-    .modal-title {
-        font-size: 1.3rem;
-    }
-
-    .modal-icon {
-        width: 60px;
-        height: 60px;
-    }
-
-    .modal-icon i {
-        font-size: 1.5rem;
-    }
-
-    .social-card {
-        padding: 1rem;
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
-    }
-
-    .social-card i {
-        font-size: 1.3rem;
-    }
-
-    .social-card span {
-        font-size: 0.8rem;
+    .feature-content p {
+        font-size: 0.85rem;
     }
 
     .map-button {
-        padding: 0.875rem 1.2rem;
+        padding: 0.9rem 1.2rem;
         font-size: 0.9rem;
     }
 
     .whatsapp-float {
-        padding: 0.875rem;
+        padding: 0.7rem;
         bottom: 1rem;
         right: 1rem;
     }
 
-    .footer-section {
-        text-align: center;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    .footer-contact p {
-        justify-content: center;
-    }
-
-    .feature-content h4 {
-        font-size: 1.1rem;
-    }
-
-    .feature-content p {
-        font-size: 0.9rem;
-    }
-
-    .servico-features li {
-        font-size: 0.85rem;
-    }
-
-    .marca-features .feature {
-        font-size: 0.85rem;
-    }
-
-    .price-value {
-        font-size: 1.3rem;
-    }
-
-    .section-description {
-        font-size: 1rem;
-    }
-
-    .hero-stats .stat-label {
-        font-size: 0.8rem;
-    }
-
-    .nav {
-        padding: 0.8rem 0;
+    .footer {
+        padding: 2.5rem 0 1.5rem;
     }
 
     .logo-img {
         height: 30px;
     }
 
+    .nav {
+        padding: 0.8rem 0;
+    }
+
     .hamburger {
-        padding: 0.3rem;
+        padding: 0.4rem;
     }
 
     .bar {
-        width: 22px;
+        width: 20px;
         height: 2px;
-        margin: 2px 0;
     }
 }
 
 /* Mobile Muito Pequeno */
 @media (max-width: 360px) {
-    .hero-title {
-        font-size: 1.8rem;
+    .container {
+        padding: 0 10px;
     }
 
-    .section-title {
+    .hero-title {
         font-size: 1.6rem;
     }
 
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .hero-img {
+        height: 200px;
+    }
+
+    .stat-number {
+        font-size: 1.3rem;
+    }
+
     .servico-card {
-        padding: 1.2rem;
+        padding: 1rem;
     }
 
     .marca-card {
         padding: 1rem;
     }
-
-    .container {
-        padding: 0 10px;
-    }
-
-    .hero-buttons .cta-button {
-        padding: 0.875rem 1.2rem;
-        font-size: 0.9rem;
-    }
-
-    .stat-number {
-        font-size: 1.6rem;
-    }
-
-    .hero-img {
-        height: 240px;
-    }
 }
 
-/* Altura Mínima para Mobile */
+/* Altura Mínima para Mobile Landscape */
 @media (max-height: 600px) and (orientation: landscape) {
     .hero {
         min-height: 120vh;
@@ -571,106 +632,15 @@
     }
 
     .hero-content {
-        padding: 2rem 0;
+        padding: 1.5rem 0;
     }
 
     .hero-img {
-        height: 250px;
-    }
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    .contato-map {
-        border-color: var(--border);
-    }
-    
-    .map-container iframe {
-        filter: invert(0.9) hue-rotate(180deg) contrast(1.2);
-    }
-}
-
-/* Impressão */
-@media print {
-    .header,
-    .whatsapp-float,
-    .hero-buttons,
-    .servico-cta,
-    .map-actions {
-        display: none !important;
+        height: 200px;
     }
 
-    .hero {
-        min-height: auto;
-        padding: 2rem 0;
-    }
-
-    .section-padding {
-        padding: 2rem 0;
-    }
-
-    body {
-        color: #000;
-        background: #fff;
-    }
-
-    .servico-card,
-    .marca-card,
-    .info-card {
-        background: #fff !important;
-        color: #000 !important;
-        border: 1px solid #000 !important;
-    }
-}
-
-/* High DPI Screens */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .logo-img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
-    .hero-title,
-    .hero-description,
-    .hero-buttons,
-    .hero-stats,
-    .hero-image,
-    .servico-card,
-    .marca-card,
-    .feature-item,
-    .info-card,
-    .extra-card,
-    .grid-item,
-    .contato-map {
-        animation: none !important;
-        transform: none !important;
-        opacity: 1 !important;
-    }
-
-    .image-badge,
-    .servico-icon,
-    .marca-logo,
-    .feature-icon,
-    .info-icon,
-    .extra-icon,
-    .modal-icon,
-    .whatsapp-float {
-        animation: none !important;
-    }
-
-    .scroll-line {
-        animation: none !important;
+    .hero-stats {
+        margin-top: 1rem;
     }
 }
 
@@ -679,27 +649,24 @@
     .servico-card:hover,
     .marca-card:hover,
     .info-card:hover {
-        transform: none !important;
-        animation: none !important;
+        transform: none;
     }
 
     .cta-button:hover {
-        transform: none !important;
+        transform: none;
     }
 
     .nav-link::after {
         display: none;
     }
 
-    /* Melhorar área de toque para mobile */
+    /* Melhorar área de toque */
     .nav-link {
-        padding: 1rem 1.5rem;
         min-height: 44px;
     }
 
     .cta-button {
         min-height: 44px;
-        padding: 1rem 2rem;
     }
 
     .servico-btn,
@@ -710,5 +677,14 @@
     .modal-close {
         width: 44px;
         height: 44px;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
