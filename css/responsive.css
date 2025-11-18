@@ -45,9 +45,9 @@
         font-size: 1rem;
     }
     
-    /* CORREÇÃO: Controles do carrossel no mobile */
+    /* CORREÇÃO: Esconder controles do carrossel no mobile */
     .carousel-controls {
-        display: flex;
+        display: none;
     }
     
     .loja-section, .pneus-section, .servicos-section {
@@ -154,14 +154,16 @@
         transform: translateY(-2px);
     }
     
-    /* CORREÇÃO: Carrossel no mobile - imagens até o topo */
+    /* CORREÇÃO DEFINITIVA: Carrossel no mobile - garantir que as imagens carreguem */
     .carousel-slide {
-        background-position: center 0 !important;
+        background-position: center center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
     }
     
     /* CORREÇÃO: Overlay mais suave para imagens ganharem destaque */
     .carousel-slide::before {
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.4);
     }
     
     .slide-content {
@@ -169,6 +171,16 @@
         backdrop-filter: blur(15px);
         margin: 0 1rem;
         padding: 2rem 1.5rem;
+    }
+    
+    /* CORREÇÃO: Melhorar experiência touch no carrossel */
+    .carousel-container {
+        cursor: grab;
+        touch-action: pan-y;
+    }
+    
+    .carousel-container:active {
+        cursor: grabbing;
     }
 }
 
@@ -255,6 +267,7 @@
 @media (max-width: 768px) {
     .carousel-container {
         cursor: grab;
+        -webkit-overflow-scrolling: touch;
     }
     
     .carousel-container:active {
@@ -267,19 +280,26 @@
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
+        touch-action: pan-y;
     }
     
-    .carousel-controls {
-        padding: 0 1rem;
+    /* CORREÇÃO DEFINITIVA: Garantir que as imagens do carrossel carreguem no mobile */
+    .carousel-slide:nth-child(1) {
+        background: 
+            linear-gradient(135deg, rgba(44, 62, 80, 0.75) 0%, rgba(52, 73, 94, 0.85) 100%),
+            url('/images/carrossel/slide1.png') center/cover no-repeat !important;
     }
     
-    .carousel-btn {
-        width: 45px;
-        height: 45px;
+    .carousel-slide:nth-child(2) {
+        background: 
+            linear-gradient(135deg, rgba(58, 83, 155, 0.75) 0%, rgba(26, 82, 118, 0.85) 100%),
+            url('/images/carrossel/slide2.png') center/cover no-repeat !important;
     }
     
-    .carousel-btn i {
-        font-size: 1.2rem;
+    .carousel-slide:nth-child(3) {
+        background: 
+            linear-gradient(135deg, rgba(109, 33, 79, 0.75) 0%, rgba(67, 36, 86, 0.85) 100%),
+            url('/images/carrossel/slide3.png') center/cover no-repeat !important;
     }
 }
 

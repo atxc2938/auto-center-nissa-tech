@@ -301,7 +301,7 @@ class SmoothScroll {
     }
 }
 
-// CARROSSEL SIMPLIFICADO E FUNCIONAL
+// CARROSSEL OTIMIZADO PARA MOBILE COM TOUCH
 class Carousel {
     constructor() {
         this.carousel = document.querySelector('.carousel-container');
@@ -313,6 +313,9 @@ class Carousel {
         this.slideCount = this.slides.length;
         this.interval = null;
         this.isAnimating = false;
+        this.startX = 0;
+        this.endX = 0;
+        this.isSwiping = false;
         
         this.init();
     }
@@ -321,6 +324,7 @@ class Carousel {
         this.showSlide(0);
         this.startAutoSlide();
         this.addEventListeners();
+        this.addTouchEvents();
     }
     
     showSlide(index) {
@@ -378,16 +382,18 @@ class Carousel {
     }
     
     addEventListeners() {
-        // Botões anterior/próximo
-        this.prevBtn.addEventListener('click', () => {
-            this.prevSlide();
-            this.resetAutoSlide();
-        });
-        
-        this.nextBtn.addEventListener('click', () => {
-            this.nextSlide();
-            this.resetAutoSlide();
-        });
+        // Botões anterior/próximo (só em desktop)
+        if (this.prevBtn && this.nextBtn) {
+            this.prevBtn.addEventListener('click', () => {
+                this.prevSlide();
+                this.resetAutoSlide();
+            });
+            
+            this.nextBtn.addEventListener('click', () => {
+                this.nextSlide();
+                this.resetAutoSlide();
+            });
+        }
         
         // Dots
         this.dots.forEach((dot, index) => {
@@ -396,41 +402,49 @@ class Carousel {
             });
         });
         
-        // Pausar no hover
-        this.carousel.addEventListener('mouseenter', () => {
-            clearInterval(this.interval);
-        });
-        
-        this.carousel.addEventListener('mouseleave', () => {
-            this.startAutoSlide();
-        });
-        
-        // Touch events para mobile
-        this.addTouchEvents();
+        // Pausar no hover (só em desktop)
+        if (this.carousel) {
+            this.carousel.addEventListener('mouseenter', () => {
+                clearInterval(this.interval);
+            });
+            
+            this.carousel.addEventListener('mouseleave', () => {
+                this.startAutoSlide();
+            });
+        }
     }
     
     addTouchEvents() {
-        let startX = 0;
-        let endX = 0;
-        
+        // Touch events otimizados para mobile
         this.carousel.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
+            this.startX = e.touches[0].clientX;
+            this.isSwiping = true;
+            clearInterval(this.interval); // Pausar auto-slide durante swipe
+        }, { passive: true });
         
-        this.carousel.addEventListener('touchend', (e) => {
-            endX = e.changedTouches[0].clientX;
-            this.handleSwipe(startX, endX);
-        });
+        this.carousel.addEventListener('touchmove', (e) => {
+            if (!this.isSwiping) return;
+            this.endX = e.touches[0].clientX;
+        }, { passive: true });
+        
+        this.carousel.addEventListener('touchend', () => {
+            if (!this.isSwiping) return;
+            this.isSwiping = false;
+            this.handleSwipe();
+            this.startAutoSlide(); // Retomar auto-slide após swipe
+        }, { passive: true });
     }
     
-    handleSwipe(startX, endX) {
-        const diff = startX - endX;
+    handleSwipe() {
+        const diff = this.startX - this.endX;
         const minSwipeDistance = 50;
         
         if (Math.abs(diff) > minSwipeDistance) {
             if (diff > 0) {
+                // Swipe para esquerda - próximo slide
                 this.nextSlide();
             } else {
+                // Swipe para direita - slide anterior
                 this.prevSlide();
             }
             this.resetAutoSlide();
