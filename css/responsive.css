@@ -28,8 +28,8 @@
     }
     
     .carousel {
-        height: 70vh;
-        margin-top: 60px;
+        height: 100vh;
+        margin-top: 0;
     }
     
     .slide-content h1 {
@@ -45,9 +45,9 @@
         font-size: 1rem;
     }
     
-    /* CORREÇÃO: Esconder controles do carrossel no mobile */
+    /* CORREÇÃO: Controles do carrossel no mobile */
     .carousel-controls {
-        display: none;
+        display: flex;
     }
     
     .loja-section, .pneus-section, .servicos-section {
@@ -120,16 +120,55 @@
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background: var(--preto);
+        background: rgba(44, 62, 80, 0.98);
+        backdrop-filter: blur(20px);
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        box-shadow: 0 10px 27px rgba(0,0,0,0.1);
         padding: 2rem 0;
+        gap: 1.5rem;
+        z-index: 1000;
     }
     
     .nav-menu.active {
         left: 0;
+    }
+    
+    /* CORREÇÃO: Menu mobile - itens não sobrepostos */
+    .nav-menu li {
+        margin: 0;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 1rem 2rem;
+        margin: 0 1rem;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    /* CORREÇÃO: Carrossel no mobile - imagens até o topo */
+    .carousel-slide {
+        background-position: center 0 !important;
+    }
+    
+    /* CORREÇÃO: Overlay mais suave para imagens ganharem destaque */
+    .carousel-slide::before {
+        background: rgba(0, 0, 0, 0.3);
+    }
+    
+    .slide-content {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        margin: 0 1rem;
+        padding: 2rem 1.5rem;
     }
 }
 
@@ -191,6 +230,25 @@
         font-size: 1rem;
         line-height: 1.6;
     }
+    
+    /* CORREÇÃO: Títulos responsivos para mobile pequeno */
+    .loja-section h2,
+    .pneus-section h2,
+    .servicos-section h2 {
+        font-size: 2rem;
+    }
+    
+    /* CORREÇÃO: Conteúdo da loja melhor ajustado */
+    .loja-content {
+        gap: 2rem;
+    }
+    
+    .maps-link {
+        padding: 1.1rem 1.8rem;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 /* CORREÇÕES ESPECÍFICAS PARA O CARROSSEL NO MOBILE */
@@ -210,6 +268,19 @@
         -moz-user-select: none;
         -ms-user-select: none;
     }
+    
+    .carousel-controls {
+        padding: 0 1rem;
+    }
+    
+    .carousel-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .carousel-btn i {
+        font-size: 1.2rem;
+    }
 }
 
 /* CORREÇÕES PARA O MODAL SCROLLÁVEL */
@@ -228,5 +299,200 @@
         max-height: calc(96vh - 60px);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* CORREÇÕES PARA O HEADER NO MOBILE */
+@media (max-width: 768px) {
+    .header {
+        padding: 0;
+    }
+    
+    .nav {
+        padding: 0.8rem 1rem;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
+    
+    .hamburger {
+        padding: 0.4rem;
+    }
+    
+    .bar {
+        width: 22px;
+        height: 2px;
+        margin: 2.5px 0;
+    }
+}
+
+/* CORREÇÕES PARA AS SEÇÕES NO MOBILE */
+@media (max-width: 768px) {
+    .loja-section,
+    .pneus-section,
+    .servicos-section {
+        padding: 3rem 0;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .marca-card,
+    .servico-item {
+        padding: 2rem 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .preco {
+        padding: 1.2rem;
+    }
+    
+    .preco-valor {
+        font-size: 1.8rem;
+    }
+}
+
+/* CORREÇÕES PARA O FOOTER NO MOBILE */
+@media (max-width: 768px) {
+    .footer {
+        padding: 3rem 0 1.5rem;
+    }
+    
+    .footer-content {
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-info h3 {
+        font-size: 1.6rem;
+    }
+    
+    .footer-info p,
+    .footer-contato a {
+        font-size: 1rem;
+    }
+    
+    .footer-copy {
+        padding-top: 2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* CORREÇÕES PARA O MENU HAMBURGUER ANIMAÇÃO */
+@media (max-width: 768px) {
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* CORREÇÕES DE PERFORMANCE PARA MOBILE */
+@media (max-width: 768px) {
+    .carousel-slide {
+        background-attachment: scroll;
+    }
+    
+    .slide-content {
+        transform: translateZ(0);
+    }
+    
+    .servico-item,
+    .marca-card {
+        transform: translateZ(0);
+        will-change: transform;
+    }
+}
+
+/* CORREÇÕES PARA TELAS MUITO PEQUENAS */
+@media (max-width: 360px) {
+    .slide-content h1 {
+        font-size: 1.3rem;
+    }
+    
+    .slide-content p {
+        font-size: 0.8rem;
+    }
+    
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .servico-item,
+    .marca-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .servico-item i,
+    .marca-logo i {
+        font-size: 2.5rem;
+    }
+    
+    .whatsapp-btn-fixed {
+        padding: 1rem 1.2rem;
+        font-size: 1rem;
+    }
+    
+    .whatsapp-btn-fixed i {
+        font-size: 1.6rem;
+    }
+}
+
+/* CORREÇÃO PARA O CARROSSEL NÃO MOSTRAR SLIDES ADICIONAIS */
+.carousel-container {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.carousel-slide {
+    width: 33.333%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* CORREÇÃO PARA O MENU MOBILE NÃO FICAR SOBREPOSTO */
+@media (max-width: 768px) {
+    .nav-menu {
+        top: 70px;
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+    
+    .nav-menu li {
+        opacity: 0;
+        animation: fadeInUp 0.5s ease forwards;
+    }
+    
+    .nav-menu li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-menu li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-menu li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-menu li:nth-child(4) { animation-delay: 0.4s; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

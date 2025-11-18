@@ -301,7 +301,7 @@ class SmoothScroll {
     }
 }
 
-// Carrossel Automático
+// CARROSSEL SIMPLIFICADO E FUNCIONAL
 class Carousel {
     constructor() {
         this.carousel = document.querySelector('.carousel-container');
@@ -318,49 +318,28 @@ class Carousel {
     }
     
     init() {
+        this.showSlide(0);
         this.startAutoSlide();
         this.addEventListeners();
-        this.updateSlides();
     }
     
-    startAutoSlide() {
-        this.interval = setInterval(() => {
-            this.nextSlide();
-        }, 6000);
-    }
-    
-    addEventListeners() {
-        this.prevBtn.addEventListener('click', () => {
-            this.prevSlide();
-        });
+    showSlide(index) {
+        // Atualizar transform do container
+        this.carousel.style.transform = `translateX(-${index * 33.333}%)`;
         
-        this.nextBtn.addEventListener('click', () => {
-            this.nextSlide();
-        });
+        // Atualizar dots
+        this.dots.forEach(dot => dot.classList.remove('active'));
+        this.dots[index].classList.add('active');
         
-        this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                this.goToSlide(index);
-            });
-        });
-        
-        this.addTouchEvents();
-        
-        this.carousel.addEventListener('mouseenter', () => {
-            clearInterval(this.interval);
-        });
-        
-        this.carousel.addEventListener('mouseleave', () => {
-            this.startAutoSlide();
-        });
+        this.currentSlide = index;
     }
     
     nextSlide() {
         if (this.isAnimating) return;
         this.isAnimating = true;
         
-        this.currentSlide = (this.currentSlide + 1) % this.slideCount;
-        this.updateSlides();
+        const nextIndex = (this.currentSlide + 1) % this.slideCount;
+        this.showSlide(nextIndex);
         
         setTimeout(() => {
             this.isAnimating = false;
@@ -371,8 +350,8 @@ class Carousel {
         if (this.isAnimating) return;
         this.isAnimating = true;
         
-        this.currentSlide = this.currentSlide === 0 ? this.slideCount - 1 : this.currentSlide - 1;
-        this.updateSlides();
+        const prevIndex = this.currentSlide === 0 ? this.slideCount - 1 : this.currentSlide - 1;
+        this.showSlide(prevIndex);
         
         setTimeout(() => {
             this.isAnimating = false;
@@ -380,29 +359,54 @@ class Carousel {
     }
     
     goToSlide(index) {
-        if (this.isAnimating) return;
+        if (this.isAnimating || index === this.currentSlide) return;
         this.isAnimating = true;
         
-        this.currentSlide = index;
-        this.updateSlides();
-        this.resetAutoSlide();
+        this.showSlide(index);
         
         setTimeout(() => {
             this.isAnimating = false;
         }, 800);
+        
+        this.resetAutoSlide();
     }
     
-    updateSlides() {
-        const translateX = -this.currentSlide * 100;
-        this.carousel.style.transform = `translateX(${translateX}%)`;
-        
-        this.slides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === this.currentSlide);
+    startAutoSlide() {
+        this.interval = setInterval(() => {
+            this.nextSlide();
+        }, 5000);
+    }
+    
+    addEventListeners() {
+        // Botões anterior/próximo
+        this.prevBtn.addEventListener('click', () => {
+            this.prevSlide();
+            this.resetAutoSlide();
         });
         
+        this.nextBtn.addEventListener('click', () => {
+            this.nextSlide();
+            this.resetAutoSlide();
+        });
+        
+        // Dots
         this.dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentSlide);
+            dot.addEventListener('click', () => {
+                this.goToSlide(index);
+            });
         });
+        
+        // Pausar no hover
+        this.carousel.addEventListener('mouseenter', () => {
+            clearInterval(this.interval);
+        });
+        
+        this.carousel.addEventListener('mouseleave', () => {
+            this.startAutoSlide();
+        });
+        
+        // Touch events para mobile
+        this.addTouchEvents();
     }
     
     addTouchEvents() {
@@ -413,11 +417,8 @@ class Carousel {
             startX = e.touches[0].clientX;
         });
         
-        this.carousel.addEventListener('touchmove', (e) => {
-            endX = e.touches[0].clientX;
-        });
-        
-        this.carousel.addEventListener('touchend', () => {
+        this.carousel.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
             this.handleSwipe(startX, endX);
         });
     }
