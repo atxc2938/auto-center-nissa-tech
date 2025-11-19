@@ -1,31 +1,31 @@
-/* ========== MOBILE FIRST - RESPONSIVIDADE OTIMIZADA ========== */
+/* ========== MOBILE FIRST - TUDO MEGA GIGANTE ========== */
 @media (max-width: 768px) {
-    /* RESET MOBILE - ELIMINAR CONFLITOS */
+    /* RESET MOBILE - TUDO ENORME */
     * {
         box-sizing: border-box !important;
         max-width: 100% !important;
     }
     
     html {
-        font-size: 16px !important;
+        font-size: 22px !important; /* AUMENTEI O FONT-SIZE BASE */
     }
     
     body {
-        font-size: 1rem !important;
-        line-height: 1.5 !important;
+        font-size: 1.3rem !important; /* TEXTO MAIOR */
+        line-height: 1.6 !important;
         overflow-x: hidden !important;
         padding: 0 !important;
         margin: 0 !important;
     }
     
     .container {
-        padding: 0 15px !important;
+        padding: 0 10px !important; /* MENOS MARGEM NAS BORDAS */
         max-width: 100% !important;
         margin: 0 auto !important;
         width: 100% !important;
     }
     
-    /* ========== HEADER MOBILE OTIMIZADO ========== */
+    /* ========== HEADER MEGA GIGANTE ========== */
     .header {
         position: fixed !important;
         top: 0 !important;
@@ -34,8 +34,8 @@
         z-index: 1000 !important;
         background: rgba(0, 0, 0, 0.98) !important;
         backdrop-filter: blur(20px) !important;
-        border-bottom: 2px solid var(--border) !important;
-        height: 70px !important;
+        border-bottom: 3px solid var(--border) !important;
+        height: 90px !important; /* HEADER MAIS ALTO */
         padding: 0 !important;
         margin: 0 !important;
     }
@@ -45,7 +45,7 @@
         justify-content: space-between !important;
         align-items: center !important;
         padding: 0 15px !important;
-        height: 70px !important;
+        height: 90px !important;
         width: 100% !important;
     }
     
@@ -56,9 +56,9 @@
     }
     
     .logo-img {
-        height: 40px !important;
+        height: 60px !important; /* LOGO MUITO MAIOR */
         width: auto !important;
-        max-height: 40px !important;
+        max-height: 60px !important;
     }
     
     /* ESCONDER MENU DESKTOP NO MOBILE */
@@ -70,7 +70,7 @@
         display: none !important;
     }
     
-    /* HAMBURGUER VISÍVEL E FUNCIONAL */
+    /* HAMBURGUER MEGA GIGANTE E VISÍVEL */
     .hamburger {
         display: flex !important;
         flex-direction: column !important;
@@ -79,29 +79,29 @@
         cursor: pointer !important;
         background: transparent !important;
         border: none !important;
-        padding: 10px !important;
-        width: 50px !important;
-        height: 50px !important;
+        padding: 15px !important;
+        width: 70px !important; /* BOTÃO MAIOR */
+        height: 70px !important;
         z-index: 1001 !important;
-        border-radius: 8px !important;
+        border-radius: 12px !important;
         transition: all 0.3s ease !important;
     }
     
     .hamburger:hover {
-        background: rgba(255, 59, 48, 0.1) !important;
+        background: rgba(255, 59, 48, 0.2) !important;
     }
     
     .bar {
-        width: 25px !important;
-        height: 2px !important;
+        width: 35px !important; /* BARRAS MAIS GROSSAS */
+        height: 4px !important;
         background: var(--text) !important;
-        margin: 3px 0 !important;
+        margin: 4px 0 !important;
         transition: 0.3s !important;
-        border-radius: 2px !important;
+        border-radius: 3px !important;
     }
     
     .hamburger.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px) !important;
+        transform: rotate(45deg) translate(8px, 8px) !important;
     }
     
     .hamburger.active .bar:nth-child(2) {
@@ -109,23 +109,23 @@
     }
     
     .hamburger.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px) !important;
+        transform: rotate(-45deg) translate(8px, -8px) !important;
     }
     
-    /* MENU MOBILE EXPANDIDO */
+    /* MENU MOBILE EXPANDIDO MEGA GIGANTE */
     .nav-menu.active {
         position: fixed !important;
-        top: 70px !important;
+        top: 90px !important;
         left: 0 !important;
         width: 100% !important;
-        height: calc(100vh - 70px) !important;
+        height: calc(100vh - 90px) !important;
         background: rgba(0, 0, 0, 0.99) !important;
         backdrop-filter: blur(30px) !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: flex-start !important;
-        padding: 40px 20px !important;
+        padding: 50px 20px !important;
         transition: all 0.4s ease !important;
         z-index: 999 !important;
         overflow-y: auto !important;
@@ -136,28 +136,28 @@
         align-items: center !important;
         justify-content: center !important;
         width: 100% !important;
-        padding: 20px !important;
-        margin: 8px 0 !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 2px solid var(--border) !important;
-        border-radius: 12px !important;
+        padding: 25px 20px !important; /* LINKS MAIORES */
+        margin: 12px 0 !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 3px solid var(--border) !important; /* BORDA MAIS GROSSA */
+        border-radius: 20px !important; /* BORDAS MAIS ARREDONDADAS */
         color: var(--text-light) !important;
-        font-size: 1.2rem !important;
-        font-weight: 700 !important;
+        font-size: 1.5rem !important; /* TEXTO MAIOR */
+        font-weight: 800 !important;
         text-decoration: none !important;
         text-align: center !important;
         transition: all 0.3s ease !important;
-        min-height: 60px !important;
+        min-height: 80px !important; /* ALTURA MAIOR */
     }
     
     .nav-menu.active .nav-link:hover {
-        background: rgba(255, 59, 48, 0.2) !important;
+        background: rgba(255, 59, 48, 0.3) !important;
         border-color: var(--primary) !important;
         color: var(--text) !important;
-        transform: scale(1.02) !important;
+        transform: scale(1.05) !important;
     }
     
-    /* ========== HERO MOBILE OTIMIZADO ========== */
+    /* ========== HERO MEGA GIGANTE - TEXTO COLADO NAS BORDAS ========== */
     .hero {
         position: relative !important;
         min-height: 100vh !important;
@@ -166,7 +166,7 @@
         align-items: center !important;
         background: var(--background) !important;
         overflow: hidden !important;
-        padding: 80px 0 40px !important;
+        padding: 100px 5px 40px !important; /* POUCO PADDING NAS BORDAS */
         margin: 0 !important;
         width: 100% !important;
     }
@@ -176,18 +176,20 @@
         z-index: 2 !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 2rem !important;
+        gap: 3rem !important; /* MAIS ESPAÇO */
         text-align: center !important;
         width: 100% !important;
+        padding: 0 5px !important; /* MÍNIMO PADDING */
     }
     
     .hero-title {
-        font-size: 2.2rem !important;
+        font-size: 3rem !important; /* TEXTO ENORME */
         line-height: 1.1 !important;
-        margin-bottom: 1rem !important;
-        font-weight: 900 !important;
+        margin-bottom: 1.5rem !important;
+        font-weight: 1000 !important;
         color: var(--text) !important;
         text-align: center !important;
+        padding: 0 5px !important; /* COLADO NAS BORDAS */
     }
     
     .title-line {
@@ -199,58 +201,58 @@
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-clip: text !important;
-        font-size: 2.4rem !important;
+        font-size: 3.5rem !important; /* AINDA MAIOR */
         font-weight: 1000 !important;
     }
     
     .hero-description {
-        font-size: 1.1rem !important;
+        font-size: 1.4rem !important; /* DESCRIÇÃO MAIOR */
         line-height: 1.4 !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 2.5rem !important;
         color: var(--text-light) !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
         text-align: center !important;
-        padding: 0 10px !important;
+        padding: 0 5px !important; /* COLADO NAS BORDAS */
     }
     
-    /* BOTÕES OTIMIZADOS */
+    /* BOTÕES MEGA GIGANTES */
     .hero-buttons {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
-        margin-bottom: 2rem !important;
+        gap: 1.5rem !important;
+        margin-bottom: 3rem !important;
         width: 100% !important;
-        padding: 0 10px !important;
+        padding: 0 5px !important;
     }
     
     .hero-buttons .cta-button {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1.2rem 1.5rem !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
-        min-height: 55px !important;
-        border-radius: 12px !important;
+        padding: 1.5rem 2rem !important; /* BOTÕES MAIORES */
+        font-size: 1.3rem !important; /* TEXTO MAIOR */
+        font-weight: 800 !important;
+        min-height: 75px !important; /* ALTURA MAIOR */
+        border-radius: 20px !important; /* BORDAS MAIS ARREDONDADAS */
     }
     
-    /* STATS OTIMIZADOS */
+    /* STATS MEGA GIGANTES */
     .hero-stats {
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 1rem !important;
+        gap: 1.5rem !important;
         margin: 0 auto !important;
         max-width: 100% !important;
         width: 100% !important;
-        padding: 0 10px !important;
+        padding: 0 5px !important;
     }
     
     .stat-item {
         text-align: center !important;
-        padding: 1rem 0.5rem !important;
+        padding: 1.5rem 0.8rem !important;
         background: var(--background-lighter) !important;
-        border-radius: 12px !important;
-        border: 1px solid var(--border) !important;
-        min-height: 90px !important;
+        border-radius: 20px !important;
+        border: 2px solid var(--border) !important;
+        min-height: 140px !important; /* MAIS ALTOS */
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
@@ -258,32 +260,32 @@
     }
     
     .stat-number {
-        font-size: 1.5rem !important;
-        font-weight: 900 !important;
+        font-size: 2.2rem !important; /* NÚMEROS ENORMES */
+        font-weight: 1000 !important;
         color: var(--primary) !important;
         line-height: 1 !important;
-        margin-bottom: 0.5rem !important;
+        margin-bottom: 0.8rem !important;
         display: block !important;
     }
     
     .stat-label {
-        font-size: 0.8rem !important;
+        font-size: 1rem !important; /* LABELS MAIORES */
         color: var(--text-light) !important;
-        font-weight: 600 !important;
-        line-height: 1.2 !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
     }
     
-    /* HERO IMAGE OTIMIZADA */
+    /* HERO IMAGE MEGA GIGANTE */
     .hero-image {
         order: -1 !important;
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 2rem !important;
         width: 100% !important;
-        padding: 0 10px !important;
+        padding: 0 5px !important;
     }
     
     .image-container {
         position: relative !important;
-        border-radius: 15px !important;
+        border-radius: 25px !important; /* BORDAS MAIS ARREDONDADAS */
         overflow: hidden !important;
         box-shadow: var(--shadow-xl) !important;
         width: 100% !important;
@@ -292,56 +294,56 @@
     
     .hero-img {
         width: 100% !important;
-        height: 250px !important;
+        height: 300px !important; /* IMAGEM MAIS ALTA */
         object-fit: cover !important;
         display: block !important;
     }
     
     .image-badge {
         position: absolute !important;
-        top: 12px !important;
-        right: 12px !important;
+        top: 20px !important;
+        right: 20px !important;
         background: var(--gradient-primary) !important;
         color: white !important;
-        padding: 0.6rem 1.2rem !important;
-        border-radius: 50px !important;
-        font-weight: 700 !important;
-        font-size: 0.8rem !important;
+        padding: 1rem 2rem !important; /* BADGE MAIOR */
+        border-radius: 60px !important;
+        font-weight: 800 !important;
+        font-size: 1.1rem !important;
         display: flex !important;
         align-items: center !important;
-        gap: 6px !important;
-        box-shadow: var(--shadow-lg) !important;
+        gap: 10px !important;
+        box-shadow: var(--shadow-xl) !important;
         z-index: 3 !important;
     }
     
     .scroll-indicator {
         position: absolute !important;
-        bottom: 1.5rem !important;
+        bottom: 2rem !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         text-align: center !important;
         color: var(--text-lighter) !important;
-        font-size: 0.8rem !important;
+        font-size: 1rem !important;
     }
     
     .scroll-line {
-        width: 2px !important;
-        height: 30px !important;
+        width: 3px !important; /* LINHA MAIS GROSSA */
+        height: 50px !important; /* LINHA MAIS LONGA */
         background: var(--primary) !important;
-        margin: 0 auto 0.5rem !important;
+        margin: 0 auto 0.8rem !important;
         animation: scrollBounce 2s infinite !important;
     }
     
-    /* ========== SECTIONS MOBILE OTIMIZADAS ========== */
+    /* ========== SECTIONS MEGA GIGANTES ========== */
     .section-padding {
-        padding: 50px 0 !important;
+        padding: 70px 0 !important; /* MAIS ESPAÇAMENTO */
         width: 100% !important;
     }
     
     .section-header {
         text-align: center !important;
-        margin-bottom: 2.5rem !important;
-        padding: 0 10px !important;
+        margin-bottom: 4rem !important; /* MAIS ESPAÇO */
+        padding: 0 5px !important; /* COLADO NAS BORDAS */
         width: 100% !important;
     }
     
@@ -351,34 +353,35 @@
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-clip: text !important;
-        font-weight: 700 !important;
-        margin-bottom: 0.8rem !important;
+        font-weight: 800 !important;
+        margin-bottom: 1.2rem !important;
         text-transform: uppercase !important;
-        letter-spacing: 1px !important;
-        font-size: 0.8rem !important;
+        letter-spacing: 2px !important;
+        font-size: 1.1rem !important; /* MAIOR */
     }
     
     .section-title {
-        font-size: 1.8rem !important;
-        line-height: 1.2 !important;
-        margin-bottom: 1rem !important;
-        font-weight: 900 !important;
+        font-size: 2.5rem !important; /* TÍTULO ENORME */
+        line-height: 1.1 !important;
+        margin-bottom: 1.5rem !important;
+        font-weight: 1000 !important;
         color: var(--text) !important;
         text-align: center !important;
+        padding: 0 5px !important;
     }
     
     .section-description {
-        font-size: 1rem !important;
+        font-size: 1.3rem !important; /* DESCRIÇÃO MAIOR */
         line-height: 1.4 !important;
         color: var(--text-light) !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
         text-align: center !important;
         max-width: 100% !important;
         margin: 0 auto !important;
-        padding: 0 10px !important;
+        padding: 0 5px !important;
     }
     
-    /* ========== SERVIÇOS MOBILE OTIMIZADOS ========== */
+    /* ========== SERVIÇOS MEGA GIGANTES ========== */
     .servicos-section {
         background: var(--background-light) !important;
         width: 100% !important;
@@ -387,17 +390,17 @@
     .servicos-grid {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
-        margin-bottom: 2rem !important;
+        gap: 1.5rem !important; /* MAIS ESPAÇO ENTRE CARDS */
+        margin-bottom: 3rem !important;
         width: 100% !important;
         padding: 0 5px !important;
     }
     
     .servico-card {
         background: var(--background-lighter) !important;
-        padding: 1.5rem !important;
-        border-radius: 15px !important;
-        border: 1px solid var(--border) !important;
+        padding: 2.5rem !important; /* MAIS PADDING INTERNO */
+        border-radius: 25px !important; /* BORDAS MAIS ARREDONDADAS */
+        border: 2px solid var(--border) !important; /* BORDA MAIS GROSSA */
         transition: all 0.3s ease !important;
         position: relative !important;
         overflow: hidden !important;
@@ -407,124 +410,124 @@
     }
     
     .servico-card:hover {
-        transform: translateY(-3px) !important;
+        transform: translateY(-5px) !important;
         border-color: var(--primary) !important;
-        box-shadow: var(--shadow-lg) !important;
+        box-shadow: var(--shadow-xl) !important;
     }
     
     .servico-icon {
-        width: 60px !important;
-        height: 60px !important;
+        width: 90px !important; /* ÍCONES MAIORES */
+        height: 90px !important;
         background: var(--gradient-primary) !important;
-        border-radius: 15px !important;
+        border-radius: 20px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        margin-bottom: 1rem !important;
+        margin-bottom: 2rem !important; /* MAIS ESPAÇO */
     }
     
     .servico-icon i {
-        font-size: 1.5rem !important;
+        font-size: 2.5rem !important; /* ÍCONES MAIORES */
         color: white !important;
     }
     
     .servico-title {
-        font-size: 1.2rem !important;
-        line-height: 1.3 !important;
-        margin-bottom: 0.8rem !important;
-        font-weight: 800 !important;
+        font-size: 1.8rem !important; /* TÍTULOS MAIORES */
+        line-height: 1.2 !important;
+        margin-bottom: 1.2rem !important;
+        font-weight: 900 !important;
         color: var(--text) !important;
     }
     
     .servico-description {
-        font-size: 0.95rem !important;
+        font-size: 1.2rem !important; /* DESCRIÇÃO MAIOR */
         line-height: 1.4 !important;
         color: var(--text-light) !important;
-        margin-bottom: 1rem !important;
-        font-weight: 600 !important;
+        margin-bottom: 1.5rem !important;
+        font-weight: 700 !important;
     }
     
     .servico-features {
         list-style: none !important;
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 2.5rem !important; /* MAIS ESPAÇO */
         padding: 0 !important;
     }
     
     .servico-features li {
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important;
-        margin-bottom: 8px !important;
+        gap: 12px !important; /* MAIS ESPAÇO */
+        margin-bottom: 12px !important;
         color: var(--text-lighter) !important;
-        font-size: 0.9rem !important;
-        font-weight: 500 !important;
+        font-size: 1.1rem !important; /* TEXTO MAIOR */
+        font-weight: 600 !important;
     }
     
     .servico-features i {
         color: var(--primary) !important;
-        font-size: 0.8rem !important;
-        min-width: 14px !important;
+        font-size: 1rem !important;
+        min-width: 18px !important;
     }
     
     .servico-cta {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
+        gap: 1.5rem !important; /* MAIS ESPAÇO */
         width: 100% !important;
     }
     
     .servico-price {
         text-align: center !important;
         color: var(--text-light) !important;
-        font-size: 1rem !important;
-        font-weight: 600 !important;
+        font-size: 1.2rem !important; /* TEXTO MAIOR */
+        font-weight: 700 !important;
     }
     
     .servico-price strong {
         color: var(--primary) !important;
-        font-size: 1.1rem !important;
-        font-weight: 800 !important;
+        font-size: 1.4rem !important; /* PREÇO MAIOR */
+        font-weight: 900 !important;
     }
     
     .servico-btn {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1rem 1.2rem !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
-        min-height: 50px !important;
-        border-radius: 10px !important;
+        padding: 1.3rem 2rem !important; /* BOTÃO MAIOR */
+        font-size: 1.2rem !important; /* TEXTO MAIOR */
+        font-weight: 800 !important;
+        min-height: 65px !important; /* ALTURA MAIOR */
+        border-radius: 15px !important;
     }
     
     .section-cta {
         text-align: center !important;
-        padding: 2rem 0 0 !important;
-        border-top: 1px solid var(--border) !important;
+        padding: 3rem 0 0 !important;
+        border-top: 2px solid var(--border) !important;
         width: 100% !important;
     }
     
     .section-cta p {
         color: var(--text-light) !important;
-        margin-bottom: 1.5rem !important;
-        font-size: 1rem !important;
-        font-weight: 600 !important;
+        margin-bottom: 2rem !important;
+        font-size: 1.3rem !important; /* TEXTO MAIOR */
+        font-weight: 700 !important;
     }
     
-    /* ========== MARCAS MOBILE OTIMIZADAS ========== */
+    /* ========== MARCAS MEGA GIGANTES ========== */
     .marcas-grid {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
-        margin-bottom: 2rem !important;
+        gap: 1.5rem !important;
+        margin-bottom: 3rem !important;
         width: 100% !important;
         padding: 0 5px !important;
     }
     
     .marca-card {
         background: var(--background-lighter) !important;
-        padding: 1.5rem !important;
-        border-radius: 15px !important;
-        border: 1px solid var(--border) !important;
+        padding: 2.5rem !important; /* MAIS PADDING */
+        border-radius: 25px !important;
+        border: 2px solid var(--border) !important;
         text-align: center !important;
         transition: all 0.3s ease !important;
         width: 100% !important;
@@ -532,104 +535,104 @@
     }
     
     .marca-card:hover {
-        transform: translateY(-3px) !important;
+        transform: translateY(-5px) !important;
         border-color: var(--primary) !important;
-        box-shadow: var(--shadow-lg) !important;
+        box-shadow: var(--shadow-xl) !important;
     }
     
     .marca-header {
-        margin-bottom: 1rem !important;
+        margin-bottom: 2rem !important; /* MAIS ESPAÇO */
     }
     
     .marca-logo {
-        width: 60px !important;
-        height: 60px !important;
+        width: 90px !important; /* LOGOS MAIORES */
+        height: 90px !important;
         background: var(--gradient-primary) !important;
-        border-radius: 15px !important;
+        border-radius: 20px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        margin: 0 auto 0.8rem !important;
+        margin: 0 auto 1.5rem !important;
     }
     
     .marca-logo i {
-        font-size: 1.5rem !important;
+        font-size: 2.5rem !important; /* ÍCONES MAIORES */
         color: white !important;
     }
     
     .marca-title {
-        font-size: 1.1rem !important;
-        margin-bottom: 0.6rem !important;
-        font-weight: 800 !important;
+        font-size: 1.6rem !important; /* TÍTULOS MAIORES */
+        margin-bottom: 1rem !important;
+        font-weight: 900 !important;
     }
     
     .marca-tag {
         display: inline-block !important;
         background: var(--primary) !important;
         color: white !important;
-        padding: 4px 10px !important;
-        border-radius: 20px !important;
-        font-size: 0.7rem !important;
-        font-weight: 700 !important;
+        padding: 8px 16px !important; /* TAGS MAIORES */
+        border-radius: 25px !important;
+        font-size: 1rem !important;
+        font-weight: 800 !important;
     }
     
     .marca-description {
         color: var(--text-light) !important;
-        margin-bottom: 1rem !important;
-        font-size: 0.9rem !important;
+        margin-bottom: 2rem !important;
+        font-size: 1.2rem !important; /* DESCRIÇÃO MAIOR */
         line-height: 1.4 !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
     }
     
     .marca-features {
         display: flex !important;
         flex-direction: column !important;
-        gap: 8px !important;
-        margin-bottom: 1.5rem !important;
+        gap: 12px !important; /* MAIS ESPAÇO */
+        margin-bottom: 2.5rem !important;
     }
     
     .feature {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 8px !important;
+        gap: 12px !important;
         color: var(--text-lighter) !important;
-        font-size: 0.85rem !important;
-        font-weight: 500 !important;
+        font-size: 1.1rem !important; /* TEXTO MAIOR */
+        font-weight: 600 !important;
     }
     
     .feature i {
         color: var(--primary) !important;
-        font-size: 0.8rem !important;
+        font-size: 1rem !important;
     }
     
     .marca-btn {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1rem 1.2rem !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
-        min-height: 50px !important;
-        border-radius: 10px !important;
+        padding: 1.3rem 2rem !important;
+        font-size: 1.2rem !important;
+        font-weight: 800 !important;
+        min-height: 65px !important;
+        border-radius: 15px !important;
     }
     
-    /* ========== PNEUS EXTRA MOBILE OTIMIZADOS ========== */
+    /* ========== PNEUS EXTRA MEGA GIGANTES ========== */
     .pneus-extra {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
+        gap: 1.5rem !important;
         width: 100% !important;
         padding: 0 5px !important;
     }
     
     .extra-card {
         background: var(--background-lighter) !important;
-        padding: 1.2rem !important;
-        border-radius: 12px !important;
-        border: 1px solid var(--border) !important;
+        padding: 2rem !important; /* MAIS PADDING */
+        border-radius: 20px !important;
+        border: 2px solid var(--border) !important;
         display: flex !important;
         align-items: center !important;
-        gap: 1rem !important;
+        gap: 1.5rem !important;
         transition: all 0.3s ease !important;
         width: 100% !important;
         margin: 0 !important;
@@ -637,14 +640,14 @@
     
     .extra-card:hover {
         border-color: var(--primary) !important;
-        transform: translateY(-2px) !important;
+        transform: translateY(-3px) !important;
     }
     
     .extra-icon {
-        width: 50px !important;
-        height: 50px !important;
+        width: 80px !important; /* ÍCONES MAIORES */
+        height: 80px !important;
         background: var(--gradient-primary) !important;
-        border-radius: 12px !important;
+        border-radius: 18px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -652,46 +655,46 @@
     }
     
     .extra-icon i {
-        font-size: 1.3rem !important;
+        font-size: 2rem !important; /* ÍCONES MAIORES */
         color: white !important;
     }
     
     .extra-content h4 {
-        margin-bottom: 0.4rem !important;
+        margin-bottom: 0.8rem !important;
         color: var(--text) !important;
-        font-size: 1.1rem !important;
-        font-weight: 800 !important;
+        font-size: 1.4rem !important; /* TÍTULOS MAIORES */
+        font-weight: 900 !important;
     }
     
     .extra-content p {
         color: var(--text-light) !important;
-        font-size: 0.85rem !important;
-        margin-bottom: 0.4rem !important;
+        font-size: 1.1rem !important; /* TEXTO MAIOR */
+        margin-bottom: 0.8rem !important;
         line-height: 1.4 !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
     }
     
     .extra-price {
         color: var(--primary) !important;
-        font-weight: 800 !important;
-        font-size: 1rem !important;
+        font-weight: 900 !important;
+        font-size: 1.3rem !important; /* PREÇO MAIOR */
     }
     
     .extra-tag {
         display: inline-block !important;
         background: var(--primary) !important;
         color: white !important;
-        padding: 3px 8px !important;
-        border-radius: 20px !important;
-        font-size: 0.7rem !important;
-        font-weight: 700 !important;
+        padding: 6px 14px !important; /* TAG MAIOR */
+        border-radius: 25px !important;
+        font-size: 0.9rem !important;
+        font-weight: 800 !important;
     }
     
-    /* ========== SOBRE MOBILE OTIMIZADO ========== */
+    /* ========== SOBRE MEGA GIGANTE ========== */
     .sobre-content {
         display: flex !important;
         flex-direction: column !important;
-        gap: 2rem !important;
+        gap: 3rem !important; /* MAIS ESPAÇO */
         width: 100% !important;
         padding: 0 5px !important;
     }
@@ -699,28 +702,28 @@
     .sobre-features {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
-        margin: 1.5rem 0 !important;
+        gap: 1.5rem !important; /* MAIS ESPAÇO */
+        margin: 2.5rem 0 !important;
         width: 100% !important;
     }
     
     .feature-item {
         display: flex !important;
         align-items: flex-start !important;
-        gap: 1rem !important;
-        padding: 1.2rem !important;
+        gap: 1.5rem !important; /* MAIS ESPAÇO */
+        padding: 2rem !important; /* MAIS PADDING */
         background: var(--background-lighter) !important;
-        border-radius: 12px !important;
-        border: 1px solid var(--border) !important;
+        border-radius: 20px !important;
+        border: 2px solid var(--border) !important;
         width: 100% !important;
         margin: 0 !important;
     }
     
     .feature-icon {
-        width: 50px !important;
-        height: 50px !important;
+        width: 80px !important; /* ÍCONES MAIORES */
+        height: 80px !important;
         background: var(--gradient-primary) !important;
-        border-radius: 12px !important;
+        border-radius: 18px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -728,62 +731,62 @@
     }
     
     .feature-icon i {
-        font-size: 1.3rem !important;
+        font-size: 2rem !important; /* ÍCONES MAIORES */
         color: white !important;
     }
     
     .feature-content h4 {
-        font-size: 1.1rem !important;
-        margin-bottom: 0.4rem !important;
+        font-size: 1.4rem !important; /* TÍTULOS MAIORES */
+        margin-bottom: 0.8rem !important;
         color: var(--text) !important;
-        font-weight: 800 !important;
+        font-weight: 900 !important;
     }
     
     .feature-content p {
         color: var(--text-light) !important;
-        font-size: 0.9rem !important;
+        font-size: 1.1rem !important; /* TEXTO MAIOR */
         line-height: 1.4 !important;
         margin-bottom: 0 !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
     }
     
-    /* REDES SOCIAIS MOBILE OTIMIZADAS */
+    /* REDES SOCIAIS MEGA GIGANTES */
     .redes-sociais {
-        margin: 1.5rem 0 !important;
-        padding: 1.5rem !important;
+        margin: 2.5rem 0 !important;
+        padding: 2.5rem !important; /* MAIS PADDING */
         background: var(--background-lighter) !important;
-        border-radius: 12px !important;
-        border: 1px solid var(--border) !important;
+        border-radius: 20px !important;
+        border: 2px solid var(--border) !important;
         width: 100% !important;
     }
     
     .redes-sociais h4 {
-        margin-bottom: 1.2rem !important;
+        margin-bottom: 2rem !important;
         text-align: center !important;
         color: var(--text) !important;
-        font-size: 1.2rem !important;
-        font-weight: 800 !important;
+        font-size: 1.6rem !important; /* TÍTULO MAIOR */
+        font-weight: 900 !important;
     }
     
     .social-grid {
         display: grid !important;
         grid-template-columns: 1fr !important;
-        gap: 0.8rem !important;
+        gap: 1.5rem !important; /* MAIS ESPAÇO */
         width: 100% !important;
     }
     
     .social-card {
         display: flex !important;
         align-items: center !important;
-        gap: 1rem !important;
-        padding: 1.2rem !important;
-        border-radius: 10px !important;
+        gap: 1.5rem !important;
+        padding: 2rem !important; /* MAIS PADDING */
+        border-radius: 15px !important;
         text-decoration: none !important;
         transition: all 0.3s ease !important;
-        border: 1px solid transparent !important;
-        min-height: 60px !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
+        border: 2px solid transparent !important;
+        min-height: 90px !important; /* MAIS ALTOS */
+        font-size: 1.3rem !important; /* TEXTO MAIOR */
+        font-weight: 800 !important;
     }
     
     .social-card.instagram {
@@ -797,32 +800,32 @@
     }
     
     .social-card:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: var(--shadow-lg) !important;
+        transform: translateY(-3px) !important;
+        box-shadow: var(--shadow-xl) !important;
     }
     
     .social-card i {
-        font-size: 1.3rem !important;
+        font-size: 2rem !important; /* ÍCONES MAIORES */
     }
     
     .sobre-cta {
-        margin-top: 1.5rem !important;
+        margin-top: 2.5rem !important;
         width: 100% !important;
     }
     
     .image-grid {
         display: flex !important;
         flex-direction: column !important;
-        gap: 0.8rem !important;
+        gap: 1.5rem !important; /* MAIS ESPAÇO */
         height: auto !important;
         width: 100% !important;
     }
     
     .grid-item {
-        border-radius: 12px !important;
+        border-radius: 20px !important;
         overflow: hidden !important;
         position: relative !important;
-        height: 180px !important;
+        height: 250px !important; /* IMAGENS MAIS ALTAS */
         width: 100% !important;
         margin: 0 !important;
     }
@@ -838,7 +841,7 @@
         transform: scale(1.05) !important;
     }
     
-    /* ========== CONTATO MOBILE OTIMIZADO ========== */
+    /* ========== CONTATO MEGA GIGANTE ========== */
     .contato-section {
         background: var(--background-light) !important;
         width: 100% !important;
@@ -847,7 +850,7 @@
     .contato-content {
         display: flex !important;
         flex-direction: column !important;
-        gap: 2rem !important;
+        gap: 3rem !important; /* MAIS ESPAÇO */
         width: 100% !important;
         padding: 0 5px !important;
     }
@@ -855,18 +858,18 @@
     .contato-info {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
+        gap: 1.5rem !important; /* MAIS ESPAÇO */
         width: 100% !important;
     }
     
     .info-card {
         display: flex !important;
         align-items: flex-start !important;
-        gap: 1rem !important;
-        padding: 1.2rem !important;
+        gap: 1.5rem !important; /* MAIS ESPAÇO */
+        padding: 2rem !important; /* MAIS PADDING */
         background: var(--background-lighter) !important;
-        border-radius: 12px !important;
-        border: 1px solid var(--border) !important;
+        border-radius: 20px !important;
+        border: 2px solid var(--border) !important;
         transition: all 0.3s ease !important;
         width: 100% !important;
         margin: 0 !important;
@@ -874,14 +877,14 @@
     
     .info-card:hover {
         border-color: var(--primary) !important;
-        transform: translateX(3px) !important;
+        transform: translateX(5px) !important;
     }
     
     .info-icon {
-        width: 50px !important;
-        height: 50px !important;
+        width: 80px !important; /* ÍCONES MAIORES */
+        height: 80px !important;
         background: var(--gradient-primary) !important;
-        border-radius: 12px !important;
+        border-radius: 18px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -889,41 +892,41 @@
     }
     
     .info-icon i {
-        font-size: 1.3rem !important;
+        font-size: 2rem !important; /* ÍCONES MAIORES */
         color: white !important;
     }
     
     .info-content h4 {
-        font-size: 1.1rem !important;
-        margin-bottom: 0.4rem !important;
+        font-size: 1.4rem !important; /* TÍTULOS MAIORES */
+        margin-bottom: 0.8rem !important;
         color: var(--text) !important;
-        font-weight: 800 !important;
+        font-weight: 900 !important;
     }
     
     .info-content p {
         color: var(--text-light) !important;
-        margin-bottom: 0.2rem !important;
-        font-size: 0.9rem !important;
+        margin-bottom: 0.3rem !important;
+        font-size: 1.1rem !important; /* TEXTO MAIOR */
         line-height: 1.4 !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
     }
     
     .info-note {
         color: var(--primary) !important;
-        font-size: 0.8rem !important;
-        font-weight: 700 !important;
+        font-size: 1rem !important; /* TEXTO MAIOR */
+        font-weight: 800 !important;
     }
     
     .contato-map {
         background: var(--background-lighter) !important;
-        border-radius: 12px !important;
+        border-radius: 20px !important;
         overflow: hidden !important;
-        border: 1px solid var(--border) !important;
+        border: 2px solid var(--border) !important;
         width: 100% !important;
     }
     
     .map-container {
-        height: 200px !important;
+        height: 280px !important; /* MAPA MAIS ALTO */
         background: var(--secondary-light) !important;
         display: flex !important;
         align-items: center !important;
@@ -938,124 +941,102 @@
     }
     
     .map-actions {
-        padding: 1.2rem !important;
+        padding: 2rem !important; /* MAIS PADDING */
         text-align: center !important;
-        border-top: 1px solid var(--border) !important;
+        border-top: 2px solid var(--border) !important;
         width: 100% !important;
     }
     
     .map-button {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1rem 1.5rem !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
-        min-height: 55px !important;
-        border-radius: 12px !important;
+        padding: 1.5rem 2rem !important; /* BOTÃO MAIOR */
+        font-size: 1.3rem !important; /* TEXTO MAIOR */
+        font-weight: 800 !important;
+        min-height: 70px !important; /* ALTURA MAIOR */
+        border-radius: 20px !important;
     }
     
-    /* ========== CORREÇÕES MOBILE PARA MAPA ========== */
+    /* ========== CORREÇÕES MOBILE PARA MAPA MEGA GIGANTE ========== */
     .map-placeholder {
-        min-height: 200px !important;
+        min-height: 250px !important; /* MAIS ALTO */
         margin: 0 !important;
-        padding: 1.5rem 1rem !important;
+        padding: 2rem 1rem !important; /* MAIS PADDING */
     }
     
     .map-placeholder i {
-        font-size: 2.5rem !important;
-        margin-bottom: 0.8rem !important;
+        font-size: 3.5rem !important; /* ÍCONE MAIOR */
+        margin-bottom: 1.5rem !important;
     }
     
     .map-placeholder p {
-        font-size: 0.95rem !important;
-        margin-bottom: 0.4rem !important;
+        font-size: 1.2rem !important; /* TEXTO MAIOR */
+        margin-bottom: 0.8rem !important;
     }
     
     .map-placeholder p:first-of-type {
-        font-size: 1.1rem !important;
-        font-weight: 700 !important;
+        font-size: 1.5rem !important; /* TÍTULO MAIOR */
+        font-weight: 900 !important;
     }
     
-    /* Melhorar animações em mobile */
-    .servico-card,
-    .marca-card {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: all 0.2s ease !important;
-    }
-    
-    .servico-card.animate-in,
-    .marca-card.animate-in {
-        transform: translateY(0) !important;
-    }
-    
-    /* Garantir que elementos sejam visíveis */
-    .servico-card,
-    .marca-card {
-        margin-bottom: 1rem !important;
-        padding: 1.2rem !important;
-        border: 1px solid var(--border) !important;
-        background: var(--background-lighter) !important;
-    }
-    
-    /* ========== FOOTER MOBILE OTIMIZADO ========== */
+    /* ========== FOOTER MEGA GIGANTE ========== */
     .footer {
         background: var(--secondary-light) !important;
-        padding: 2.5rem 0 1rem !important;
-        border-top: 2px solid var(--border) !important;
+        padding: 4rem 0 2rem !important; /* MAIS PADDING */
+        border-top: 3px solid var(--border) !important;
         width: 100% !important;
     }
     
     .footer-content {
         display: flex !important;
         flex-direction: column !important;
-        gap: 2rem !important;
+        gap: 3rem !important; /* MAIS ESPAÇO */
         text-align: center !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 3rem !important;
         width: 100% !important;
         padding: 0 10px !important;
     }
     
     .footer-section h4 {
-        margin-bottom: 1rem !important;
+        margin-bottom: 1.5rem !important;
         color: var(--text) !important;
-        font-size: 1.2rem !important;
-        font-weight: 800 !important;
+        font-size: 1.6rem !important; /* TÍTULOS MAIORES */
+        font-weight: 900 !important;
     }
     
     .footer-description {
         color: var(--text-light) !important;
-        margin-bottom: 1.2rem !important;
-        font-size: 0.9rem !important;
-        line-height: 1.4 !important;
-        font-weight: 600 !important;
+        margin-bottom: 2rem !important;
+        font-size: 1.2rem !important; /* TEXTO MAIOR */
+        line-height: 1.5 !important;
+        font-weight: 700 !important;
     }
     
     .social-links {
         display: flex !important;
         justify-content: center !important;
-        gap: 0.8rem !important;
+        gap: 1.2rem !important; /* MAIS ESPAÇO */
         width: 100% !important;
     }
     
     .social-link {
-        width: 45px !important;
-        height: 45px !important;
+        width: 65px !important; /* LINKS MAIORES */
+        height: 65px !important;
         background: var(--background-lighter) !important;
-        border-radius: 10px !important;
+        border-radius: 15px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         color: var(--text-light) !important;
         text-decoration: none !important;
         transition: all 0.3s ease !important;
-        font-size: 1.1rem !important;
+        font-size: 1.8rem !important; /* ÍCONES MAIORES */
     }
     
     .social-link:hover {
         background: var(--primary) !important;
         color: white !important;
-        transform: translateY(-2px) !important;
+        transform: translateY(-3px) !important;
     }
     
     .footer-links {
@@ -1065,14 +1046,14 @@
     }
     
     .footer-links li {
-        margin-bottom: 0.6rem !important;
+        margin-bottom: 1rem !important; /* MAIS ESPAÇO */
     }
     
     .footer-links a {
         color: var(--text-light) !important;
         text-decoration: none !important;
-        font-size: 0.9rem !important;
-        font-weight: 600 !important;
+        font-size: 1.2rem !important; /* TEXTO MAIOR */
+        font-weight: 700 !important;
         transition: color 0.3s ease !important;
     }
     
@@ -1084,31 +1065,31 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 8px !important;
+        gap: 12px !important;
         color: var(--text-light) !important;
-        margin-bottom: 0.8rem !important;
-        font-size: 0.9rem !important;
-        font-weight: 600 !important;
+        margin-bottom: 1.2rem !important;
+        font-size: 1.1rem !important; /* TEXTO MAIOR */
+        font-weight: 700 !important;
         text-align: left !important;
         padding: 0 10px !important;
     }
     
     .footer-contact i {
         color: var(--primary) !important;
-        font-size: 1rem !important;
-        min-width: 16px !important;
+        font-size: 1.3rem !important;
+        min-width: 20px !important;
     }
     
     .footer-bottom {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
+        gap: 1.5rem !important;
         text-align: center !important;
-        padding-top: 1.5rem !important;
-        border-top: 1px solid var(--border) !important;
+        padding-top: 2.5rem !important;
+        border-top: 2px solid var(--border) !important;
         color: var(--text-lighter) !important;
-        font-size: 0.8rem !important;
-        font-weight: 600 !important;
+        font-size: 1rem !important; /* TEXTO MAIOR */
+        font-weight: 700 !important;
         width: 100% !important;
         padding: 0 10px !important;
     }
@@ -1117,61 +1098,62 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 6px !important;
+        gap: 8px !important;
     }
     
     .footer-dev i {
         color: var(--primary) !important;
+        font-size: 1.2rem !important;
     }
     
-    /* ========== WHATSAPP FLOAT MOBILE OTIMIZADO ========== */
+    /* ========== WHATSAPP FLOAT MEGA GIGANTE ========== */
     .whatsapp-float {
         position: fixed !important;
-        bottom: 15px !important;
-        right: 15px !important;
+        bottom: 20px !important;
+        right: 20px !important;
         background: #25D366 !important;
         color: white !important;
-        padding: 1rem 1.5rem !important;
-        border-radius: 50px !important;
+        padding: 1.5rem 2rem !important; /* MAIOR */
+        border-radius: 60px !important;
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important;
+        gap: 12px !important;
         text-decoration: none !important;
-        font-weight: 700 !important;
-        font-size: 0.9rem !important;
-        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4) !important;
+        font-weight: 800 !important;
+        font-size: 1.3rem !important; /* TEXTO MAIOR */
+        box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5) !important;
         z-index: 998 !important;
-        min-height: 55px !important;
+        min-height: 75px !important; /* MAIS ALTO */
         transition: all 0.3s ease !important;
-        border: 2px solid rgba(255,255,255,0.2) !important;
+        border: 3px solid rgba(255,255,255,0.3) !important;
     }
     
     .whatsapp-float:hover {
-        transform: scale(1.05) !important;
-        box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6) !important;
+        transform: scale(1.1) !important;
+        box-shadow: 0 15px 40px rgba(37, 211, 102, 0.7) !important;
     }
     
     .whatsapp-float .fab {
-        font-size: 1.2rem !important;
+        font-size: 1.8rem !important; /* ÍCONE MAIOR */
     }
     
     .float-text {
-        font-size: 0.9rem !important;
-        font-weight: 700 !important;
+        font-size: 1.2rem !important; /* TEXTO MAIOR */
+        font-weight: 800 !important;
     }
     
     .whatsapp-large {
-        padding: 1rem 1.5rem !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
-        min-height: 55px !important;
+        padding: 1.5rem 2.5rem !important;
+        font-size: 1.3rem !important;
+        font-weight: 800 !important;
+        min-height: 75px !important;
     }
     
     .whatsapp-large .fab {
-        font-size: 1.2rem !important;
+        font-size: 1.8rem !important;
     }
     
-    /* ========== MODAL MOBILE OTIMIZADO ========== */
+    /* ========== MODAL MEGA GIGANTE ========== */
     .servico-modal {
         position: fixed !important;
         top: 0 !important;
@@ -1183,7 +1165,7 @@
         align-items: center !important;
         justify-content: center !important;
         z-index: 2000 !important;
-        padding: 15px !important;
+        padding: 20px !important;
         opacity: 0 !important;
         visibility: hidden !important;
         transition: all 0.3s ease !important;
@@ -1196,14 +1178,14 @@
     
     .modal-content {
         background: var(--background-lighter) !important;
-        border-radius: 15px !important;
-        padding: 1.5rem !important;
+        border-radius: 25px !important;
+        padding: 2.5rem !important; /* MAIS PADDING */
         width: 100% !important;
         max-width: 100% !important;
-        max-height: 85vh !important;
+        max-height: 90vh !important;
         overflow-y: auto !important;
         position: relative !important;
-        border: 1px solid var(--border) !important;
+        border: 3px solid var(--border) !important;
         transform: scale(0.95) !important;
         transition: transform 0.3s ease !important;
     }
@@ -1214,20 +1196,20 @@
     
     .modal-close {
         position: absolute !important;
-        top: 12px !important;
-        right: 12px !important;
+        top: 20px !important;
+        right: 20px !important;
         background: var(--primary) !important;
         color: white !important;
-        width: 40px !important;
-        height: 40px !important;
+        width: 60px !important; /* BOTÃO MAIOR */
+        height: 60px !important;
         border-radius: 50% !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        font-size: 1.1rem !important;
+        font-size: 1.8rem !important; /* ÍCONE MAIOR */
         cursor: pointer !important;
         transition: all 0.3s ease !important;
-        border: 2px solid rgba(255,255,255,0.2) !important;
+        border: 3px solid rgba(255,255,255,0.3) !important;
         z-index: 2001 !important;
     }
     
@@ -1237,72 +1219,72 @@
     }
     
     .modal-header {
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 2.5rem !important;
         text-align: center !important;
         width: 100% !important;
     }
     
     .modal-icon {
-        width: 70px !important;
-        height: 70px !important;
+        width: 100px !important; /* ÍCONE MAIOR */
+        height: 100px !important;
         background: var(--gradient-primary) !important;
-        border-radius: 15px !important;
+        border-radius: 25px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        margin: 0 auto 1rem !important;
+        margin: 0 auto 2rem !important;
     }
     
     .modal-icon i {
-        font-size: 1.8rem !important;
+        font-size: 3rem !important; /* ÍCONE MAIOR */
         color: white !important;
     }
     
     .modal-title {
-        font-size: 1.4rem !important;
-        margin-bottom: 0.8rem !important;
+        font-size: 2.2rem !important; /* TÍTULO MAIOR */
+        margin-bottom: 1.2rem !important;
         color: var(--text) !important;
-        font-weight: 900 !important;
+        font-weight: 1000 !important;
     }
     
     .modal-subtitle {
         color: var(--primary) !important;
-        font-weight: 700 !important;
-        margin-bottom: 1.5rem !important;
-        font-size: 1.1rem !important;
+        font-weight: 800 !important;
+        margin-bottom: 2.5rem !important;
+        font-size: 1.6rem !important; /* TEXTO MAIOR */
     }
     
     .importancia-content {
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 2.5rem !important;
         width: 100% !important;
     }
     
     .importancia-title {
-        font-size: 1.1rem !important;
+        font-size: 1.6rem !important; /* TÍTULOS MAIORES */
         color: var(--text) !important;
-        margin-bottom: 0.8rem !important;
+        margin-bottom: 1.2rem !important;
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important;
-        font-weight: 800 !important;
+        gap: 12px !important;
+        font-weight: 900 !important;
     }
     
     .importancia-title i {
         color: var(--primary) !important;
-        font-size: 1rem !important;
+        font-size: 1.4rem !important;
     }
     
     .importancia-text {
         color: var(--text-light) !important;
-        line-height: 1.5 !important;
-        margin-bottom: 1.2rem !important;
-        font-size: 0.95rem !important;
-        font-weight: 600 !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+        font-size: 1.3rem !important; /* TEXTO MAIOR */
+        font-weight: 700 !important;
     }
     
     .beneficios-list {
         list-style: none !important;
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 2.5rem !important;
         padding: 0 !important;
         width: 100% !important;
     }
@@ -1310,34 +1292,34 @@
     .beneficios-list li {
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important;
-        margin-bottom: 0.8rem !important;
+        gap: 12px !important;
+        margin-bottom: 1.2rem !important;
         color: var(--text-light) !important;
-        font-size: 0.95rem !important;
-        font-weight: 600 !important;
+        font-size: 1.2rem !important; /* TEXTO MAIOR */
+        font-weight: 700 !important;
     }
     
     .beneficios-list i {
         color: var(--success) !important;
-        font-size: 0.9rem !important;
-        min-width: 14px !important;
+        font-size: 1.1rem !important;
+        min-width: 16px !important;
     }
     
     .modal-cta {
         text-align: center !important;
-        padding-top: 1.5rem !important;
-        border-top: 1px solid var(--border) !important;
+        padding-top: 2.5rem !important;
+        border-top: 2px solid var(--border) !important;
         width: 100% !important;
     }
     
     .modal-cta-button {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1rem 1.5rem !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
-        min-height: 55px !important;
-        border-radius: 12px !important;
+        padding: 1.5rem 2rem !important;
+        font-size: 1.3rem !important;
+        font-weight: 800 !important;
+        min-height: 75px !important;
+        border-radius: 20px !important;
     }
 }
 
@@ -1372,62 +1354,5 @@
     .container {
         max-width: 1200px !important;
         padding: 0 20px !important;
-    }
-    
-    /* ANIMAÇÕES ORIGINAIS DO DESKTOP */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes scrollBounce {
-        0%, 100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(10px);
-        }
-    }
-}
-
-/* ANIMAÇÕES OTIMIZADAS PARA MOBILE */
-@media (max-width: 768px) {
-    .servico-card.animate-in,
-    .marca-card.animate-in,
-    .feature-item.animate-in,
-    .info-card.animate-in {
-        animation-duration: 0.4s !important;
-        transition-duration: 0.3s !important;
-    }
-    
-    .animate-element {
-        transition: all 0.3s ease !important;
-    }
-}
-
-/* MELHORIAS DE PERFORMANCE PARA MOBILE */
-@media (max-width: 768px) {
-    .servico-card::before,
-    .cta-button::before {
-        display: none !important;
-    }
-    
-    .servico-card:hover,
-    .marca-card:hover {
-        transform: none !important;
-    }
-    
-    /* Otimizar para touch */
-    .cta-button,
-    .servico-btn,
-    .marca-btn {
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
     }
 }
