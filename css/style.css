@@ -59,11 +59,11 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 /* Typography */
@@ -459,7 +459,7 @@ p {
 .section-header {
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 3rem;
 }
 
 .section-subtitle {
@@ -497,13 +497,13 @@ p {
 .servicos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 3rem;
 }
 
 .servico-card {
     background: var(--background-lighter);
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: 20px;
     border: 1px solid var(--border);
     transition: all 0.3s ease;
@@ -517,7 +517,7 @@ p {
 .servico-card.animate-in {
     opacity: 1;
     transform: translateY(0);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s ease;
 }
 
 .servico-card::before {
@@ -540,7 +540,6 @@ p {
     transform: translateY(-5px);
     border-color: var(--primary);
     box-shadow: var(--shadow-lg);
-    animation: floatCard 3s ease-in-out infinite;
 }
 
 .servico-icon {
@@ -552,7 +551,6 @@ p {
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    animation: float 6s ease-in-out infinite;
 }
 
 .servico-icon i {
@@ -608,7 +606,7 @@ p {
 
 .section-cta {
     text-align: center;
-    padding: 3rem 0 0;
+    padding: 2rem 0 0;
     border-top: 1px solid var(--border);
 }
 
@@ -652,7 +650,6 @@ p {
     border: 1px solid var(--border);
     transform: scale(0.9);
     transition: transform 0.3s ease;
-    animation: floatModal 4s ease-in-out infinite;
 }
 
 .servico-modal.active .modal-content {
@@ -697,7 +694,6 @@ p {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    animation: float 6s ease-in-out infinite;
 }
 
 .modal-icon i {
@@ -774,7 +770,7 @@ p {
 .marcas-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 3rem;
 }
 
@@ -792,14 +788,13 @@ p {
 .marca-card.animate-in {
     opacity: 1;
     transform: translateY(0);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s ease;
 }
 
 .marca-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
     box-shadow: var(--shadow-lg);
-    animation: floatCard 3s ease-in-out infinite;
 }
 
 .marca-header {
@@ -815,7 +810,6 @@ p {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem;
-    animation: float 6s ease-in-out infinite;
 }
 
 .marca-logo i {
@@ -889,7 +883,7 @@ p {
 .pneus-extra {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .extra-card {
@@ -908,13 +902,12 @@ p {
 .extra-card.animate-in {
     opacity: 1;
     transform: translateX(0);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s ease;
 }
 
 .extra-card:hover {
     border-color: var(--primary);
     transform: translateY(-2px);
-    animation: floatCard 3s ease-in-out infinite;
 }
 
 .extra-icon {
@@ -926,7 +919,6 @@ p {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    animation: float 6s ease-in-out infinite;
 }
 
 .extra-icon i {
@@ -964,7 +956,7 @@ p {
 .sobre-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
     align-items: center;
 }
 
@@ -986,7 +978,7 @@ p {
 .feature-item.animate-in {
     opacity: 1;
     transform: translateX(0);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s ease;
 }
 
 .feature-icon {
@@ -998,7 +990,6 @@ p {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    animation: float 6s ease-in-out infinite;
 }
 
 .feature-icon i {
@@ -1095,7 +1086,7 @@ p {
 .grid-item.animate-in {
     opacity: 1;
     transform: translateX(0);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s ease;
 }
 
 .grid-item img {
@@ -1117,7 +1108,7 @@ p {
 .contato-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 .contato-info {
@@ -1142,13 +1133,12 @@ p {
 .info-card.animate-in {
     opacity: 1;
     transform: translateX(0);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s ease;
 }
 
 .info-card:hover {
     border-color: var(--primary);
     transform: translateX(5px);
-    animation: floatCard 3s ease-in-out infinite;
 }
 
 .info-icon {
@@ -1160,7 +1150,6 @@ p {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    animation: float 6s ease-in-out infinite;
 }
 
 .info-icon i {
@@ -1196,7 +1185,7 @@ p {
 .contato-map.animate-in {
     opacity: 1;
     transform: translateX(0);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s ease;
 }
 
 .map-container {
@@ -1233,7 +1222,6 @@ p {
     box-shadow: var(--shadow-xl);
     border: 2px solid transparent;
     font-size: 1.1rem;
-    animation: pulseMap 2s ease-in-out infinite;
 }
 
 .map-button:hover {
@@ -1288,7 +1276,6 @@ p {
     background: var(--primary);
     color: white;
     transform: translateY(-2px) scale(1.1);
-    animation: float 3s ease-in-out infinite;
 }
 
 .footer-links {
@@ -1360,7 +1347,6 @@ p {
     box-shadow: var(--shadow-xl);
     z-index: 1000;
     transition: all 0.3s ease;
-    animation: float 3s ease-in-out infinite;
     font-size: 1.1rem;
 }
 
@@ -1377,18 +1363,19 @@ p {
 
 /* Aumentar significativamente o placeholder do mapa */
 .map-placeholder {
-    min-height: 500px !important;
+    min-height: 300px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
     background: linear-gradient(135deg, var(--background-lighter) 0%, var(--secondary-light) 100%) !important;
-    border-radius: 20px !important;
-    border: 2px solid var(--border) !important;
+    border-radius: 15px !important;
+    border: 1px solid var(--border) !important;
     box-shadow: var(--shadow-xl) !important;
-    margin: 2rem 0 !important;
+    margin: 0 !important;
     position: relative !important;
     overflow: hidden !important;
+    padding: 2rem !important;
 }
 
 .map-placeholder::before {
@@ -1404,16 +1391,15 @@ p {
 }
 
 .map-placeholder i {
-    font-size: 4rem !important;
+    font-size: 3rem !important;
     color: var(--primary) !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1rem !important;
     z-index: 2;
     position: relative;
-    animation: float 3s ease-in-out infinite !important;
 }
 
 .map-placeholder p {
-    font-size: 1.25rem !important;
+    font-size: 1.1rem !important;
     margin-bottom: 0.5rem !important;
     color: var(--text) !important;
     font-weight: 600 !important;
@@ -1423,7 +1409,7 @@ p {
 }
 
 .map-placeholder p:first-of-type {
-    font-size: 1.5rem !important;
+    font-size: 1.3rem !important;
     font-weight: 700 !important;
     color: var(--primary) !important;
 }
@@ -1439,7 +1425,7 @@ p {
 .tire-item {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s ease;
 }
 
 .servico-card.animate-in,
@@ -1451,33 +1437,34 @@ p {
 
 /* Aumentar área de detecção para animações */
 .animation-trigger-area {
-    min-height: 300px;
+    min-height: 200px;
     position: relative;
 }
 
 /* Otimizações específicas para mobile */
 @media (max-width: 768px) {
     .map-placeholder {
-        min-height: 400px !important;
-        margin: 1rem 0 !important;
+        min-height: 250px !important;
+        margin: 0 !important;
+        padding: 1.5rem !important;
     }
     
     .map-placeholder i {
-        font-size: 3rem !important;
+        font-size: 2.5rem !important;
     }
     
     .map-placeholder p {
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
     }
     
     .map-placeholder p:first-of-type {
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important;
     }
     
     /* Melhorar visibilidade dos elementos em mobile */
     .servico-card,
     .marca-card {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         padding: 1.5rem !important;
     }
     
@@ -1507,7 +1494,7 @@ p {
 @keyframes slideInUp {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -1527,19 +1514,19 @@ p {
 /* Aplicar animações melhoradas */
 .servico-card.animate-in,
 .marca-card.animate-in {
-    animation: slideInUp 0.6s ease-out forwards;
+    animation: slideInUp 0.4s ease-out forwards;
 }
 
 .feature-item.animate-in,
 .info-card.animate-in,
 .extra-card.animate-in {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 0.6s ease-out forwards;
 }
 
 /* Garantir que as seções tenham altura suficiente */
 .servicos-section,
 .produtos-section {
-    min-height: 100vh;
+    min-height: auto;
     position: relative;
 }
 
@@ -1549,7 +1536,7 @@ body:not(.loaded) .animate-element {
 }
 
 body.loaded .animate-element {
-    transition: all 0.6s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 /* Animações Modernas */
@@ -1607,24 +1594,6 @@ body.loaded .animate-element {
     }
 }
 
-@keyframes floatCard {
-    0%, 100% {
-        transform: translateY(-5px);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-@keyframes floatModal {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-    }
-    50% {
-        transform: translateY(-5px) scale(1.01);
-    }
-}
-
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
@@ -1636,17 +1605,6 @@ body.loaded .animate-element {
     }
 }
 
-@keyframes pulseMap {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: var(--shadow-xl);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 20px 40px rgba(255, 59, 48, 0.4);
-    }
-}
-
 /* Elementos animáveis */
 .animate-element {
     opacity: 0;
@@ -1654,18 +1612,18 @@ body.loaded .animate-element {
 
 /* Hover effects modernos */
 .servico-card, .marca-card, .info-card {
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.3s ease;
 }
 
 .servico-card:hover, .marca-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     box-shadow: 
         0 20px 40px rgba(255, 59, 48, 0.15),
         0 0 0 1px rgba(255, 59, 48, 0.1);
 }
 
 .cta-button {
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.3s ease;
 }
 
 .cta-button:hover {
@@ -1881,7 +1839,7 @@ body.loaded .animate-element {
 
     /* Melhor hierarquia visual */
     .section-header {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
 
     /* Contraste melhorado */

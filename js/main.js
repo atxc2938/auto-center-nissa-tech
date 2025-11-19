@@ -3,7 +3,7 @@ const CONFIG = {
     whatsapp: '5521965238075',
     telefone2: '552126093611',
     empresa: 'Nissa Tech',
-    endereco: 'Av. Visconde do Rio Branco, 881 - Centro, Niterói - RJ',
+    endereco: 'R. A, 11 - QR 2 - Itaipu, Niterói - RJ, 24346-176',
     instagram: '@nissatechautomotiva',
     horarioFuncionamento: 'Seg-Sex: 7h-19h, Sáb: 8h-13h'
 };
@@ -143,7 +143,7 @@ const SERVICOS_DATA = {
     'direcao': {
         titulo: 'Direção Hidráulica',
         subtitulo: 'Controle Preciso',
-        icon: 'fas fa-steering-wheel',
+        icon: 'fas fa-tachometer-alt',
         importancia: 'A direção hidráulica proporciona conforto e facilidade na dirigibilidade. Manutenção adequada garante suavidade nas manobras e previne desgaste prematuro dos componentes.',
         beneficios: [
             'Manobras mais suaves',
@@ -156,7 +156,7 @@ const SERVICOS_DATA = {
     'escapamento': {
         titulo: 'Escapamento',
         subtitulo: 'Desempenho e Silêncio',
-        icon: 'fas fa-exhaust',
+        icon: 'fas fa-fire',
         importancia: 'O sistema de escapamento é crucial para o desempenho do motor e conforto acústico. Além de reduzir ruídos, controla emissões e melhora a eficiência do motor.',
         beneficios: [
             'Redução de ruídos',
@@ -199,21 +199,19 @@ class NissaTechApp {
                 if (entry.isIntersecting && !this.animatedElements.has(entry.target)) {
                     this.animateElement(entry.target);
                     this.animatedElements.add(entry.target);
-                    observer.unobserve(entry.target);
                 }
             });
         }, {
-            // AUMENTAR a área de detecção (threshold mais baixo)
-            threshold: 0.05, // Reduzido de 0.1 para 0.05
-            // AUMENTAR a margem de detecção
-            rootMargin: '0px 0px -10% 0px' // Reduzido de -50px para -10%
+            // AUMENTAR significativamente a área de detecção
+            threshold: 0.05,
+            rootMargin: '0px 0px -5% 0px'
         });
 
         // Observar elementos animáveis - MAIS ELEMENTOS
         const animateElements = document.querySelectorAll(
             '.servico-card, .marca-card, .feature-item, .info-card, ' +
             '.extra-card, .grid-item, .contato-map, .sobre-features, ' +
-            '.pneus-extra, .hero-stats, .image-container'
+            '.pneus-extra, .hero-stats, .image-container, .stat-item'
         );
         
         animateElements.forEach(element => {
@@ -226,17 +224,8 @@ class NissaTechApp {
 
     // Método melhorado para animar elementos
     animateElement(element) {
-        const index = Array.from(element.parentElement.children).indexOf(element);
-        const delay = index * 100; // Delay progressivo
-        
-        setTimeout(() => {
-            element.classList.add('animate-in');
-            
-            // Adicionar delay CSS para animação em cascata
-            element.style.transitionDelay = `${index * 0.1}s`;
-            
-            console.log(`Elemento animado:`, element);
-        }, delay);
+        element.classList.add('animate-in');
+        console.log(`Elemento animado:`, element);
     }
 
     // Efeitos de scroll MELHORADOS
@@ -252,7 +241,7 @@ class NissaTechApp {
                 header.classList.remove('scrolled');
             }
 
-            // Animação de elementos na viewport - MAIS AGressiva
+            // Animação de elementos na viewport - MAIS AGRESSIVA
             this.animateOnScroll();
             
             lastScrollY = window.scrollY;
@@ -261,14 +250,14 @@ class NissaTechApp {
         // Forçar verificação inicial
         setTimeout(() => {
             this.animateOnScroll();
-        }, 1000);
+        }, 500);
     }
 
     // Animação on scroll MELHORADA
     animateOnScroll() {
         const elements = document.querySelectorAll('.animate-element');
         const windowHeight = window.innerHeight;
-        const triggerPoint = windowHeight * 0.85; // 85% da tela (aumentado)
+        const triggerPoint = windowHeight * 0.90; // 90% da tela
         
         elements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
@@ -490,7 +479,7 @@ class NissaTechApp {
         if (mapButton) {
             mapButton.addEventListener('click', (e) => {
                 e.preventDefault();
-                const mapsUrl = 'https://maps.google.com/maps?q=NISSA+TECH+OFICINA+Av.+Visconde+do+Rio+Branco,+881+Centro+Niteroi+RJ';
+                const mapsUrl = 'https://maps.google.com/maps?q=NISSA+TECH+OFICINA+R.+A,+11+-+QR+2+-+Itaipu,+Niterói+-+RJ,+24346-176';
                 window.open(mapsUrl, '_blank');
             });
         }
@@ -537,7 +526,7 @@ class NissaTechApp {
             current += step;
             if (current >= target) {
                 element.textContent = target + (element.textContent.includes('+') ? '+' : '');
-                clearInterval(ttimer);
+                clearInterval(timer);
             } else {
                 element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
             }
@@ -729,7 +718,7 @@ window.addEventListener('load', function() {
     setTimeout(() => {
         const app = document.querySelector('script')?.app || new NissaTechApp();
         app.animateOnScroll();
-    }, 2000);
+    }, 1000);
 });
 
 // Adicionar estilo para efeito ripple
