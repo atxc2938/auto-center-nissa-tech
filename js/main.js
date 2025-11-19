@@ -168,7 +168,7 @@ const SERVICOS_DATA = {
     }
 };
 
-// Sistema principal - CORREÇÕES PARA ANIMAÇÕES
+// Sistema principal - CORREÇÕES COMPLETAS
 class NissaTechApp {
     constructor() {
         this.animatedElements = new Set();
@@ -187,8 +187,7 @@ class NissaTechApp {
         this.setupServiceModals();
         this.preloadImages();
         this.setupMobileOptimizations();
-        
-        // Inicializar observador imediatamente
+        this.setupWhatsAppScroll();
         this.setupIntersectionObserver();
     }
 
@@ -202,12 +201,10 @@ class NissaTechApp {
                 }
             });
         }, {
-            // AUMENTAR significativamente a área de detecção
             threshold: 0.05,
             rootMargin: '0px 0px -5% 0px'
         });
 
-        // Observar elementos animáveis - MAIS ELEMENTOS
         const animateElements = document.querySelectorAll(
             '.servico-card, .marca-card, .feature-item, .info-card, ' +
             '.extra-card, .grid-item, .contato-map, .sobre-features, ' +
@@ -225,7 +222,6 @@ class NissaTechApp {
     // Método melhorado para animar elementos
     animateElement(element) {
         element.classList.add('animate-in');
-        console.log(`Elemento animado:`, element);
     }
 
     // Efeitos de scroll MELHORADOS
@@ -234,20 +230,16 @@ class NissaTechApp {
         let lastScrollY = window.scrollY;
 
         window.addEventListener('scroll', () => {
-            // Header scroll
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
 
-            // Animação de elementos na viewport - MAIS AGRESSIVA
             this.animateOnScroll();
-            
             lastScrollY = window.scrollY;
         });
 
-        // Forçar verificação inicial
         setTimeout(() => {
             this.animateOnScroll();
         }, 500);
@@ -257,7 +249,7 @@ class NissaTechApp {
     animateOnScroll() {
         const elements = document.querySelectorAll('.animate-element');
         const windowHeight = window.innerHeight;
-        const triggerPoint = windowHeight * 0.90; // 90% da tela
+        const triggerPoint = windowHeight * 0.90;
         
         elements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
@@ -269,45 +261,55 @@ class NissaTechApp {
         });
     }
 
-    // Menu mobile
+    // Menu mobile - CORREÇÃO COMPLETA
     setupMobileMenu() {
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-link');
 
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
                 document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
             });
-        }
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
             });
-        });
 
-        // Fechar menu ao clicar fora
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !hamburger.contains(e.target) && navMenu.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !hamburger.contains(e.target) && navMenu.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
 
-        // Fechar menu ao rolar
-        window.addEventListener('scroll', () => {
-            if (navMenu.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
+            window.addEventListener('scroll', () => {
+                if (navMenu.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        } else {
+            console.error('Elementos do menu mobile não encontrados:', { hamburger, navMenu });
+        }
     }
 
     // Scroll suave
@@ -351,19 +353,16 @@ class NissaTechApp {
             });
         });
 
-        // Fechar modal
         modalClose.addEventListener('click', () => {
             this.closeServiceModal();
         });
 
-        // Fechar modal clicando fora
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 this.closeServiceModal();
             }
         });
 
-        // Fechar com ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 this.closeServiceModal();
@@ -377,7 +376,6 @@ class NissaTechApp {
         
         if (!serviceData || !modal) return;
 
-        // Preencher modal com dados do serviço
         const modalIcon = modal.querySelector('.modal-icon i');
         const modalTitle = modal.querySelector('.modal-title');
         const modalSubtitle = modal.querySelector('.modal-subtitle');
@@ -390,7 +388,6 @@ class NissaTechApp {
         if (modalSubtitle) modalSubtitle.textContent = serviceData.subtitulo;
         if (importanciaText) importanciaText.textContent = serviceData.importancia;
 
-        // Preencher benefícios
         if (beneficiosList) {
             beneficiosList.innerHTML = '';
             serviceData.beneficios.forEach(beneficio => {
@@ -400,13 +397,11 @@ class NissaTechApp {
             });
         }
 
-        // Configurar botão do modal
         if (modalButton) {
             modalButton.setAttribute('data-servico', serviceData.titulo);
             modalButton.innerHTML = `<i class="fab fa-whatsapp"></i> Orçamento para ${serviceData.titulo}`;
         }
 
-        // Abrir modal
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -432,7 +427,6 @@ class NissaTechApp {
             });
         });
 
-        // Botão do modal
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal-cta-button')) {
                 const service = e.target.getAttribute('data-servico');
@@ -457,7 +451,6 @@ class NissaTechApp {
 
     // Configuração do WhatsApp
     setupWhatsApp() {
-        // Todos os botões genéricos do WhatsApp
         const whatsappButtons = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
         
         whatsappButtons.forEach(button => {
@@ -485,6 +478,48 @@ class NissaTechApp {
         }
     }
 
+    // Sistema de Scroll para WhatsApp Float
+    setupWhatsAppScroll() {
+        const whatsappFloat = document.querySelector('.whatsapp-float');
+        if (!whatsappFloat) return;
+
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        const updateWhatsAppPosition = () => {
+            const currentScrollY = window.scrollY;
+            
+            whatsappFloat.classList.remove('scroll-up', 'scroll-down', 'scrolling');
+            whatsappFloat.classList.add('scrolling');
+            
+            if (currentScrollY > lastScrollY) {
+                whatsappFloat.classList.add('scroll-down');
+            } else if (currentScrollY < lastScrollY) {
+                whatsappFloat.classList.add('scroll-up');
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        };
+
+        const onScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(updateWhatsAppPosition);
+                ticking = true;
+            }
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                whatsappFloat.classList.remove('scroll-up', 'scroll-down', 'scrolling');
+            }, 150);
+        }, { passive: true });
+    }
+
     // Abrir WhatsApp
     openWhatsApp(message) {
         const encodedMessage = encodeURIComponent(message);
@@ -494,10 +529,7 @@ class NissaTechApp {
 
     // Animações
     setupAnimations() {
-        // Contadores animados
         this.setupCounters();
-        
-        // Efeitos de hover modernos
         this.setupHoverEffects();
     }
 
@@ -534,7 +566,6 @@ class NissaTechApp {
     }
 
     setupHoverEffects() {
-        // Efeito de tilt moderno nos cards (apenas para desktop)
         if (window.innerWidth > 768) {
             const cards = document.querySelectorAll('.servico-card, .marca-card');
             
@@ -562,11 +593,9 @@ class NissaTechApp {
             });
         }
 
-        // Efeito de ripple nos botões
         const buttons = document.querySelectorAll('.cta-button, .map-button');
         buttons.forEach(button => {
             button.addEventListener('click', function(e) {
-                // Criar efeito ripple apenas se não for mobile
                 if (window.innerWidth > 768) {
                     const ripple = document.createElement('span');
                     const rect = this.getBoundingClientRect();
@@ -613,7 +642,6 @@ class NissaTechApp {
 
     // Otimizações para mobile
     setupMobileOptimizations() {
-        // Melhorar feedback visual para toque
         const touchElements = document.querySelectorAll('.cta-button, .servico-card, .marca-card, .nav-link');
         
         touchElements.forEach(element => {
@@ -637,7 +665,6 @@ class NissaTechApp {
             });
         });
 
-        // Prevenir zoom duplo-toque em botões
         const buttons = document.querySelectorAll('button, a');
         buttons.forEach(button => {
             button.addEventListener('touchstart', function(e) {
@@ -647,14 +674,12 @@ class NissaTechApp {
             }, { passive: false });
         });
 
-        // Otimizar performance em mobile
         if ('connection' in navigator) {
             if (navigator.connection.saveData || navigator.connection.effectiveType.includes('2g')) {
                 this.reduceAnimations();
             }
         }
 
-        // Lazy loading para imagens fora da viewport
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -674,10 +699,8 @@ class NissaTechApp {
             });
         }
 
-        // Melhorar acessibilidade em mobile
         document.addEventListener('touchstart', function() {}, { passive: true });
 
-        // Detectar modo touch
         document.addEventListener('touchstart', function() {
             document.body.classList.add('touch-mode');
         });
@@ -686,14 +709,12 @@ class NissaTechApp {
             document.body.classList.remove('touch-mode');
         });
 
-        // Otimizar animações para mobile
         if (window.innerWidth <= 768) {
             document.documentElement.style.setProperty('--animation-duration', '0.3s');
         }
     }
 
     reduceAnimations() {
-        // Reduzir animações em conexões lentas
         document.documentElement.style.setProperty('--animation-duration', '0.1s');
         
         const animatedElements = document.querySelectorAll('*');
@@ -714,7 +735,6 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
     
-    // Verificação final de elementos não animados
     setTimeout(() => {
         const app = document.querySelector('script')?.app || new NissaTechApp();
         app.animateOnScroll();
@@ -736,7 +756,6 @@ style.textContent = `
         overflow: hidden;
     }
 
-    /* Melhorias de acessibilidade para mobile */
     @media (max-width: 768px) {
         .touch-mode *:focus {
             outline: none;
@@ -756,7 +775,6 @@ style.textContent = `
         }
     }
 
-    /* Otimizações de performance para mobile */
     @media (max-width: 768px) {
         .servico-card::before,
         .cta-button::before {

@@ -82,9 +82,10 @@
         padding: 12px !important;
         width: 55px !important;
         height: 55px !important;
-        z-index: 1001 !important;
+        z-index: 10001 !important;
         border-radius: 10px !important;
         transition: all 0.3s ease !important;
+        position: relative !important;
     }
     
     .hamburger:hover {
@@ -127,7 +128,7 @@
         justify-content: flex-start !important;
         padding: 40px 20px !important;
         transition: all 0.4s ease !important;
-        z-index: 999 !important;
+        z-index: 9999 !important;
         overflow-y: auto !important;
     }
     
@@ -1121,7 +1122,7 @@
         font-weight: 700 !important;
         font-size: 1rem !important;
         box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4) !important;
-        z-index: 998 !important;
+        z-index: 997 !important;
         min-height: 60px !important;
         transition: all 0.3s ease !important;
         border: 2px solid rgba(255,255,255,0.2) !important;
@@ -1390,4 +1391,37 @@
     .nav-menu.active .nav-link {
         min-height: 44px !important;
     }
+}
+
+/* ========== CORREÇÕES DE PRIORIDADE Z-INDEX ========== */
+
+/* Garantir que o menu tenha prioridade máxima */
+.nav-menu.active {
+    z-index: 9999 !important;
+}
+
+.hamburger {
+    z-index: 10000 !important;
+}
+
+/* Correção específica para o hamburger em mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        position: relative;
+        z-index: 10001 !important;
+    }
+    
+    /* Garantir que nada cubra o hamburger */
+    .header {
+        z-index: 1000 !important;
+    }
+    
+    .nav-menu.active {
+        z-index: 999 !important;
+    }
+}
+
+/* WhatsApp sempre visível mas não atrapalhando */
+.whatsapp-float {
+    z-index: 997 !important; /* Abaixo do menu mas acima do conteúdo */
 }
