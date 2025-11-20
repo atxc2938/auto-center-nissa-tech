@@ -261,52 +261,67 @@ class NissaTechApp {
         });
     }
 
-    // Menu mobile - CORREÇÃO COMPLETA
+    // Menu mobile - CORREÇÃO COMPLETA E MELHORADA
     setupMobileMenu() {
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-link');
 
         if (hamburger && navMenu) {
-            hamburger.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
+            // CORREÇÃO: Garantir que o hamburger sempre responda
+            hamburger.style.pointerEvents = 'all';
+            hamburger.style.cursor = 'pointer';
+            
+            const toggleMenu = (e) => {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                }
+                
                 hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
                 document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-            });
+            };
+
+            // CORREÇÃO: Múltiplos event listeners para garantir funcionamento
+            hamburger.addEventListener('click', toggleMenu, true);
+            hamburger.addEventListener('touchstart', toggleMenu, { passive: true });
+            
+            // CORREÇÃO: Melhor fechamento do menu
+            const closeMenu = () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            };
 
             navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
+                link.addEventListener('click', closeMenu);
+                link.addEventListener('touchstart', closeMenu, { passive: true });
             });
 
             document.addEventListener('click', (e) => {
                 if (!navMenu.contains(e.target) && !hamburger.contains(e.target) && navMenu.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    document.body.style.overflow = '';
+                    closeMenu();
                 }
             });
 
             window.addEventListener('scroll', () => {
                 if (navMenu.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    document.body.style.overflow = '';
+                    closeMenu();
                 }
             });
 
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    document.body.style.overflow = '';
+                    closeMenu();
                 }
             });
+
+            // CORREÇÃO: Prevenir eventos duplicados
+            hamburger.removeEventListener('click', toggleMenu);
+            hamburger.addEventListener('click', toggleMenu, true);
+            
         } else {
             console.error('Elementos do menu mobile não encontrados:', { hamburger, navMenu });
         }

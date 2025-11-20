@@ -19,7 +19,7 @@
     }
     
     .container {
-        padding: 0 20px !important; /* Margem confortável */
+        padding: 0 15px !important; /* Mais próximo da borda (reduzido de 20px) */
         max-width: 100% !important;
         margin: 0 auto !important;
         width: 100% !important;
@@ -35,7 +35,7 @@
         background: rgba(0, 0, 0, 0.98) !important;
         backdrop-filter: blur(20px) !important;
         border-bottom: 2px solid var(--border) !important;
-        height: 80px !important;
+        height: 70px !important; /* Reduzido de 80px */
         padding: 0 !important;
         margin: 0 !important;
     }
@@ -44,8 +44,8 @@
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        padding: 0 20px !important;
-        height: 80px !important;
+        padding: 0 15px !important; /* Mais próximo da borda */
+        height: 70px !important; /* Reduzido de 80px */
         width: 100% !important;
     }
     
@@ -56,9 +56,9 @@
     }
     
     .logo-img {
-        height: 45px !important; /* Logo proporcional */
+        height: 40px !important; /* Logo menor (reduzido de 45px) */
         width: auto !important;
-        max-height: 45px !important;
+        max-height: 40px !important;
     }
     
     /* ESCONDER MENU DESKTOP NO MOBILE */
@@ -70,7 +70,7 @@
         display: none !important;
     }
     
-    /* HAMBURGUER OTIMIZADO */
+    /* HAMBURGUER OTIMIZADO E MAIS PRÓXIMO DA BORDA */
     .hamburger {
         display: flex !important;
         flex-direction: column !important;
@@ -79,13 +79,14 @@
         cursor: pointer !important;
         background: transparent !important;
         border: none !important;
-        padding: 12px !important;
-        width: 55px !important;
-        height: 55px !important;
+        padding: 10px !important; /* Reduzido */
+        width: 50px !important; /* Reduzido de 55px */
+        height: 50px !important; /* Reduzido de 55px */
         z-index: 10001 !important;
         border-radius: 10px !important;
         transition: all 0.3s ease !important;
         position: relative !important;
+        margin-right: -5px !important; /* Mais próximo da borda direita */
     }
     
     .hamburger:hover {
@@ -93,16 +94,16 @@
     }
     
     .bar {
-        width: 28px !important;
-        height: 3px !important;
+        width: 25px !important; /* Reduzido de 28px */
+        height: 2.5px !important; /* Reduzido de 3px */
         background: var(--text) !important;
-        margin: 3px 0 !important;
+        margin: 2.5px 0 !important; /* Reduzido de 3px */
         transition: 0.3s !important;
         border-radius: 2px !important;
     }
     
     .hamburger.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px) !important;
+        transform: rotate(45deg) translate(5px, 5px) !important; /* Ajustado */
     }
     
     .hamburger.active .bar:nth-child(2) {
@@ -110,23 +111,34 @@
     }
     
     .hamburger.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px) !important;
+        transform: rotate(-45deg) translate(5px, -5px) !important; /* Ajustado */
+    }
+    
+    /* MELHORAR ÁREA DE TOQUE DO HAMBURGUER */
+    .hamburger::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        z-index: -1;
     }
     
     /* MENU MOBILE BALANCEADO */
     .nav-menu.active {
         position: fixed !important;
-        top: 80px !important;
+        top: 70px !important; /* Ajustado para header menor */
         left: 0 !important;
         width: 100% !important;
-        height: calc(100vh - 80px) !important;
+        height: calc(100vh - 70px) !important; /* Ajustado para header menor */
         background: rgba(0, 0, 0, 0.99) !important;
         backdrop-filter: blur(30px) !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: flex-start !important;
-        padding: 40px 20px !important;
+        padding: 30px 15px !important; /* Mais compacto */
         transition: all 0.4s ease !important;
         z-index: 9999 !important;
         overflow-y: auto !important;
@@ -137,18 +149,18 @@
         align-items: center !important;
         justify-content: center !important;
         width: 100% !important;
-        padding: 20px !important;
-        margin: 10px 0 !important;
+        padding: 16px !important; /* Reduzido de 20px */
+        margin: 8px 0 !important; /* Reduzido de 10px */
         background: rgba(255, 255, 255, 0.05) !important;
         border: 2px solid var(--border) !important;
         border-radius: 15px !important;
         color: var(--text-light) !important;
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important; /* Reduzido de 1.2rem */
         font-weight: 700 !important;
         text-decoration: none !important;
         text-align: center !important;
         transition: all 0.3s ease !important;
-        min-height: 65px !important;
+        min-height: 55px !important; /* Reduzido de 65px */
     }
     
     .nav-menu.active .nav-link:hover {
@@ -158,16 +170,16 @@
         transform: scale(1.02) !important;
     }
     
-    /* ========== HERO BALANCEADO ========== */
+    /* ========== HERO BALANCEADO - CORREÇÃO DO ESPAÇO ENORME ========== */
     .hero {
         position: relative !important;
-        min-height: 100vh !important;
-        min-height: 100dvh !important;
+        min-height: calc(100vh - 70px) !important; /* Ajustado para header menor */
+        min-height: calc(100dvh - 70px) !important;
         display: flex !important;
         align-items: center !important;
         background: var(--background) !important;
         overflow: hidden !important;
-        padding: 100px 0 50px !important;
+        padding: 80px 0 30px !important; /* ESPAÇO REDUZIDO SIGNIFICATIVAMENTE */
         margin: 0 !important;
         width: 100% !important;
     }
@@ -177,15 +189,15 @@
         z-index: 2 !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 2.5rem !important;
+        gap: 2rem !important; /* Reduzido de 2.5rem */
         text-align: center !important;
         width: 100% !important;
     }
     
     .hero-title {
-        font-size: 2.5rem !important;
+        font-size: 2.2rem !important; /* Reduzido de 2.5rem */
         line-height: 1.1 !important;
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 1rem !important; /* Reduzido de 1.5rem */
         font-weight: 900 !important;
         color: var(--text) !important;
         text-align: center !important;
@@ -201,26 +213,26 @@
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-clip: text !important;
-        font-size: 2.8rem !important;
+        font-size: 2.4rem !important; /* Reduzido de 2.8rem */
         font-weight: 900 !important;
     }
     
     .hero-description {
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important; /* Reduzido de 1.2rem */
         line-height: 1.5 !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
         color: var(--text-light) !important;
         font-weight: 600 !important;
         text-align: center !important;
         padding: 0 15px !important;
     }
     
-    /* BOTÕES BALANCEADOS */
+    /* BOTÕES BALANCEADOS E MENORES */
     .hero-buttons {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1.2rem !important;
-        margin-bottom: 2.5rem !important;
+        gap: 1rem !important; /* Reduzido de 1.2rem */
+        margin-bottom: 2rem !important; /* Reduzido de 2.5rem */
         width: 100% !important;
         padding: 0 15px !important;
     }
@@ -228,18 +240,18 @@
     .hero-buttons .cta-button {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1.2rem 2rem !important;
-        font-size: 1.1rem !important;
+        padding: 1rem 1.5rem !important; /* Reduzido */
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
         font-weight: 700 !important;
-        min-height: 60px !important;
+        min-height: 55px !important; /* Reduzido de 60px */
         border-radius: 15px !important;
     }
     
-    /* STATS BALANCEADOS */
+    /* STATS BALANCEADOS E MENORES */
     .hero-stats {
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 1rem !important;
+        gap: 0.8rem !important; /* Reduzido de 1rem */
         margin: 0 auto !important;
         max-width: 100% !important;
         width: 100% !important;
@@ -248,11 +260,11 @@
     
     .stat-item {
         text-align: center !important;
-        padding: 1.2rem 0.5rem !important;
+        padding: 1rem 0.5rem !important; /* Reduzido */
         background: var(--background-lighter) !important;
         border-radius: 15px !important;
         border: 1px solid var(--border) !important;
-        min-height: 110px !important;
+        min-height: 95px !important; /* Reduzido de 110px */
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
@@ -260,7 +272,7 @@
     }
     
     .stat-number {
-        font-size: 1.8rem !important;
+        font-size: 1.6rem !important; /* Reduzido de 1.8rem */
         font-weight: 900 !important;
         color: var(--primary) !important;
         line-height: 1 !important;
@@ -269,7 +281,7 @@
     }
     
     .stat-label {
-        font-size: 0.9rem !important;
+        font-size: 0.85rem !important; /* Reduzido de 0.9rem */
         color: var(--text-light) !important;
         font-weight: 600 !important;
         line-height: 1.3 !important;
@@ -278,7 +290,7 @@
     /* HERO IMAGE BALANCEADA */
     .hero-image {
         order: -1 !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
         width: 100% !important;
         padding: 0 15px !important;
     }
@@ -294,55 +306,55 @@
     
     .hero-img {
         width: 100% !important;
-        height: 280px !important;
+        height: 250px !important; /* Reduzido de 280px */
         object-fit: cover !important;
         display: block !important;
     }
     
     .image-badge {
         position: absolute !important;
-        top: 15px !important;
-        right: 15px !important;
+        top: 12px !important; /* Reduzido de 15px */
+        right: 12px !important; /* Reduzido de 15px */
         background: var(--gradient-primary) !important;
         color: white !important;
-        padding: 0.8rem 1.5rem !important;
+        padding: 0.6rem 1.2rem !important; /* Reduzido */
         border-radius: 50px !important;
         font-weight: 700 !important;
-        font-size: 0.9rem !important;
+        font-size: 0.85rem !important; /* Reduzido de 0.9rem */
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important;
+        gap: 6px !important; /* Reduzido de 8px */
         box-shadow: var(--shadow-lg) !important;
         z-index: 3 !important;
     }
     
     .scroll-indicator {
         position: absolute !important;
-        bottom: 1.5rem !important;
+        bottom: 1rem !important; /* Reduzido de 1.5rem */
         left: 50% !important;
         transform: translateX(-50%) !important;
         text-align: center !important;
         color: var(--text-lighter) !important;
-        font-size: 0.9rem !important;
+        font-size: 0.85rem !important; /* Reduzido de 0.9rem */
     }
     
     .scroll-line {
         width: 2px !important;
-        height: 40px !important;
+        height: 35px !important; /* Reduzido de 40px */
         background: var(--primary) !important;
         margin: 0 auto 0.5rem !important;
         animation: scrollBounce 2s infinite !important;
     }
     
-    /* ========== SECTIONS BALANCEADAS ========== */
+    /* ========== SECTIONS BALANCEADAS - CORREÇÃO DO ESPAÇO ENTRE SEÇÕES ========== */
     .section-padding {
-        padding: 60px 0 !important;
+        padding: 40px 0 !important; /* REDUZIDO DE 60px - CORREÇÃO DO ESPAÇO ENORME */
         width: 100% !important;
     }
     
     .section-header {
         text-align: center !important;
-        margin-bottom: 3rem !important;
+        margin-bottom: 2rem !important; /* Reduzido de 3rem */
         padding: 0 15px !important;
         width: 100% !important;
     }
@@ -354,16 +366,16 @@
         -webkit-text-fill-color: transparent !important;
         background-clip: text !important;
         font-weight: 700 !important;
-        margin-bottom: 1rem !important;
+        margin-bottom: 0.8rem !important; /* Reduzido de 1rem */
         text-transform: uppercase !important;
         letter-spacing: 1px !important;
-        font-size: 0.9rem !important;
+        font-size: 0.85rem !important; /* Reduzido de 0.9rem */
     }
     
     .section-title {
-        font-size: 2.2rem !important;
+        font-size: 2rem !important; /* Reduzido de 2.2rem */
         line-height: 1.2 !important;
-        margin-bottom: 1.2rem !important;
+        margin-bottom: 1rem !important; /* Reduzido de 1.2rem */
         font-weight: 900 !important;
         color: var(--text) !important;
         text-align: center !important;
@@ -371,7 +383,7 @@
     }
     
     .section-description {
-        font-size: 1.1rem !important;
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
         line-height: 1.5 !important;
         color: var(--text-light) !important;
         font-weight: 600 !important;
@@ -381,7 +393,7 @@
         padding: 0 15px !important;
     }
     
-    /* ========== SERVIÇOS BALANCEADOS ========== */
+    /* ========== SERVIÇOS BALANCEADOS E MENORES ========== */
     .servicos-section {
         background: var(--background-light) !important;
         width: 100% !important;
@@ -390,15 +402,15 @@
     .servicos-grid {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1.2rem !important;
-        margin-bottom: 2.5rem !important;
+        gap: 1rem !important; /* Reduzido de 1.2rem */
+        margin-bottom: 2rem !important; /* Reduzido de 2.5rem */
         width: 100% !important;
         padding: 0 10px !important;
     }
     
     .servico-card {
         background: var(--background-lighter) !important;
-        padding: 2rem !important;
+        padding: 1.5rem !important; /* Reduzido de 2rem */
         border-radius: 20px !important;
         border: 1px solid var(--border) !important;
         transition: all 0.3s ease !important;
@@ -416,116 +428,116 @@
     }
     
     .servico-icon {
-        width: 75px !important;
-        height: 75px !important;
+        width: 65px !important; /* Reduzido de 75px */
+        height: 65px !important; /* Reduzido de 75px */
         background: var(--gradient-primary) !important;
         border-radius: 18px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 1.2rem !important; /* Reduzido de 1.5rem */
     }
     
     .servico-icon i {
-        font-size: 1.8rem !important;
+        font-size: 1.6rem !important; /* Reduzido de 1.8rem */
         color: white !important;
     }
     
     .servico-title {
-        font-size: 1.4rem !important;
+        font-size: 1.3rem !important; /* Reduzido de 1.4rem */
         line-height: 1.3 !important;
-        margin-bottom: 1rem !important;
+        margin-bottom: 0.8rem !important; /* Reduzido de 1rem */
         font-weight: 800 !important;
         color: var(--text) !important;
     }
     
     .servico-description {
-        font-size: 1.05rem !important;
+        font-size: 1rem !important; /* Reduzido de 1.05rem */
         line-height: 1.5 !important;
         color: var(--text-light) !important;
-        margin-bottom: 1.2rem !important;
+        margin-bottom: 1rem !important; /* Reduzido de 1.2rem */
         font-weight: 600 !important;
     }
     
     .servico-features {
         list-style: none !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
         padding: 0 !important;
     }
     
     .servico-features li {
         display: flex !important;
         align-items: center !important;
-        gap: 10px !important;
-        margin-bottom: 8px !important;
+        gap: 8px !important; /* Reduzido de 10px */
+        margin-bottom: 6px !important; /* Reduzido de 8px */
         color: var(--text-lighter) !important;
-        font-size: 0.95rem !important;
+        font-size: 0.9rem !important; /* Reduzido de 0.95rem */
         font-weight: 500 !important;
     }
     
     .servico-features i {
         color: var(--primary) !important;
-        font-size: 0.9rem !important;
-        min-width: 16px !important;
+        font-size: 0.85rem !important; /* Reduzido de 0.9rem */
+        min-width: 14px !important; /* Reduzido de 16px */
     }
     
     .servico-cta {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
+        gap: 0.8rem !important; /* Reduzido de 1rem */
         width: 100% !important;
     }
     
     .servico-price {
         text-align: center !important;
         color: var(--text-light) !important;
-        font-size: 1.05rem !important;
+        font-size: 1rem !important; /* Reduzido de 1.05rem */
         font-weight: 600 !important;
     }
     
     .servico-price strong {
         color: var(--primary) !important;
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important; /* Reduzido de 1.2rem */
         font-weight: 800 !important;
     }
     
     .servico-btn {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1.1rem 1.5rem !important;
-        font-size: 1.05rem !important;
+        padding: 1rem 1.2rem !important; /* Reduzido */
+        font-size: 1rem !important; /* Reduzido de 1.05rem */
         font-weight: 700 !important;
-        min-height: 55px !important;
+        min-height: 50px !important; /* Reduzido de 55px */
         border-radius: 12px !important;
     }
     
     .section-cta {
         text-align: center !important;
-        padding: 2.5rem 0 0 !important;
+        padding: 2rem 0 0 !important;
         border-top: 1px solid var(--border) !important;
         width: 100% !important;
     }
     
     .section-cta p {
         color: var(--text-light) !important;
-        margin-bottom: 1.5rem !important;
-        font-size: 1.1rem !important;
+        margin-bottom: 1.2rem !important; /* Reduzido de 1.5rem */
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
         font-weight: 600 !important;
     }
     
-    /* ========== MARCAS BALANCEADAS ========== */
+    /* ========== MARCAS BALANCEADAS E MENORES ========== */
     .marcas-grid {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1.2rem !important;
-        margin-bottom: 2.5rem !important;
+        gap: 1rem !important; /* Reduzido de 1.2rem */
+        margin-bottom: 2rem !important; /* Reduzido de 2.5rem */
         width: 100% !important;
         padding: 0 10px !important;
     }
     
     .marca-card {
         background: var(--background-lighter) !important;
-        padding: 2rem !important;
+        padding: 1.5rem !important; /* Reduzido de 2rem */
         border-radius: 18px !important;
         border: 1px solid var(--border) !important;
         text-align: center !important;
@@ -541,28 +553,28 @@
     }
     
     .marca-header {
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 1.2rem !important; /* Reduzido de 1.5rem */
     }
     
     .marca-logo {
-        width: 70px !important;
-        height: 70px !important;
+        width: 60px !important; /* Reduzido de 70px */
+        height: 60px !important; /* Reduzido de 70px */
         background: var(--gradient-primary) !important;
         border-radius: 16px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        margin: 0 auto 1rem !important;
+        margin: 0 auto 0.8rem !important; /* Reduzido de 1rem */
     }
     
     .marca-logo i {
-        font-size: 1.7rem !important;
+        font-size: 1.5rem !important; /* Reduzido de 1.7rem */
         color: white !important;
     }
     
     .marca-title {
-        font-size: 1.3rem !important;
-        margin-bottom: 0.8rem !important;
+        font-size: 1.2rem !important; /* Reduzido de 1.3rem */
+        margin-bottom: 0.6rem !important; /* Reduzido de 0.8rem */
         font-weight: 800 !important;
     }
     
@@ -570,16 +582,16 @@
         display: inline-block !important;
         background: var(--primary) !important;
         color: white !important;
-        padding: 6px 12px !important;
+        padding: 5px 10px !important; /* Reduzido */
         border-radius: 20px !important;
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important; /* Reduzido de 0.8rem */
         font-weight: 700 !important;
     }
     
     .marca-description {
         color: var(--text-light) !important;
-        margin-bottom: 1.5rem !important;
-        font-size: 1rem !important;
+        margin-bottom: 1.2rem !important; /* Reduzido de 1.5rem */
+        font-size: 0.95rem !important; /* Reduzido de 1rem */
         line-height: 1.5 !important;
         font-weight: 600 !important;
     }
@@ -587,52 +599,52 @@
     .marca-features {
         display: flex !important;
         flex-direction: column !important;
-        gap: 10px !important;
-        margin-bottom: 2rem !important;
+        gap: 8px !important; /* Reduzido de 10px */
+        margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
     }
     
     .feature {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 10px !important;
+        gap: 8px !important; /* Reduzido de 10px */
         color: var(--text-lighter) !important;
-        font-size: 0.9rem !important;
+        font-size: 0.85rem !important; /* Reduzido de 0.9rem */
         font-weight: 500 !important;
     }
     
     .feature i {
         color: var(--primary) !important;
-        font-size: 0.85rem !important;
+        font-size: 0.8rem !important; /* Reduzido de 0.85rem */
     }
     
     .marca-btn {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1.1rem 1.5rem !important;
-        font-size: 1.05rem !important;
+        padding: 1rem 1.2rem !important; /* Reduzido */
+        font-size: 1rem !important; /* Reduzido de 1.05rem */
         font-weight: 700 !important;
-        min-height: 55px !important;
+        min-height: 50px !important; /* Reduzido de 55px */
         border-radius: 12px !important;
     }
     
-    /* ========== PNEUS EXTRA BALANCEADOS ========== */
+    /* ========== PNEUS EXTRA BALANCEADOS E MENORES ========== */
     .pneus-extra {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
+        gap: 0.8rem !important; /* Reduzido de 1rem */
         width: 100% !important;
         padding: 0 10px !important;
     }
     
     .extra-card {
         background: var(--background-lighter) !important;
-        padding: 1.5rem !important;
+        padding: 1.2rem !important; /* Reduzido de 1.5rem */
         border-radius: 15px !important;
         border: 1px solid var(--border) !important;
         display: flex !important;
         align-items: center !important;
-        gap: 1.2rem !important;
+        gap: 1rem !important; /* Reduzido de 1.2rem */
         transition: all 0.3s ease !important;
         width: 100% !important;
         margin: 0 !important;
@@ -644,8 +656,8 @@
     }
     
     .extra-icon {
-        width: 60px !important;
-        height: 60px !important;
+        width: 55px !important; /* Reduzido de 60px */
+        height: 55px !important; /* Reduzido de 60px */
         background: var(--gradient-primary) !important;
         border-radius: 14px !important;
         display: flex !important;
@@ -655,21 +667,21 @@
     }
     
     .extra-icon i {
-        font-size: 1.5rem !important;
+        font-size: 1.4rem !important; /* Reduzido de 1.5rem */
         color: white !important;
     }
     
     .extra-content h4 {
-        margin-bottom: 0.5rem !important;
+        margin-bottom: 0.4rem !important; /* Reduzido de 0.5rem */
         color: var(--text) !important;
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important; /* Reduzido de 1.2rem */
         font-weight: 800 !important;
     }
     
     .extra-content p {
         color: var(--text-light) !important;
-        font-size: 0.95rem !important;
-        margin-bottom: 0.5rem !important;
+        font-size: 0.9rem !important; /* Reduzido de 0.95rem */
+        margin-bottom: 0.4rem !important; /* Reduzido de 0.5rem */
         line-height: 1.4 !important;
         font-weight: 600 !important;
     }
@@ -677,24 +689,24 @@
     .extra-price {
         color: var(--primary) !important;
         font-weight: 800 !important;
-        font-size: 1.1rem !important;
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
     }
     
     .extra-tag {
         display: inline-block !important;
         background: var(--primary) !important;
         color: white !important;
-        padding: 4px 10px !important;
+        padding: 3px 8px !important; /* Reduzido */
         border-radius: 20px !important;
-        font-size: 0.75rem !important;
+        font-size: 0.7rem !important; /* Reduzido de 0.75rem */
         font-weight: 700 !important;
     }
     
-    /* ========== SOBRE BALANCEADO ========== */
+    /* ========== SOBRE BALANCEADO E MENOR ========== */
     .sobre-content {
         display: flex !important;
         flex-direction: column !important;
-        gap: 2.5rem !important;
+        gap: 2rem !important; /* Reduzido de 2.5rem */
         width: 100% !important;
         padding: 0 10px !important;
     }
@@ -702,16 +714,16 @@
     .sobre-features {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1.2rem !important;
-        margin: 2rem 0 !important;
+        gap: 1rem !important; /* Reduzido de 1.2rem */
+        margin: 1.5rem 0 !important; /* Reduzido de 2rem */
         width: 100% !important;
     }
     
     .feature-item {
         display: flex !important;
         align-items: flex-start !important;
-        gap: 1.2rem !important;
-        padding: 1.5rem !important;
+        gap: 1rem !important; /* Reduzido de 1.2rem */
+        padding: 1.2rem !important; /* Reduzido de 1.5rem */
         background: var(--background-lighter) !important;
         border-radius: 15px !important;
         border: 1px solid var(--border) !important;
@@ -720,8 +732,8 @@
     }
     
     .feature-icon {
-        width: 60px !important;
-        height: 60px !important;
+        width: 55px !important; /* Reduzido de 60px */
+        height: 55px !important; /* Reduzido de 60px */
         background: var(--gradient-primary) !important;
         border-radius: 14px !important;
         display: flex !important;
@@ -731,29 +743,29 @@
     }
     
     .feature-icon i {
-        font-size: 1.5rem !important;
+        font-size: 1.4rem !important; /* Reduzido de 1.5rem */
         color: white !important;
     }
     
     .feature-content h4 {
-        font-size: 1.2rem !important;
-        margin-bottom: 0.5rem !important;
+        font-size: 1.1rem !important; /* Reduzido de 1.2rem */
+        margin-bottom: 0.4rem !important; /* Reduzido de 0.5rem */
         color: var(--text) !important;
         font-weight: 800 !important;
     }
     
     .feature-content p {
         color: var(--text-light) !important;
-        font-size: 1rem !important;
+        font-size: 0.95rem !important; /* Reduzido de 1rem */
         line-height: 1.5 !important;
         margin-bottom: 0 !important;
         font-weight: 600 !important;
     }
     
-    /* REDES SOCIAIS BALANCEADAS */
+    /* REDES SOCIAIS BALANCEADAS E MENORES */
     .redes-sociais {
-        margin: 2rem 0 !important;
-        padding: 2rem !important;
+        margin: 1.5rem 0 !important; /* Reduzido de 2rem */
+        padding: 1.5rem !important; /* Reduzido de 2rem */
         background: var(--background-lighter) !important;
         border-radius: 15px !important;
         border: 1px solid var(--border) !important;
@@ -761,31 +773,31 @@
     }
     
     .redes-sociais h4 {
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 1.2rem !important; /* Reduzido de 1.5rem */
         text-align: center !important;
         color: var(--text) !important;
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important; /* Reduzido de 1.3rem */
         font-weight: 800 !important;
     }
     
     .social-grid {
         display: grid !important;
         grid-template-columns: 1fr !important;
-        gap: 1rem !important;
+        gap: 0.8rem !important; /* Reduzido de 1rem */
         width: 100% !important;
     }
     
     .social-card {
         display: flex !important;
         align-items: center !important;
-        gap: 1rem !important;
-        padding: 1.5rem !important;
+        gap: 0.8rem !important; /* Reduzido de 1rem */
+        padding: 1.2rem !important; /* Reduzido de 1.5rem */
         border-radius: 12px !important;
         text-decoration: none !important;
         transition: all 0.3s ease !important;
         border: 1px solid transparent !important;
-        min-height: 70px !important;
-        font-size: 1.1rem !important;
+        min-height: 65px !important; /* Reduzido de 70px */
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
         font-weight: 700 !important;
     }
     
@@ -805,18 +817,18 @@
     }
     
     .social-card i {
-        font-size: 1.5rem !important;
+        font-size: 1.4rem !important; /* Reduzido de 1.5rem */
     }
     
     .sobre-cta {
-        margin-top: 2rem !important;
+        margin-top: 1.5rem !important; /* Reduzido de 2rem */
         width: 100% !important;
     }
     
     .image-grid {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
+        gap: 0.8rem !important; /* Reduzido de 1rem */
         height: auto !important;
         width: 100% !important;
     }
@@ -825,7 +837,7 @@
         border-radius: 15px !important;
         overflow: hidden !important;
         position: relative !important;
-        height: 200px !important;
+        height: 180px !important; /* Reduzido de 200px */
         width: 100% !important;
         margin: 0 !important;
     }
@@ -841,7 +853,7 @@
         transform: scale(1.05) !important;
     }
     
-    /* ========== CONTATO BALANCEADO ========== */
+    /* ========== CONTATO BALANCEADO E MENOR ========== */
     .contato-section {
         background: var(--background-light) !important;
         width: 100% !important;
@@ -850,7 +862,7 @@
     .contato-content {
         display: flex !important;
         flex-direction: column !important;
-        gap: 2.5rem !important;
+        gap: 2rem !important; /* Reduzido de 2.5rem */
         width: 100% !important;
         padding: 0 10px !important;
     }
@@ -858,15 +870,15 @@
     .contato-info {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1.2rem !important;
+        gap: 1rem !important; /* Reduzido de 1.2rem */
         width: 100% !important;
     }
     
     .info-card {
         display: flex !important;
         align-items: flex-start !important;
-        gap: 1.2rem !important;
-        padding: 1.5rem !important;
+        gap: 1rem !important; /* Reduzido de 1.2rem */
+        padding: 1.2rem !important; /* Reduzido de 1.5rem */
         background: var(--background-lighter) !important;
         border-radius: 15px !important;
         border: 1px solid var(--border) !important;
@@ -881,8 +893,8 @@
     }
     
     .info-icon {
-        width: 60px !important;
-        height: 60px !important;
+        width: 55px !important; /* Reduzido de 60px */
+        height: 55px !important; /* Reduzido de 60px */
         background: var(--gradient-primary) !important;
         border-radius: 14px !important;
         display: flex !important;
@@ -892,28 +904,28 @@
     }
     
     .info-icon i {
-        font-size: 1.5rem !important;
+        font-size: 1.4rem !important; /* Reduzido de 1.5rem */
         color: white !important;
     }
     
     .info-content h4 {
-        font-size: 1.2rem !important;
-        margin-bottom: 0.5rem !important;
+        font-size: 1.1rem !important; /* Reduzido de 1.2rem */
+        margin-bottom: 0.4rem !important; /* Reduzido de 0.5rem */
         color: var(--text) !important;
         font-weight: 800 !important;
     }
     
     .info-content p {
         color: var(--text-light) !important;
-        margin-bottom: 0.25rem !important;
-        font-size: 1rem !important;
+        margin-bottom: 0.2rem !important; /* Reduzido de 0.25rem */
+        font-size: 0.95rem !important; /* Reduzido de 1rem */
         line-height: 1.4 !important;
         font-weight: 600 !important;
     }
     
     .info-note {
         color: var(--primary) !important;
-        font-size: 0.9rem !important;
+        font-size: 0.85rem !important; /* Reduzido de 0.9rem */
         font-weight: 700 !important;
     }
     
@@ -926,7 +938,7 @@
     }
     
     .map-container {
-        height: 250px !important;
+        height: 220px !important; /* Reduzido de 250px */
         background: var(--secondary-light) !important;
         display: flex !important;
         align-items: center !important;
@@ -941,7 +953,7 @@
     }
     
     .map-actions {
-        padding: 1.5rem !important;
+        padding: 1.2rem !important; /* Reduzido de 1.5rem */
         text-align: center !important;
         border-top: 1px solid var(--border) !important;
         width: 100% !important;
@@ -950,39 +962,39 @@
     .map-button {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1.2rem 2rem !important;
-        font-size: 1.1rem !important;
+        padding: 1rem 1.5rem !important; /* Reduzido */
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
         font-weight: 700 !important;
-        min-height: 60px !important;
+        min-height: 55px !important; /* Reduzido de 60px */
         border-radius: 15px !important;
     }
     
     /* ========== CORREÇÕES MOBILE PARA MAPA BALANCEADO ========== */
     .map-placeholder {
-        min-height: 200px !important;
+        min-height: 180px !important; /* Reduzido de 200px */
         margin: 0 !important;
-        padding: 1.5rem 1rem !important;
+        padding: 1.2rem 1rem !important; /* Reduzido */
     }
     
     .map-placeholder i {
-        font-size: 2.5rem !important;
-        margin-bottom: 1rem !important;
+        font-size: 2.2rem !important; /* Reduzido de 2.5rem */
+        margin-bottom: 0.8rem !important; /* Reduzido de 1rem */
     }
     
     .map-placeholder p {
-        font-size: 1rem !important;
-        margin-bottom: 0.5rem !important;
+        font-size: 0.95rem !important; /* Reduzido de 1rem */
+        margin-bottom: 0.4rem !important; /* Reduzido de 0.5rem */
     }
     
     .map-placeholder p:first-of-type {
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important; /* Reduzido de 1.2rem */
         font-weight: 700 !important;
     }
     
-    /* ========== FOOTER BALANCEADO ========== */
+    /* ========== FOOTER BALANCEADO E MENOR ========== */
     .footer {
         background: var(--secondary-light) !important;
-        padding: 3rem 0 1.5rem !important;
+        padding: 2.5rem 0 1.2rem !important; /* Reduzido */
         border-top: 2px solid var(--border) !important;
         width: 100% !important;
     }
@@ -990,24 +1002,24 @@
     .footer-content {
         display: flex !important;
         flex-direction: column !important;
-        gap: 2.5rem !important;
+        gap: 2rem !important; /* Reduzido de 2.5rem */
         text-align: center !important;
-        margin-bottom: 2.5rem !important;
+        margin-bottom: 2rem !important; /* Reduzido de 2.5rem */
         width: 100% !important;
         padding: 0 15px !important;
     }
     
     .footer-section h4 {
-        margin-bottom: 1.2rem !important;
+        margin-bottom: 1rem !important; /* Reduzido de 1.2rem */
         color: var(--text) !important;
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important; /* Reduzido de 1.3rem */
         font-weight: 800 !important;
     }
     
     .footer-description {
         color: var(--text-light) !important;
-        margin-bottom: 1.5rem !important;
-        font-size: 1rem !important;
+        margin-bottom: 1.2rem !important; /* Reduzido de 1.5rem */
+        font-size: 0.95rem !important; /* Reduzido de 1rem */
         line-height: 1.5 !important;
         font-weight: 600 !important;
     }
@@ -1015,13 +1027,13 @@
     .social-links {
         display: flex !important;
         justify-content: center !important;
-        gap: 1rem !important;
+        gap: 0.8rem !important; /* Reduzido de 1rem */
         width: 100% !important;
     }
     
     .social-link {
-        width: 50px !important;
-        height: 50px !important;
+        width: 45px !important; /* Reduzido de 50px */
+        height: 45px !important; /* Reduzido de 50px */
         background: var(--background-lighter) !important;
         border-radius: 12px !important;
         display: flex !important;
@@ -1030,7 +1042,7 @@
         color: var(--text-light) !important;
         text-decoration: none !important;
         transition: all 0.3s ease !important;
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important; /* Reduzido de 1.3rem */
     }
     
     .social-link:hover {
@@ -1046,13 +1058,13 @@
     }
     
     .footer-links li {
-        margin-bottom: 0.8rem !important;
+        margin-bottom: 0.6rem !important; /* Reduzido de 0.8rem */
     }
     
     .footer-links a {
         color: var(--text-light) !important;
         text-decoration: none !important;
-        font-size: 1rem !important;
+        font-size: 0.95rem !important; /* Reduzido de 1rem */
         font-weight: 600 !important;
         transition: color 0.3s ease !important;
     }
@@ -1065,10 +1077,10 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 10px !important;
+        gap: 8px !important; /* Reduzido de 10px */
         color: var(--text-light) !important;
-        margin-bottom: 1rem !important;
-        font-size: 1rem !important;
+        margin-bottom: 0.8rem !important; /* Reduzido de 1rem */
+        font-size: 0.95rem !important; /* Reduzido de 1rem */
         font-weight: 600 !important;
         text-align: left !important;
         padding: 0 10px !important;
@@ -1076,19 +1088,19 @@
     
     .footer-contact i {
         color: var(--primary) !important;
-        font-size: 1.1rem !important;
-        min-width: 18px !important;
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
+        min-width: 16px !important; /* Reduzido de 18px */
     }
     
     .footer-bottom {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
+        gap: 0.8rem !important; /* Reduzido de 1rem */
         text-align: center !important;
-        padding-top: 2rem !important;
+        padding-top: 1.5rem !important; /* Reduzido de 2rem */
         border-top: 1px solid var(--border) !important;
         color: var(--text-lighter) !important;
-        font-size: 0.9rem !important;
+        font-size: 0.85rem !important; /* Reduzido de 0.9rem */
         font-weight: 600 !important;
         width: 100% !important;
         padding: 0 15px !important;
@@ -1098,62 +1110,64 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 6px !important;
+        gap: 5px !important; /* Reduzido de 6px */
     }
     
     .footer-dev i {
         color: var(--primary) !important;
-        font-size: 1rem !important;
+        font-size: 0.9rem !important; /* Reduzido de 1rem */
     }
     
-    /* ========== WHATSAPP FLOAT BALANCEADO ========== */
+    /* ========== WHATSAPP FLOAT BALANCEADO E CENTRALIZADO ========== */
     .whatsapp-float {
         position: fixed !important;
-        bottom: 20px !important;
-        right: 20px !important;
+        bottom: 15px !important;
+        left: 50% !important; /* CENTRALIZADO */
+        right: auto !important;
+        transform: translateX(-50%) !important; /* CENTRALIZADO */
         background: #25D366 !important;
         color: white !important;
-        padding: 1.2rem 1.8rem !important;
+        padding: 1rem 1.8rem !important; /* Reduzido */
         border-radius: 50px !important;
         display: flex !important;
         align-items: center !important;
-        gap: 10px !important;
+        gap: 8px !important; /* Reduzido de 10px */
         text-decoration: none !important;
         font-weight: 700 !important;
-        font-size: 1rem !important;
-        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4) !important;
+        font-size: 0.95rem !important; /* Reduzido de 1rem */
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4) !important;
         z-index: 997 !important;
-        min-height: 60px !important;
+        min-height: 55px !important; /* Reduzido de 60px */
         transition: all 0.3s ease !important;
         border: 2px solid rgba(255,255,255,0.2) !important;
     }
     
     .whatsapp-float:hover {
-        transform: scale(1.05) !important;
-        box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6) !important;
+        transform: translateX(-50%) scale(1.05) !important; /* CENTRALIZADO E ESCALADO */
+        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6) !important;
     }
     
     .whatsapp-float .fab {
-        font-size: 1.4rem !important;
+        font-size: 1.2rem !important; /* Reduzido de 1.4rem */
     }
     
     .float-text {
-        font-size: 1rem !important;
+        font-size: 0.95rem !important; /* Reduzido de 1rem */
         font-weight: 700 !important;
     }
     
     .whatsapp-large {
-        padding: 1.2rem 2rem !important;
-        font-size: 1.1rem !important;
+        padding: 1rem 1.8rem !important; /* Reduzido */
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
         font-weight: 700 !important;
-        min-height: 60px !important;
+        min-height: 55px !important; /* Reduzido de 60px */
     }
     
     .whatsapp-large .fab {
-        font-size: 1.4rem !important;
+        font-size: 1.2rem !important; /* Reduzido de 1.4rem */
     }
     
-    /* ========== MODAL BALANCEADO ========== */
+    /* ========== MODAL BALANCEADO E MENOR ========== */
     .servico-modal {
         position: fixed !important;
         top: 0 !important;
@@ -1165,7 +1179,7 @@
         align-items: center !important;
         justify-content: center !important;
         z-index: 2000 !important;
-        padding: 20px !important;
+        padding: 15px !important; /* Reduzido de 20px */
         opacity: 0 !important;
         visibility: hidden !important;
         transition: all 0.3s ease !important;
@@ -1179,7 +1193,7 @@
     .modal-content {
         background: var(--background-lighter) !important;
         border-radius: 20px !important;
-        padding: 2rem !important;
+        padding: 1.5rem !important; /* Reduzido de 2rem */
         width: 100% !important;
         max-width: 100% !important;
         max-height: 85vh !important;
@@ -1196,17 +1210,17 @@
     
     .modal-close {
         position: absolute !important;
-        top: 15px !important;
-        right: 15px !important;
+        top: 12px !important; /* Reduzido de 15px */
+        right: 12px !important; /* Reduzido de 15px */
         background: var(--primary) !important;
         color: white !important;
-        width: 45px !important;
-        height: 45px !important;
+        width: 40px !important; /* Reduzido de 45px */
+        height: 40px !important; /* Reduzido de 45px */
         border-radius: 50% !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important; /* Reduzido de 1.3rem */
         cursor: pointer !important;
         transition: all 0.3s ease !important;
         border: 2px solid rgba(255,255,255,0.2) !important;
@@ -1219,30 +1233,30 @@
     }
     
     .modal-header {
-        margin-bottom: 2rem !important;
+        margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
         text-align: center !important;
         width: 100% !important;
     }
     
     .modal-icon {
-        width: 80px !important;
-        height: 80px !important;
+        width: 70px !important; /* Reduzido de 80px */
+        height: 70px !important; /* Reduzido de 80px */
         background: var(--gradient-primary) !important;
         border-radius: 20px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        margin: 0 auto 1.5rem !important;
+        margin: 0 auto 1.2rem !important; /* Reduzido de 1.5rem */
     }
     
     .modal-icon i {
-        font-size: 2rem !important;
+        font-size: 1.8rem !important; /* Reduzido de 2rem */
         color: white !important;
     }
     
     .modal-title {
-        font-size: 1.8rem !important;
-        margin-bottom: 1rem !important;
+        font-size: 1.6rem !important; /* Reduzido de 1.8rem */
+        margin-bottom: 0.8rem !important; /* Reduzido de 1rem */
         color: var(--text) !important;
         font-weight: 900 !important;
     }
@@ -1250,41 +1264,41 @@
     .modal-subtitle {
         color: var(--primary) !important;
         font-weight: 700 !important;
-        margin-bottom: 2rem !important;
-        font-size: 1.3rem !important;
+        margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
+        font-size: 1.2rem !important; /* Reduzido de 1.3rem */
     }
     
     .importancia-content {
-        margin-bottom: 2rem !important;
+        margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
         width: 100% !important;
     }
     
     .importancia-title {
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important; /* Reduzido de 1.3rem */
         color: var(--text) !important;
-        margin-bottom: 1rem !important;
+        margin-bottom: 0.8rem !important; /* Reduzido de 1rem */
         display: flex !important;
         align-items: center !important;
-        gap: 10px !important;
+        gap: 8px !important; /* Reduzido de 10px */
         font-weight: 800 !important;
     }
     
     .importancia-title i {
         color: var(--primary) !important;
-        font-size: 1.1rem !important;
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
     }
     
     .importancia-text {
         color: var(--text-light) !important;
         line-height: 1.6 !important;
-        margin-bottom: 1.5rem !important;
-        font-size: 1.1rem !important;
+        margin-bottom: 1.2rem !important; /* Reduzido de 1.5rem */
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
         font-weight: 600 !important;
     }
     
     .beneficios-list {
         list-style: none !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
         padding: 0 !important;
         width: 100% !important;
     }
@@ -1292,22 +1306,22 @@
     .beneficios-list li {
         display: flex !important;
         align-items: center !important;
-        gap: 10px !important;
-        margin-bottom: 1rem !important;
+        gap: 8px !important; /* Reduzido de 10px */
+        margin-bottom: 0.8rem !important; /* Reduzido de 1rem */
         color: var(--text-light) !important;
-        font-size: 1.05rem !important;
+        font-size: 1rem !important; /* Reduzido de 1.05rem */
         font-weight: 600 !important;
     }
     
     .beneficios-list i {
         color: var(--success) !important;
-        font-size: 0.95rem !important;
-        min-width: 14px !important;
+        font-size: 0.9rem !important; /* Reduzido de 0.95rem */
+        min-width: 12px !important; /* Reduzido de 14px */
     }
     
     .modal-cta {
         text-align: center !important;
-        padding-top: 2rem !important;
+        padding-top: 1.5rem !important; /* Reduzido de 2rem */
         border-top: 1px solid var(--border) !important;
         width: 100% !important;
     }
@@ -1315,10 +1329,10 @@
     .modal-cta-button {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1.2rem 2rem !important;
-        font-size: 1.1rem !important;
+        padding: 1rem 1.5rem !important; /* Reduzido */
+        font-size: 1rem !important; /* Reduzido de 1.1rem */
         font-weight: 700 !important;
-        min-height: 60px !important;
+        min-height: 55px !important; /* Reduzido de 60px */
         border-radius: 15px !important;
     }
 }
@@ -1411,7 +1425,7 @@
         z-index: 10001 !important;
     }
     
-    /* Garantir que nada cubra o hamburger */
+    /* Garantir que nada cuba o hamburger */
     .header {
         z-index: 1000 !important;
     }
@@ -1424,4 +1438,67 @@
 /* WhatsApp sempre visível mas não atrapalhando */
 .whatsapp-float {
     z-index: 997 !important; /* Abaixo do menu mas acima do conteúdo */
+}
+
+/* CORREÇÃO ESPECÍFICA PARA O HAMBURGUER RESPONDER SEMPRE */
+.hamburger {
+    cursor: pointer !important;
+    z-index: 10001 !important;
+    position: relative !important;
+}
+
+/* Garantir que o hamburger seja sempre clicável */
+@media (max-width: 768px) {
+    .hamburger {
+        pointer-events: all !important;
+        touch-action: manipulation !important;
+    }
+    
+    /* Melhorar área de toque */
+    .hamburger::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
+}
+
+/* CORREÇÃO PARA WHATSAPP SEMPRE CENTRALIZADO EM MOBILE */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        position: fixed !important;
+        bottom: 15px !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+        z-index: 997 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .whatsapp-float:hover {
+        transform: translateX(-50%) scale(1.05) !important;
+    }
+}
+
+/* Correção adicional para espaçamentos específicos */
+@media (max-width: 768px) {
+    /* Espaço reduzido após hero */
+    #servicos {
+        padding-top: 20px !important;
+    }
+    
+    /* Espaço reduzido entre seções */
+    .servicos-section + section {
+        padding-top: 20px !important;
+    }
+    
+    /* Espaço reduzido específico entre pneus e sobre nós */
+    #pneus + #sobre {
+        padding-top: 20px !important;
+    }
 }
