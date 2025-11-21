@@ -18,6 +18,8 @@
     --success: #00d26a;
     --warning: #ff9500;
     --error: #ff3b30;
+    --verde-whatsapp: #25D366;
+    --branco: #ffffff;
     
     /* Gradientes */
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -168,15 +170,60 @@ p {
     font-size: 0.9rem;
 }
 
-/* Botões WhatsApp maiores */
+/* Botões WhatsApp maiores - CORREÇÃO DO ALINHAMENTO */
 .whatsapp-large {
     padding: 1.25rem 2.5rem !important;
     font-size: 1.1rem !important;
     font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    min-width: auto !important;
 }
 
 .whatsapp-large .fab {
     font-size: 1.3rem !important;
+    margin-right: 0.5rem !important;
+}
+
+/* WhatsApp Float - CORREÇÃO DO ALINHAMENTO */
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 2.5rem !important;
+    right: 2.5rem !important;
+    background: var(--verde-whatsapp) !important;
+    color: var(--branco) !important;
+    padding: 1.3rem 2rem !important;
+    border-radius: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    font-weight: 700 !important;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5) !important;
+    transition: all 0.4s ease !important;
+    z-index: 1000 !important;
+    font-size: 1.1rem !important;
+    border: 2px solid transparent !important;
+    animation: float 3s ease-in-out infinite !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    min-width: auto !important;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7) !important;
+}
+
+.whatsapp-float:active {
+    transform: translateY(-1px) !important;
+}
+
+.float-text {
+    font-size: 1rem !important;
+    display: inline-block !important;
 }
 
 /* Header */
@@ -766,192 +813,6 @@ p {
     animation: pulse 2s ease-in-out infinite;
 }
 
-/* Produtos Section */
-.marcas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-}
-
-.marca-card {
-    background: var(--background-lighter);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.marca-card.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.4s ease;
-}
-
-.marca-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-    box-shadow: var(--shadow-lg);
-}
-
-.marca-header {
-    margin-bottom: 1.5rem;
-}
-
-.marca-logo {
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-}
-
-.marca-logo i {
-    font-size: 1.5rem;
-    color: white;
-}
-
-.marca-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-}
-
-.marca-tag {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.marca-description {
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-}
-
-.marca-features {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-}
-
-.feature {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--text-lighter);
-    font-size: 0.9rem;
-}
-
-.feature i {
-    color: var(--primary);
-    font-size: 0.8rem;
-}
-
-.marca-pricing {
-    text-align: center;
-}
-
-.price-range {
-    margin-bottom: 1rem;
-}
-
-.price-label {
-    display: block;
-    color: var(--text-lighter);
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-}
-
-.price-value {
-    display: block;
-    color: var(--primary);
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.pneus-extra {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.extra-card {
-    background: var(--background-lighter);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateX(-30px);
-}
-
-.extra-card.animate-in {
-    opacity: 1;
-    transform: translateX(0);
-    transition: all 0.4s ease;
-}
-
-.extra-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-2px);
-}
-
-.extra-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.extra-icon i {
-    font-size: 1.5rem;
-    color: white;
-}
-
-.extra-content h4 {
-    margin-bottom: 0.5rem;
-    color: var(--text);
-}
-
-.extra-content p {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.extra-price {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.extra-tag {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
 /* Sobre Section */
 .sobre-content {
     display: grid;
@@ -1330,35 +1191,6 @@ p {
     color: var(--primary);
 }
 
-/* WhatsApp Float */
-.whatsapp-float {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: #25D366;
-    color: white;
-    padding: 1.25rem 2rem;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    font-weight: 700;
-    box-shadow: var(--shadow-xl);
-    z-index: 1000;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4);
-}
-
-.float-text {
-    font-size: 1rem;
-}
-
 /* ========== CORREÇÕES PARA ANIMAÇÕES E MAPA ========== */
 
 /* Aumentar significativamente o placeholder do mapa */
@@ -1414,23 +1246,18 @@ p {
     color: var(--primary) !important;
 }
 
-/* Melhorar detecção de animação para serviços e pneus */
-.servicos-section,
-.produtos-section {
+/* Melhorar detecção de animação para serviços */
+.servicos-section {
     position: relative;
 }
 
-.servico-card,
-.marca-card,
-.tire-item {
+.servico-card {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.4s ease;
 }
 
-.servico-card.animate-in,
-.marca-card.animate-in,
-.tire-item.animate-in {
+.servico-card.animate-in {
     opacity: 1;
     transform: translateY(0);
 }
@@ -1462,28 +1289,23 @@ p {
     }
     
     /* Melhorar visibilidade dos elementos em mobile */
-    .servico-card,
-    .marca-card {
+    .servico-card {
         margin-bottom: 1rem;
         padding: 1.5rem !important;
     }
     
-    .servico-title,
-    .marca-title {
+    .servico-title {
         font-size: 1.3rem !important;
     }
     
-    .servico-description,
-    .marca-description {
+    .servico-description {
         font-size: 1rem !important;
     }
 }
 
 /* Melhorar performance das animações */
 @media (prefers-reduced-motion: reduce) {
-    .servico-card,
-    .marca-card,
-    .tire-item {
+    .servico-card {
         transition: none !important;
         transform: none !important;
         opacity: 1 !important;
@@ -1512,20 +1334,17 @@ p {
 }
 
 /* Aplicar animações melhoradas */
-.servico-card.animate-in,
-.marca-card.animate-in {
+.servico-card.animate-in {
     animation: slideInUp 0.4s ease-out forwards;
 }
 
 .feature-item.animate-in,
-.info-card.animate-in,
-.extra-card.animate-in {
+.info-card.animate-in {
     animation: fadeIn 0.6s ease-out forwards;
 }
 
 /* Garantir que as seções tenham altura suficiente */
-.servicos-section,
-.produtos-section {
+.servicos-section {
     min-height: auto;
     position: relative;
 }
@@ -1611,11 +1430,11 @@ body.loaded .animate-element {
 }
 
 /* Hover effects modernos */
-.servico-card, .marca-card, .info-card {
+.servico-card, .info-card {
     transition: all 0.3s ease;
 }
 
-.servico-card:hover, .marca-card:hover {
+.servico-card:hover {
     transform: translateY(-5px);
     box-shadow: 
         0 20px 40px rgba(255, 59, 48, 0.15),
@@ -1628,6 +1447,26 @@ body.loaded .animate-element {
 
 .cta-button:hover {
     transform: translateY(-3px) scale(1.05);
+}
+
+/* WhatsApp Float Media Queries */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 2rem !important;
+        right: 2rem !important;
+        padding: 1.2rem 1.8rem !important;
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-float {
+        bottom: 1rem !important;
+        right: 1rem !important;
+        padding: 1.3rem 1.6rem !important;
+        font-size: 1.2rem !important;
+        min-width: auto !important;
+    }
 }
 
 /* Responsive */
@@ -1684,14 +1523,6 @@ body.loaded .animate-element {
     }
     
     .servicos-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .marcas-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .pneus-extra {
         grid-template-columns: 1fr;
     }
     
@@ -1833,7 +1664,7 @@ body.loaded .animate-element {
     }
 
     /* Cards com melhor espaçamento */
-    .servico-card, .marca-card {
+    .servico-card {
         margin-bottom: 1rem;
     }
 
@@ -1865,7 +1696,6 @@ body.loaded .animate-element {
 @media (max-width: 768px) {
     /* Otimizar animações para mobile */
     .servico-card,
-    .marca-card,
     .cta-button {
         transition: all 0.2s ease;
     }

@@ -1,6 +1,6 @@
 // Dados e configurações
 const CONFIG = {
-    whatsapp: '5521965238075',
+    whatsapp: '5521990188094',
     telefone2: '552126093611',
     empresa: 'Nissa Tech',
     endereco: 'R. A, 11 - QR 2 - Itaipu, Niterói - RJ, 24346-176',
@@ -8,7 +8,7 @@ const CONFIG = {
     horarioFuncionamento: 'Seg-Sex: 7h-19h, Sáb: 8h-13h'
 };
 
-// Dados dos serviços baseados no repositório
+// Dados dos serviços
 const SERVICOS_DATA = {
     'alinhamento-balanceamento': {
         titulo: 'Alinhamento e Balanceamento',
@@ -61,117 +61,14 @@ const SERVICOS_DATA = {
             'Durabilidade do sistema',
             'Segurança para todos os ocupantes'
         ]
-    },
-    'lavagem-simples': {
-        titulo: 'Lavagem Simples',
-        subtitulo: 'Limpeza Externa',
-        icon: 'fas fa-spray-can',
-        importancia: 'A lavagem regular mantém a estética do veículo e previne a corrosão da pintura. Além da aparência, remove sujeiras e resíduos que podem danificar a lataria e componentes externos.',
-        beneficios: [
-            'Conservação da pintura',
-            'Prevenção de corrosão',
-            'Melhor aparência',
-            'Remoção de contaminantes',
-            'Valorização do veículo'
-        ]
-    },
-    'lavagem-premium': {
-        titulo: 'Lavagem Premium',
-        subtitulo: 'Limpeza Completa',
-        icon: 'fas fa-sparkles',
-        importancia: 'A lavagem premium oferece uma limpeza completa interna e externa, utilizando produtos específicos que protegem e revitalizam todas as superfícies do veículo, garantindo máximo cuidado.',
-        beneficios: [
-            'Limpeza interna profunda',
-            'Proteção da pintura',
-            'Hidratação de plásticos',
-            'Aspiração profissional',
-            'Produtos premium'
-        ]
-    },
-    'eletrica': {
-        titulo: 'Elétrica e Bateria',
-        subtitulo: 'Sistema Elétrico Confiável',
-        icon: 'fas fa-bolt',
-        importancia: 'O sistema elétrico é o coração do veículo moderno. Desde a partida até os sistemas de entretenimento, tudo depende de uma bateria e sistema elétrico em perfeito estado. Manutenção preventiva evita pane elétrica e garante o funcionamento de todos os componentes.',
-        beneficios: [
-            'Partida confiável do motor',
-            'Funcionamento de todos os sistemas',
-            'Prevenção de pane elétrica',
-            'Durabilidade da bateria',
-            'Segurança dos sistemas eletrônicos'
-        ]
-    },
-    'ar-condicionado': {
-        titulo: 'Ar Condicionado',
-        subtitulo: 'Conforto Climático',
-        icon: 'fas fa-snowflake',
-        importancia: 'O sistema de ar condicionado não é apenas conforto, mas também segurança. Mantém o interior do veículo em temperatura adequada, previne o embaçamento dos vidros e filtra o ar, removendo impurezas e alergênicos.',
-        beneficios: [
-            'Conforto térmico ideal',
-            'Prevenção de embaçamento',
-            'Ar filtrado e limpo',
-            'Melhor concentração ao dirigir',
-            'Valorização do veículo'
-        ]
-    },
-    'cambio': {
-        titulo: 'Transmissão e Câmbio',
-        subtitulo: 'Troca de Marchas Suave',
-        icon: 'fas fa-cog',
-        importancia: 'O sistema de transmissão é responsável por transferir a potência do motor para as rodas. Seja câmbio manual ou automático, a manutenção adequada garante trocas suaves, economia de combustível e prevenção de reparos custosos.',
-        beneficios: [
-            'Trocas de marcha suaves',
-            'Economia de combustível',
-            'Prevenção de reparos caros',
-            'Melhor performance do veículo',
-            'Durabilidade do sistema'
-        ]
-    },
-    'injecao': {
-        titulo: 'Injeção Eletrônica',
-        subtitulo: 'Performance Otimizada',
-        icon: 'fas fa-microchip',
-        importancia: 'O sistema de injeção eletrônica controla precisamente a mistura ar-combustível, garantindo melhor desempenho e economia. Manutenção preventiva evita falhas e mantém o motor funcionando em sua melhor condição.',
-        beneficios: [
-            'Melhor desempenho do motor',
-            'Economia de combustível',
-            'Redução de emissões',
-            'Partida mais fácil',
-            'Diagnóstico preciso de falhas'
-        ]
-    },
-    'direcao': {
-        titulo: 'Direção Hidráulica',
-        subtitulo: 'Controle Preciso',
-        icon: 'fas fa-tachometer-alt',
-        importancia: 'A direção hidráulica proporciona conforto e facilidade na dirigibilidade. Manutenção adequada garante suavidade nas manobras e previne desgaste prematuro dos componentes.',
-        beneficios: [
-            'Manobras mais suaves',
-            'Redução do esforço ao dirigir',
-            'Melhor controle do veículo',
-            'Prevenção de ruídos',
-            'Segurança nas curvas'
-        ]
-    },
-    'escapamento': {
-        titulo: 'Escapamento',
-        subtitulo: 'Desempenho e Silêncio',
-        icon: 'fas fa-fire',
-        importancia: 'O sistema de escapamento é crucial para o desempenho do motor e conforto acústico. Além de reduzir ruídos, controla emissões e melhora a eficiência do motor.',
-        beneficios: [
-            'Redução de ruídos',
-            'Melhor desempenho do motor',
-            'Controle de emissões',
-            'Proteção ambiental',
-            'Conforto acústico'
-        ]
     }
 };
 
-// Sistema principal - CORREÇÕES COMPLETAS
+// Sistema principal - VERSÃO COMPLETA CORRIGIDA
 class NissaTechApp {
     constructor() {
         this.animatedElements = new Set();
+        this.isMenuOpen = false;
         this.init();
     }
 
@@ -180,18 +77,14 @@ class NissaTechApp {
         this.setupSmoothScroll();
         this.setupScrollEffects();
         this.setupServiceButtons();
-        this.setupProdutoButtons();
-        this.setupAnimations();
         this.setupWhatsApp();
         this.setupMapButton();
         this.setupServiceModals();
-        this.preloadImages();
-        this.setupMobileOptimizations();
-        this.setupWhatsAppScroll();
+        this.setupAnimations();
         this.setupIntersectionObserver();
     }
 
-    // Configuração do observador de interseção MELHORADA
+    // Configuração do observador de interseção
     setupIntersectionObserver() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -205,26 +98,18 @@ class NissaTechApp {
             rootMargin: '0px 0px -5% 0px'
         });
 
-        const animateElements = document.querySelectorAll(
-            '.servico-card, .marca-card, .feature-item, .info-card, ' +
-            '.extra-card, .grid-item, .contato-map, .sobre-features, ' +
-            '.pneus-extra, .hero-stats, .image-container, .stat-item'
-        );
-        
+        const animateElements = document.querySelectorAll('.animate-element');
         animateElements.forEach(element => {
-            element.classList.add('animate-element');
             observer.observe(element);
         });
-
-        console.log(`Observando ${animateElements.length} elementos para animação`);
     }
 
-    // Método melhorado para animar elementos
+    // Método para animar elementos
     animateElement(element) {
         element.classList.add('animate-in');
     }
 
-    // Efeitos de scroll MELHORADOS
+    // Efeitos de scroll
     setupScrollEffects() {
         const header = document.getElementById('header');
         let lastScrollY = window.scrollY;
@@ -245,7 +130,7 @@ class NissaTechApp {
         }, 500);
     }
 
-    // Animação on scroll MELHORADA
+    // Animação on scroll
     animateOnScroll() {
         const elements = document.querySelectorAll('.animate-element');
         const windowHeight = window.innerHeight;
@@ -261,70 +146,110 @@ class NissaTechApp {
         });
     }
 
-    // Menu mobile - CORREÇÃO COMPLETA E MELHORADA
+    // MENU MOBILE - VERSÃO COMPLETA CORRIGIDA COM TOUCH
     setupMobileMenu() {
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        if (hamburger && navMenu) {
-            // CORREÇÃO: Garantir que o hamburger sempre responda
-            hamburger.style.pointerEvents = 'all';
-            hamburger.style.cursor = 'pointer';
-            
-            const toggleMenu = (e) => {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    e.stopImmediatePropagation();
-                }
-                
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-            };
-
-            // CORREÇÃO: Múltiplos event listeners para garantir funcionamento
-            hamburger.addEventListener('click', toggleMenu, true);
-            hamburger.addEventListener('touchstart', toggleMenu, { passive: true });
-            
-            // CORREÇÃO: Melhor fechamento do menu
-            const closeMenu = () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            };
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
-                link.addEventListener('touchstart', closeMenu, { passive: true });
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!navMenu.contains(e.target) && !hamburger.contains(e.target) && navMenu.classList.contains('active')) {
-                    closeMenu();
-                }
-            });
-
-            window.addEventListener('scroll', () => {
-                if (navMenu.classList.contains('active')) {
-                    closeMenu();
-                }
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                    closeMenu();
-                }
-            });
-
-            // CORREÇÃO: Prevenir eventos duplicados
-            hamburger.removeEventListener('click', toggleMenu);
-            hamburger.addEventListener('click', toggleMenu, true);
-            
-        } else {
-            console.error('Elementos do menu mobile não encontrados:', { hamburger, navMenu });
+        
+        if (!hamburger || !navMenu) {
+            console.error('Elementos do menu não encontrados');
+            return;
         }
+
+        // Função para alternar o menu
+        const toggleMenu = () => {
+            this.isMenuOpen = !this.isMenuOpen;
+            
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            if (this.isMenuOpen) {
+                // Menu foi aberto
+                document.body.classList.add('menu-open');
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Menu foi fechado
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            }
+        };
+
+        // Evento de CLIQUE (mouse) - melhorado
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            toggleMenu();
+        });
+
+        // Evento de TOUCH (mobile) - CORREÇÃO PRINCIPAL
+        hamburger.addEventListener('touchstart', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            toggleMenu();
+        }, { passive: false });
+
+        // Melhorar área de toque do hamburger
+        hamburger.style.cssText += `
+            min-width: 44px !important;
+            min-height: 44px !important;
+            cursor: pointer !important;
+        `;
+
+        // Fechar menu ao clicar/tocar nos links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            // Clique mouse
+            link.addEventListener('click', () => {
+                this.closeMenu();
+            });
+            
+            // Touch mobile
+            link.addEventListener('touchstart', () => {
+                this.closeMenu();
+            });
+        });
+
+        // Fechar menu ao clicar/tocar fora
+        document.addEventListener('click', (e) => {
+            if (this.isMenuOpen && 
+                !navMenu.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                this.closeMenu();
+            }
+        });
+
+        document.addEventListener('touchstart', (e) => {
+            if (this.isMenuOpen && 
+                !navMenu.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                this.closeMenu();
+            }
+        });
+
+        // Fechar menu ao rolar
+        window.addEventListener('scroll', () => {
+            if (this.isMenuOpen) {
+                this.closeMenu();
+            }
+        });
+
+        // Fechar menu com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isMenuOpen) {
+                this.closeMenu();
+            }
+        });
+    }
+
+    closeMenu() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        this.isMenuOpen = false;
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
     }
 
     // Scroll suave
@@ -343,9 +268,84 @@ class NissaTechApp {
                         top: offsetTop,
                         behavior: 'smooth'
                     });
+                    
+                    // Fechar menu mobile após clique
+                    if (window.innerWidth <= 768) {
+                        this.closeMenu();
+                    }
                 }
             });
         });
+    }
+
+    // Botões de serviços
+    setupServiceButtons() {
+        const serviceButtons = document.querySelectorAll('.servico-btn');
+        
+        serviceButtons.forEach(button => {
+            // Clique mouse
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const service = button.getAttribute('data-servico');
+                this.openWhatsApp(`Olá! Gostaria de solicitar um orçamento para o serviço de ${service} na Nissa Tech`);
+            });
+            
+            // Touch mobile
+            button.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const service = button.getAttribute('data-servico');
+                this.openWhatsApp(`Olá! Gostaria de solicitar um orçamento para o serviço de ${service} na Nissa Tech`);
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-cta-button')) {
+                const service = e.target.getAttribute('data-servico');
+                this.openWhatsApp(`Olá! Gostaria de solicitar um orçamento para o serviço de ${service} na Nissa Tech`);
+                this.closeServiceModal();
+            }
+        });
+    }
+
+    // Configuração do WhatsApp
+    setupWhatsApp() {
+        const whatsappButtons = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
+        
+        whatsappButtons.forEach(button => {
+            if (!button.getAttribute('data-processed')) {
+                button.setAttribute('data-processed', 'true');
+                
+                // Clique mouse
+                button.addEventListener('click', (e) => {
+                    if (!button.getAttribute('href').includes('text=')) {
+                        e.preventDefault();
+                        this.openWhatsApp('Olá! Gostaria de mais informações sobre os serviços da Nissa Tech.');
+                    }
+                });
+                
+                // Touch mobile
+                button.addEventListener('touchend', (e) => {
+                    if (!button.getAttribute('href').includes('text=')) {
+                        e.preventDefault();
+                        this.openWhatsApp('Olá! Gostaria de mais informações sobre os serviços da Nissa Tech.');
+                    }
+                });
+            }
+        });
+    }
+
+    // Configuração do botão do Maps
+    setupMapButton() {
+        const mapButton = document.querySelector('.map-button');
+        if (mapButton) {
+            mapButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                const mapsUrl = 'https://maps.google.com/maps?q=NISSA+TECH+OFICINA+R.+A,+11+-+QR+2+-+Itaipu,+Niterói+-+RJ,+24346-176';
+                window.open(mapsUrl, '_blank');
+            });
+        }
     }
 
     // Configuração dos modais de serviço
@@ -354,13 +354,19 @@ class NissaTechApp {
         const modal = document.querySelector('.servico-modal');
         const modalClose = document.querySelector('.modal-close');
         
-        if (!modal || !modalClose) {
-            console.error('Modal elements not found');
-            return;
-        }
+        if (!modal || !modalClose) return;
 
         serviceCards.forEach(card => {
+            // Clique mouse
             card.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('servico-btn')) {
+                    const serviceId = card.getAttribute('data-servico');
+                    this.openServiceModal(serviceId);
+                }
+            });
+            
+            // Touch mobile
+            card.addEventListener('touchend', (e) => {
                 if (!e.target.classList.contains('servico-btn')) {
                     const serviceId = card.getAttribute('data-servico');
                     this.openServiceModal(serviceId);
@@ -368,7 +374,13 @@ class NissaTechApp {
             });
         });
 
+        // Clique mouse
         modalClose.addEventListener('click', () => {
+            this.closeServiceModal();
+        });
+        
+        // Touch mobile
+        modalClose.addEventListener('touchend', () => {
             this.closeServiceModal();
         });
 
@@ -429,119 +441,6 @@ class NissaTechApp {
         }
     }
 
-    // Botões de serviços
-    setupServiceButtons() {
-        const serviceButtons = document.querySelectorAll('.servico-btn');
-        
-        serviceButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const service = button.getAttribute('data-servico');
-                this.openWhatsApp(`Olá! Gostaria de solicitar um orçamento para o serviço de ${service} na Nissa Tech`);
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal-cta-button')) {
-                const service = e.target.getAttribute('data-servico');
-                this.openWhatsApp(`Olá! Gostaria de solicitar um orçamento para o serviço de ${service} na Nissa Tech`);
-                this.closeServiceModal();
-            }
-        });
-    }
-
-    // Botões de produtos
-    setupProdutoButtons() {
-        const produtoButtons = document.querySelectorAll('.produto-btn');
-        
-        produtoButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const produto = button.getAttribute('data-produto');
-                this.openWhatsApp(`Olá! Gostaria de consultar preços e disponibilidade para ${produto} na Nissa Tech`);
-            });
-        });
-    }
-
-    // Configuração do WhatsApp
-    setupWhatsApp() {
-        const whatsappButtons = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
-        
-        whatsappButtons.forEach(button => {
-            if (!button.getAttribute('data-processed')) {
-                button.setAttribute('data-processed', 'true');
-                button.addEventListener('click', (e) => {
-                    if (!button.getAttribute('href').includes('text=')) {
-                        e.preventDefault();
-                        this.openWhatsApp('Olá! Gostaria de mais informações sobre os serviços da Nissa Tech.');
-                    }
-                });
-            }
-        });
-    }
-
-    // Configuração do botão do Maps
-    setupMapButton() {
-        const mapButton = document.querySelector('.map-button');
-        if (mapButton) {
-            mapButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                const mapsUrl = 'https://maps.google.com/maps?q=NISSA+TECH+OFICINA+R.+A,+11+-+QR+2+-+Itaipu,+Niterói+-+RJ,+24346-176';
-                window.open(mapsUrl, '_blank');
-            });
-        }
-    }
-
-    // Sistema de Scroll para WhatsApp Float
-    setupWhatsAppScroll() {
-        const whatsappFloat = document.querySelector('.whatsapp-float');
-        if (!whatsappFloat) return;
-
-        let lastScrollY = window.scrollY;
-        let ticking = false;
-
-        const updateWhatsAppPosition = () => {
-            const currentScrollY = window.scrollY;
-            
-            whatsappFloat.classList.remove('scroll-up', 'scroll-down', 'scrolling');
-            whatsappFloat.classList.add('scrolling');
-            
-            if (currentScrollY > lastScrollY) {
-                whatsappFloat.classList.add('scroll-down');
-            } else if (currentScrollY < lastScrollY) {
-                whatsappFloat.classList.add('scroll-up');
-            }
-            
-            lastScrollY = currentScrollY;
-            ticking = false;
-        };
-
-        const onScroll = () => {
-            if (!ticking) {
-                requestAnimationFrame(updateWhatsAppPosition);
-                ticking = true;
-            }
-        };
-
-        window.addEventListener('scroll', onScroll, { passive: true });
-
-        let scrollTimeout;
-        window.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                whatsappFloat.classList.remove('scroll-up', 'scroll-down', 'scrolling');
-            }, 150);
-        }, { passive: true });
-    }
-
-    // Abrir WhatsApp
-    openWhatsApp(message) {
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodedMessage}`;
-        window.open(whatsappUrl, '_blank');
-    }
-
     // Animações
     setupAnimations() {
         this.setupCounters();
@@ -582,7 +481,7 @@ class NissaTechApp {
 
     setupHoverEffects() {
         if (window.innerWidth > 768) {
-            const cards = document.querySelectorAll('.servico-card, .marca-card');
+            const cards = document.querySelectorAll('.servico-card');
             
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
@@ -607,140 +506,17 @@ class NissaTechApp {
                 });
             });
         }
-
-        const buttons = document.querySelectorAll('.cta-button, .map-button');
-        buttons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (window.innerWidth > 768) {
-                    const ripple = document.createElement('span');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    
-                    ripple.style.cssText = `
-                        position: absolute;
-                        border-radius: 50%;
-                        background: rgba(255, 255, 255, 0.6);
-                        transform: scale(0);
-                        animation: ripple 0.6s linear;
-                        width: ${size}px;
-                        height: ${size}px;
-                        left: ${x}px;
-                        top: ${y}px;
-                    `;
-                    
-                    this.appendChild(ripple);
-                    
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-                }
-            });
-        });
     }
 
-    // Preload de imagens
-    preloadImages() {
-        const images = [
-            'images/logo/nissatech.png',
-            'images/carrossel/slide1.png',
-            'images/carrossel/slide3.png',
-            'images/carrossel/slide2.png'
-        ];
-
-        images.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
-    }
-
-    // Otimizações para mobile
-    setupMobileOptimizations() {
-        const touchElements = document.querySelectorAll('.cta-button, .servico-card, .marca-card, .nav-link');
-        
-        touchElements.forEach(element => {
-            element.addEventListener('touchstart', function() {
-                if (window.innerWidth <= 768) {
-                    this.style.transform = 'scale(0.98)';
-                    this.style.transition = 'transform 0.1s ease';
-                }
-            });
-
-            element.addEventListener('touchend', function() {
-                if (window.innerWidth <= 768) {
-                    this.style.transform = '';
-                }
-            });
-
-            element.addEventListener('touchcancel', function() {
-                if (window.innerWidth <= 768) {
-                    this.style.transform = '';
-                }
-            });
-        });
-
-        const buttons = document.querySelectorAll('button, a');
-        buttons.forEach(button => {
-            button.addEventListener('touchstart', function(e) {
-                if (e.touches.length > 1) {
-                    e.preventDefault();
-                }
-            }, { passive: false });
-        });
-
-        if ('connection' in navigator) {
-            if (navigator.connection.saveData || navigator.connection.effectiveType.includes('2g')) {
-                this.reduceAnimations();
-            }
-        }
-
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.classList.remove('lazy');
-                        }
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        document.addEventListener('touchstart', function() {}, { passive: true });
-
-        document.addEventListener('touchstart', function() {
-            document.body.classList.add('touch-mode');
-        });
-
-        document.addEventListener('mousedown', function() {
-            document.body.classList.remove('touch-mode');
-        });
-
-        if (window.innerWidth <= 768) {
-            document.documentElement.style.setProperty('--animation-duration', '0.3s');
-        }
-    }
-
-    reduceAnimations() {
-        document.documentElement.style.setProperty('--animation-duration', '0.1s');
-        
-        const animatedElements = document.querySelectorAll('*');
-        animatedElements.forEach(el => {
-            el.style.animationDuration = '0.1s !important';
-            el.style.transitionDuration = '0.1s !important';
-        });
+    // Abrir WhatsApp
+    openWhatsApp(message) {
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
     }
 }
 
-// Inicialização MELHORADA
+// Inicialização
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Inicializando NissaTechApp...');
     new NissaTechApp();
@@ -749,58 +525,4 @@ document.addEventListener('DOMContentLoaded', function() {
 // Forçar animações após o carregamento completo
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
-    
-    setTimeout(() => {
-        const app = document.querySelector('script')?.app || new NissaTechApp();
-        app.animateOnScroll();
-    }, 1000);
 });
-
-// Adicionar estilo para efeito ripple
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-    
-    .cta-button, .map-button {
-        position: relative;
-        overflow: hidden;
-    }
-
-    @media (max-width: 768px) {
-        .touch-mode *:focus {
-            outline: none;
-        }
-        
-        .touch-mode .cta-button:active,
-        .touch-mode .servico-btn:active,
-        .touch-mode .marca-btn:active {
-            transform: scale(0.98);
-            transition: transform 0.1s ease;
-        }
-
-        .touch-mode .servico-card:active,
-        .touch-mode .marca-card:active {
-            transform: scale(0.99);
-            transition: transform 0.1s ease;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .servico-card::before,
-        .cta-button::before {
-            display: none;
-        }
-        
-        .servico-card,
-        .marca-card,
-        .cta-button {
-            transition: all 0.2s ease;
-        }
-    }
-`;
-document.head.appendChild(style);

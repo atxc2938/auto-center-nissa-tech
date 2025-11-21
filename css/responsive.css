@@ -102,17 +102,23 @@
         border-radius: 2px !important;
     }
     
+    /* HAMBURGUER ATIVO */
     .hamburger.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px) !important; /* Ajustado */
+        transform: rotate(45deg) translate(5px, 5px) !important;
     }
-    
+
     .hamburger.active .bar:nth-child(2) {
         opacity: 0 !important;
     }
-    
+
     .hamburger.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px) !important; /* Ajustado */
+        transform: rotate(-45deg) translate(5px, -5px) !important;
     }
+
+/* MENU MOBILE ATIVO */
+.nav-menu.active {
+    display: flex !important;
+}
     
     /* MELHORAR ÁREA DE TOQUE DO HAMBURGUER */
     .hamburger::before {
@@ -523,183 +529,6 @@
         margin-bottom: 1.2rem !important; /* Reduzido de 1.5rem */
         font-size: 1rem !important; /* Reduzido de 1.1rem */
         font-weight: 600 !important;
-    }
-    
-    /* ========== MARCAS BALANCEADAS E MENORES ========== */
-    .marcas-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 1rem !important; /* Reduzido de 1.2rem */
-        margin-bottom: 2rem !important; /* Reduzido de 2.5rem */
-        width: 100% !important;
-        padding: 0 10px !important;
-    }
-    
-    .marca-card {
-        background: var(--background-lighter) !important;
-        padding: 1.5rem !important; /* Reduzido de 2rem */
-        border-radius: 18px !important;
-        border: 1px solid var(--border) !important;
-        text-align: center !important;
-        transition: all 0.3s ease !important;
-        width: 100% !important;
-        margin: 0 !important;
-    }
-    
-    .marca-card:hover {
-        transform: translateY(-3px) !important;
-        border-color: var(--primary) !important;
-        box-shadow: var(--shadow-lg) !important;
-    }
-    
-    .marca-header {
-        margin-bottom: 1.2rem !important; /* Reduzido de 1.5rem */
-    }
-    
-    .marca-logo {
-        width: 60px !important; /* Reduzido de 70px */
-        height: 60px !important; /* Reduzido de 70px */
-        background: var(--gradient-primary) !important;
-        border-radius: 16px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin: 0 auto 0.8rem !important; /* Reduzido de 1rem */
-    }
-    
-    .marca-logo i {
-        font-size: 1.5rem !important; /* Reduzido de 1.7rem */
-        color: white !important;
-    }
-    
-    .marca-title {
-        font-size: 1.2rem !important; /* Reduzido de 1.3rem */
-        margin-bottom: 0.6rem !important; /* Reduzido de 0.8rem */
-        font-weight: 800 !important;
-    }
-    
-    .marca-tag {
-        display: inline-block !important;
-        background: var(--primary) !important;
-        color: white !important;
-        padding: 5px 10px !important; /* Reduzido */
-        border-radius: 20px !important;
-        font-size: 0.75rem !important; /* Reduzido de 0.8rem */
-        font-weight: 700 !important;
-    }
-    
-    .marca-description {
-        color: var(--text-light) !important;
-        margin-bottom: 1.2rem !important; /* Reduzido de 1.5rem */
-        font-size: 0.95rem !important; /* Reduzido de 1rem */
-        line-height: 1.5 !important;
-        font-weight: 600 !important;
-    }
-    
-    .marca-features {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important; /* Reduzido de 10px */
-        margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
-    }
-    
-    .feature {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 8px !important; /* Reduzido de 10px */
-        color: var(--text-lighter) !important;
-        font-size: 0.85rem !important; /* Reduzido de 0.9rem */
-        font-weight: 500 !important;
-    }
-    
-    .feature i {
-        color: var(--primary) !important;
-        font-size: 0.8rem !important; /* Reduzido de 0.85rem */
-    }
-    
-    .marca-btn {
-        width: 100% !important;
-        justify-content: center !important;
-        padding: 1rem 1.2rem !important; /* Reduzido */
-        font-size: 1rem !important; /* Reduzido de 1.05rem */
-        font-weight: 700 !important;
-        min-height: 50px !important; /* Reduzido de 55px */
-        border-radius: 12px !important;
-    }
-    
-    /* ========== PNEUS EXTRA BALANCEADOS E MENORES ========== */
-    .pneus-extra {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0.8rem !important; /* Reduzido de 1rem */
-        width: 100% !important;
-        padding: 0 10px !important;
-    }
-    
-    .extra-card {
-        background: var(--background-lighter) !important;
-        padding: 1.2rem !important; /* Reduzido de 1.5rem */
-        border-radius: 15px !important;
-        border: 1px solid var(--border) !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 1rem !important; /* Reduzido de 1.2rem */
-        transition: all 0.3s ease !important;
-        width: 100% !important;
-        margin: 0 !important;
-    }
-    
-    .extra-card:hover {
-        border-color: var(--primary) !important;
-        transform: translateY(-2px) !important;
-    }
-    
-    .extra-icon {
-        width: 55px !important; /* Reduzido de 60px */
-        height: 55px !important; /* Reduzido de 60px */
-        background: var(--gradient-primary) !important;
-        border-radius: 14px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        flex-shrink: 0 !important;
-    }
-    
-    .extra-icon i {
-        font-size: 1.4rem !important; /* Reduzido de 1.5rem */
-        color: white !important;
-    }
-    
-    .extra-content h4 {
-        margin-bottom: 0.4rem !important; /* Reduzido de 0.5rem */
-        color: var(--text) !important;
-        font-size: 1.1rem !important; /* Reduzido de 1.2rem */
-        font-weight: 800 !important;
-    }
-    
-    .extra-content p {
-        color: var(--text-light) !important;
-        font-size: 0.9rem !important; /* Reduzido de 0.95rem */
-        margin-bottom: 0.4rem !important; /* Reduzido de 0.5rem */
-        line-height: 1.4 !important;
-        font-weight: 600 !important;
-    }
-    
-    .extra-price {
-        color: var(--primary) !important;
-        font-weight: 800 !important;
-        font-size: 1rem !important; /* Reduzido de 1.1rem */
-    }
-    
-    .extra-tag {
-        display: inline-block !important;
-        background: var(--primary) !important;
-        color: white !important;
-        padding: 3px 8px !important; /* Reduzido */
-        border-radius: 20px !important;
-        font-size: 0.7rem !important; /* Reduzido de 0.75rem */
-        font-weight: 700 !important;
     }
     
     /* ========== SOBRE BALANCEADO E MENOR ========== */
@@ -1118,53 +947,40 @@
         font-size: 0.9rem !important; /* Reduzido de 1rem */
     }
     
-    /* ========== WHATSAPP FLOAT BALANCEADO E CENTRALIZADO ========== */
+    /* ========== WHATSAPP FLOAT BALANCEADO - IGUAL AO DESKTOP ========== */
     .whatsapp-float {
         position: fixed !important;
-        bottom: 15px !important;
-        left: 50% !important; /* CENTRALIZADO */
-        right: auto !important;
-        transform: translateX(-50%) !important; /* CENTRALIZADO */
-        background: #25D366 !important;
-        color: white !important;
-        padding: 1rem 1.8rem !important; /* Reduzido */
+        bottom: 2rem !important;
+        right: 0rem !important;
+        background: var(--verde-whatsapp) !important;
+        color: var(--branco) !important;
+        padding: 1rem 1.8rem !important; /* Menor que desktop */
         border-radius: 50px !important;
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important; /* Reduzido de 10px */
-        text-decoration: none !important;
+        gap: 0.8rem !important;
         font-weight: 700 !important;
-        font-size: 0.95rem !important; /* Reduzido de 1rem */
-        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4) !important;
-        z-index: 997 !important;
-        min-height: 55px !important; /* Reduzido de 60px */
-        transition: all 0.3s ease !important;
-        border: 2px solid rgba(255,255,255,0.2) !important;
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5) !important;
+        transition: all 0.4s ease !important;
+        z-index: 1000 !important;
+        font-size: 1rem !important; /* Menor que desktop */
+        border: 2px solid transparent !important;
+        animation: float 3s ease-in-out infinite !important;
+        text-decoration: none !important;
     }
     
     .whatsapp-float:hover {
-        transform: translateX(-50%) scale(1.05) !important; /* CENTRALIZADO E ESCALADO */
-        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6) !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7) !important;
     }
     
-    .whatsapp-float .fab {
-        font-size: 1.2rem !important; /* Reduzido de 1.4rem */
+    .whatsapp-float:active {
+        transform: translateY(-1px) !important;
     }
     
     .float-text {
-        font-size: 0.95rem !important; /* Reduzido de 1rem */
-        font-weight: 700 !important;
-    }
-    
-    .whatsapp-large {
-        padding: 1rem 1.8rem !important; /* Reduzido */
-        font-size: 1rem !important; /* Reduzido de 1.1rem */
-        font-weight: 700 !important;
-        min-height: 55px !important; /* Reduzido de 60px */
-    }
-    
-    .whatsapp-large .fab {
-        font-size: 1.2rem !important; /* Reduzido de 1.4rem */
+        font-size: 0.95rem !important; /* Texto visível */
+        display: inline !important; /* Garante que o texto seja mostrado */
     }
     
     /* ========== MODAL BALANCEADO E MENOR ========== */
@@ -1372,7 +1188,6 @@
 /* ANIMAÇÕES OTIMIZADAS PARA MOBILE */
 @media (max-width: 768px) {
     .servico-card.animate-in,
-    .marca-card.animate-in,
     .feature-item.animate-in,
     .info-card.animate-in {
         animation-duration: 0.5s !important;
@@ -1388,7 +1203,6 @@
 @media (max-width: 768px) {
     .cta-button,
     .servico-btn,
-    .marca-btn,
     .nav-link {
         -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
@@ -1397,8 +1211,7 @@
     
     /* Tamanhos mínimos para toque */
     .cta-button,
-    .servico-btn,
-    .marca-btn {
+    .servico-btn {
         min-height: 44px !important;
     }
     
@@ -1465,26 +1278,6 @@
     }
 }
 
-/* CORREÇÃO PARA WHATSAPP SEMPRE CENTRALIZADO EM MOBILE */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        position: fixed !important;
-        bottom: 15px !important;
-        left: 50% !important;
-        right: auto !important;
-        transform: translateX(-50%) !important;
-        margin: 0 !important;
-        z-index: 997 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    
-    .whatsapp-float:hover {
-        transform: translateX(-50%) scale(1.05) !important;
-    }
-}
-
 /* Correção adicional para espaçamentos específicos */
 @media (max-width: 768px) {
     /* Espaço reduzido após hero */
@@ -1494,11 +1287,6 @@
     
     /* Espaço reduzido entre seções */
     .servicos-section + section {
-        padding-top: 20px !important;
-    }
-    
-    /* Espaço reduzido específico entre pneus e sobre nós */
-    #pneus + #sobre {
         padding-top: 20px !important;
     }
 }
