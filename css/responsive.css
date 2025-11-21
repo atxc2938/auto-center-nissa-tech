@@ -87,6 +87,10 @@
         transition: all 0.3s ease !important;
         position: relative !important;
         margin-right: -5px !important; /* Mais próximo da borda direita */
+        /* CORREÇÃO: Melhorar área de toque */
+        min-width: 44px !important;
+        min-height: 44px !important;
+        touch-action: manipulation !important;
     }
     
     .hamburger:hover {
@@ -148,6 +152,11 @@
         transition: all 0.4s ease !important;
         z-index: 9999 !important;
         overflow-y: auto !important;
+        /* CORREÇÃO ADICIONAL: Prevenir seleção acidental durante scroll */
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
     }
     
     .nav-menu.active .nav-link {
@@ -167,6 +176,10 @@
         text-align: center !important;
         transition: all 0.3s ease !important;
         min-height: 55px !important; /* Reduzido de 65px */
+        /* CORREÇÃO: Melhorar detecção de toque */
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+        user-select: none !important;
     }
     
     .nav-menu.active .nav-link:hover {
@@ -947,14 +960,14 @@
         font-size: 0.9rem !important; /* Reduzido de 1rem */
     }
     
-    /* ========== WHATSAPP FLOAT BALANCEADO - IGUAL AO DESKTOP ========== */
+    /* ========== WHATSAPP FLOAT BALANCEADO - CORREÇÃO DA PROPORÇÃO LATERAL ========== */
     .whatsapp-float {
         position: fixed !important;
         bottom: 2rem !important;
-        right: 0rem !important;
+        right: 1rem !important; /* Reduzido de 2rem para 1rem */
         background: var(--verde-whatsapp) !important;
         color: var(--branco) !important;
-        padding: 1rem 1.8rem !important; /* Menor que desktop */
+        padding: 1rem 1.5rem !important; /* Reduzido lateralmente */
         border-radius: 50px !important;
         display: flex !important;
         align-items: center !important;
@@ -963,10 +976,13 @@
         box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5) !important;
         transition: all 0.4s ease !important;
         z-index: 1000 !important;
-        font-size: 1rem !important; /* Menor que desktop */
+        font-size: 1rem !important;
         border: 2px solid transparent !important;
         animation: float 3s ease-in-out infinite !important;
         text-decoration: none !important;
+        /* CORREÇÃO: Proporção mais compacta */
+        min-width: auto !important;
+        max-width: 200px !important;
     }
     
     .whatsapp-float:hover {
@@ -1288,5 +1304,18 @@
     /* Espaço reduzido entre seções */
     .servicos-section + section {
         padding-top: 20px !important;
+    }
+}
+
+/* CORREÇÃO: Melhorar responsividade do toque para WhatsApp */
+@media (max-width: 480px) {
+    .whatsapp-float {
+        right: 0.8rem !important; /* Mais reduzido em telas menores */
+        padding: 1rem 1.2rem !important; /* Mais compacto */
+        font-size: 0.9rem !important;
+    }
+    
+    .float-text {
+        font-size: 0.85rem !important;
     }
 }

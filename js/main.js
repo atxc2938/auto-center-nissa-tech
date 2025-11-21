@@ -64,11 +64,13 @@ const SERVICOS_DATA = {
     }
 };
 
-// Sistema principal - VERSÃO COMPLETA CORRIGIDA
+// Sistema principal - VERSÃO COMPLETAMENTE CORRIGIDA
 class NissaTechApp {
     constructor() {
         this.animatedElements = new Set();
         this.isMenuOpen = false;
+        this.isScrolling = false;
+        this.scrollTimer = null;
         this.init();
     }
 
@@ -82,6 +84,48 @@ class NissaTechApp {
         this.setupServiceModals();
         this.setupAnimations();
         this.setupIntersectionObserver();
+        this.setupScrollDetection();
+    }
+
+    // CORREÇÃO COMPLETA: Detecção global de scroll
+    setupScrollDetection() {
+        let scrollStartY = 0;
+        let scrollEndY = 0;
+
+        // Detectar início do scroll
+        window.addEventListener('touchstart', (e) => {
+            scrollStartY = e.touches[0].pageY;
+            this.isScrolling = false;
+        }, { passive: true });
+
+        // Detectar movimento de scroll
+        window.addEventListener('touchmove', (e) => {
+            if (!this.isScrolling) {
+                scrollEndY = e.touches[0].pageY;
+                // Se o movimento vertical for significativo, é scroll
+                if (Math.abs(scrollEndY - scrollStartY) > 5) {
+                    this.isScrolling = true;
+                }
+            }
+        }, { passive: true });
+
+        // Resetar estado de scroll após um tempo
+        window.addEventListener('touchend', () => {
+            if (this.isScrolling) {
+                this.scrollTimer = setTimeout(() => {
+                    this.isScrolling = false;
+                }, 100);
+            }
+        }, { passive: true });
+
+        // Também detectar scroll com wheel (mouse)
+        window.addEventListener('wheel', () => {
+            this.isScrolling = true;
+            clearTimeout(this.scrollTimer);
+            this.scrollTimer = setTimeout(() => {
+                this.isScrolling = false;
+            }, 100);
+        }, { passive: true });
     }
 
     // Configuração do observador de interseção
@@ -146,10 +190,11 @@ class NissaTechApp {
         });
     }
 
-    // MENU MOBILE - VERSÃO COMPLETA CORRIGIDA COM TOUCH
+    // MENU MOBILE - VERSÃO COMPLETAMENTE CORRIGIDA
     setupMobileMenu() {
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
         
         if (!hamburger || !navMenu) {
             console.error('Elementos do menu não encontrados');
@@ -158,17 +203,20 @@ class NissaTechApp {
 
         // Função para alternar o menu
         const toggleMenu = () => {
+            // CORREÇÃO: Não alternar menu se estiver scrollando
+            if (this.isScrolling) {
+                return;
+            }
+            
             this.isMenuOpen = !this.isMenuOpen;
             
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
             if (this.isMenuOpen) {
-                // Menu foi aberto
                 document.body.classList.add('menu-open');
                 document.body.style.overflow = 'hidden';
             } else {
-                // Menu foi fechado
                 document.body.classList.remove('menu-open');
                 document.body.style.overflow = '';
             }
@@ -182,11 +230,40 @@ class NissaTechApp {
         });
 
         // Evento de TOUCH (mobile) - CORREÇÃO PRINCIPAL
-        hamburger.addEventListener('touchstart', function(e) {
+        hamburger.addEventListener('touchend', function(e) {
             e.stopPropagation();
             e.preventDefault();
             toggleMenu();
         }, { passive: false });
+
+        // CORREÇÃO COMPLETA: Prevenir clique acidental nos links durante scroll
+        navLinks.forEach(link => {
+            // Clique mouse
+            link.addEventListener('click', (e) => {
+                if (this.isScrolling) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return;
+                }
+                this.closeMenu();
+            });
+            
+            // Touch mobile - CORREÇÃO PRINCIPAL
+            link.addEventListener('touchend', (e) => {
+                if (this.isScrolling) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return;
+                }
+                
+                // Pequeno delay para garantir que não é scroll
+                setTimeout(() => {
+                    if (!this.isScrolling) {
+                        this.closeMenu();
+                    }
+                }, 50);
+            }, { passive: false });
+        });
 
         // Melhorar área de toque do hamburger
         hamburger.style.cssText += `
@@ -194,20 +271,6 @@ class NissaTechApp {
             min-height: 44px !important;
             cursor: pointer !important;
         `;
-
-        // Fechar menu ao clicar/tocar nos links
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            // Clique mouse
-            link.addEventListener('click', () => {
-                this.closeMenu();
-            });
-            
-            // Touch mobile
-            link.addEventListener('touchstart', () => {
-                this.closeMenu();
-            });
-        });
 
         // Fechar menu ao clicar/tocar fora
         document.addEventListener('click', (e) => {
@@ -258,6 +321,12 @@ class NissaTechApp {
         
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
+                // CORREÇÃO: Prevenir navegação durante scroll
+                if (this.isScrolling) {
+                    e.preventDefault();
+                    return;
+                }
+                
                 e.preventDefault();
                 const targetId = link.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
@@ -285,6 +354,13 @@ class NissaTechApp {
         serviceButtons.forEach(button => {
             // Clique mouse
             button.addEventListener('click', (e) => {
+                // CORREÇÃO: Prevenir ação durante scroll
+                if (this.isScrolling) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return;
+                }
+                
                 e.preventDefault();
                 e.stopPropagation();
                 const service = button.getAttribute('data-servico');
@@ -293,6 +369,13 @@ class NissaTechApp {
             
             // Touch mobile
             button.addEventListener('touchend', (e) => {
+                // CORREÇÃO: Prevenir ação durante scroll
+                if (this.isScrolling) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return;
+                }
+                
                 e.preventDefault();
                 e.stopPropagation();
                 const service = button.getAttribute('data-servico');
@@ -302,6 +385,12 @@ class NissaTechApp {
 
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal-cta-button')) {
+                // CORREÇÃO: Prevenir ação durante scroll
+                if (this.isScrolling) {
+                    e.preventDefault();
+                    return;
+                }
+                
                 const service = e.target.getAttribute('data-servico');
                 this.openWhatsApp(`Olá! Gostaria de solicitar um orçamento para o serviço de ${service} na Nissa Tech`);
                 this.closeServiceModal();
@@ -319,6 +408,12 @@ class NissaTechApp {
                 
                 // Clique mouse
                 button.addEventListener('click', (e) => {
+                    // CORREÇÃO: Prevenir ação durante scroll
+                    if (this.isScrolling) {
+                        e.preventDefault();
+                        return;
+                    }
+                    
                     if (!button.getAttribute('href').includes('text=')) {
                         e.preventDefault();
                         this.openWhatsApp('Olá! Gostaria de mais informações sobre os serviços da Nissa Tech.');
@@ -327,6 +422,12 @@ class NissaTechApp {
                 
                 // Touch mobile
                 button.addEventListener('touchend', (e) => {
+                    // CORREÇÃO: Prevenir ação durante scroll
+                    if (this.isScrolling) {
+                        e.preventDefault();
+                        return;
+                    }
+                    
                     if (!button.getAttribute('href').includes('text=')) {
                         e.preventDefault();
                         this.openWhatsApp('Olá! Gostaria de mais informações sobre os serviços da Nissa Tech.');
@@ -341,6 +442,12 @@ class NissaTechApp {
         const mapButton = document.querySelector('.map-button');
         if (mapButton) {
             mapButton.addEventListener('click', (e) => {
+                // CORREÇÃO: Prevenir ação durante scroll
+                if (this.isScrolling) {
+                    e.preventDefault();
+                    return;
+                }
+                
                 e.preventDefault();
                 const mapsUrl = 'https://maps.google.com/maps?q=NISSA+TECH+OFICINA+R.+A,+11+-+QR+2+-+Itaipu,+Niterói+-+RJ,+24346-176';
                 window.open(mapsUrl, '_blank');
@@ -359,6 +466,12 @@ class NissaTechApp {
         serviceCards.forEach(card => {
             // Clique mouse
             card.addEventListener('click', (e) => {
+                // CORREÇÃO: Prevenir ação durante scroll
+                if (this.isScrolling) {
+                    e.preventDefault();
+                    return;
+                }
+                
                 if (!e.target.classList.contains('servico-btn')) {
                     const serviceId = card.getAttribute('data-servico');
                     this.openServiceModal(serviceId);
@@ -367,6 +480,12 @@ class NissaTechApp {
             
             // Touch mobile
             card.addEventListener('touchend', (e) => {
+                // CORREÇÃO: Prevenir ação durante scroll
+                if (this.isScrolling) {
+                    e.preventDefault();
+                    return;
+                }
+                
                 if (!e.target.classList.contains('servico-btn')) {
                     const serviceId = card.getAttribute('data-servico');
                     this.openServiceModal(serviceId);
