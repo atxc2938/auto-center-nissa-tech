@@ -8,19 +8,19 @@ const CONFIG = {
     horarioFuncionamento: 'Seg-Sex: 7h-19h, Sáb: 8h-13h'
 };
 
-// Dados dos serviços
+// Dados dos serviços - ATUALIZADO
 const SERVICOS_DATA = {
-    'alinhamento-balanceamento': {
-        titulo: 'Alinhamento e Balanceamento',
-        subtitulo: 'Precisão e Segurança',
-        icon: 'fas fa-cogs',
-        importancia: 'O alinhamento e balanceamento são essenciais para a segurança e durabilidade do seu veículo. Eles garantem que as rodas estejam posicionadas corretamente e que o peso seja distribuído uniformemente, prevenindo desgaste irregular dos pneus, melhorando a estabilidade e proporcionando uma direção mais suave.',
+    'bicos-velas': {
+        titulo: 'Troca e Limpeza de Bicos e Velas',
+        subtitulo: 'Performance do Motor',
+        icon: 'fas fa-spray-can',
+        importancia: 'A limpeza de bicos injetores e troca de velas são essenciais para manter a performance ideal do motor. Bicos sujos causam perda de potência, aumento no consumo de combustível e falhas na ignição. Velas em mau estado comprometem a queima eficiente do combustível.',
         beneficios: [
-            'Maior segurança na direção',
+            'Melhor performance do motor',
             'Economia de combustível',
-            'Aumento da vida útil dos pneus',
-            'Melhor estabilidade em curvas',
-            'Direção mais suave e confortável'
+            'Redução de emissões poluentes',
+            'Partida mais suave',
+            'Aumento da vida útil do motor'
         ]
     },
     'troca-oleo': {
@@ -61,6 +61,110 @@ const SERVICOS_DATA = {
             'Durabilidade do sistema',
             'Segurança para todos os ocupantes'
         ]
+    },
+    'oleo-cambio': {
+        titulo: 'Troca de Óleo de Câmbio',
+        subtitulo: 'Tecnologia e Segurança',
+        icon: 'fas fa-cogs',
+        importancia: 'A troca de óleo do câmbio com máquina especializada é fundamental para a durabilidade e segurança do sistema de transmissão. Utilizamos equipamento exclusivo que garante troca completa do fluido, removendo todas as impurezas e mantendo a lubrificação ideal das engrenagens.',
+        beneficios: [
+            'Troca completa com máquina especializada',
+            'Questão de segurança obrigatória',
+            'Aumento da vida útil do câmbio',
+            'Troca de marchas mais suave',
+            'Prevenção de reparos custosos'
+        ]
+    },
+    'arrefecimento': {
+        titulo: 'Sistema de Arrefecimento',
+        subtitulo: 'Proteção do Motor',
+        icon: 'fas fa-temperature-low',
+        importancia: 'O sistema de arrefecimento é vital para evitar o superaquecimento do motor. Manutenção regular previne danos graves como empenamento de cabeçote e problemas no bloco do motor, garantindo temperatura ideal de funcionamento.',
+        beneficios: [
+            'Prevenção de superaquecimento',
+            'Proteção do motor contra danos',
+            'Melhor eficiência térmica',
+            'Troca completa do líquido',
+            'Verificação de todo o sistema'
+        ]
+    },
+    'eletrica': {
+        titulo: 'Elétrica e Bateria',
+        subtitulo: 'Sistema Elétrico',
+        icon: 'fas fa-bolt',
+        importancia: 'O sistema elétrico é fundamental para o funcionamento de todos os componentes eletrônicos do veículo. Manutenção adequada garante partida rápida, funcionamento dos acessórios e prevenção de falhas elétricas.',
+        beneficios: [
+            'Partida rápida e confiável',
+            'Funcionamento dos acessórios',
+            'Prevenção de falhas elétricas',
+            'Baterias de alta qualidade',
+            'Diagnóstico completo do sistema'
+        ]
+    },
+    'ar-condicionado': {
+        titulo: 'Ar Condicionado',
+        subtitulo: 'Conforto Térmico',
+        icon: 'fas fa-snowflake',
+        importancia: 'O sistema de ar condicionado garante conforto térmico e qualidade do ar interior. Manutenção regular previne problemas de refrigeração, mau cheiro e contaminação bacteriana.',
+        beneficios: [
+            'Conforto térmico ideal',
+            'Qualidade do ar interior',
+            'Prevenção de mau cheiro',
+            'Eficiência energética',
+            'Troca de gás e limpeza'
+        ]
+    },
+    'injecao': {
+        titulo: 'Injeção Eletrônica',
+        subtitulo: 'Performance e Economia',
+        icon: 'fas fa-microchip',
+        importancia: 'O sistema de injeção eletrônica é responsável pela mistura ideal de ar e combustível, garantindo melhor performance, economia e redução de emissões poluentes. Manutenção preventiva evita falhas e garante o funcionamento ideal do motor.',
+        beneficios: [
+            'Melhor performance do motor',
+            'Economia de combustível',
+            'Redução de emissões poluentes',
+            'Diagnóstico computadorizado',
+            'Prevenção de falhas no sistema'
+        ]
+    },
+    'direcao': {
+        titulo: 'Direção Hidráulica',
+        subtitulo: 'Conforto na Direção',
+        icon: 'fas fa-tachometer-alt',
+        importancia: 'A direção hidráulica proporciona conforto e facilidade na condução do veículo. Manutenção adequada previne ruídos, endurecimento da direção e desgaste prematuro dos componentes, garantindo segurança e conforto ao dirigir.',
+        beneficios: [
+            'Direção mais suave e confortável',
+            'Prevenção de ruídos',
+            'Maior durabilidade do sistema',
+            'Segurança na condução',
+            'Troca de fluido especializada'
+        ]
+    },
+    'escapamento': {
+        titulo: 'Escapamento',
+        subtitulo: 'Desempenho e Conforto',
+        icon: 'fas fa-fire',
+        importancia: 'O sistema de escapamento é essencial para o desempenho do motor, redução de ruídos e controle de emissões. Manutenção adequada garante melhor fluxo de gases, redução de consumo e conformidade com normas ambientais.',
+        beneficios: [
+            'Melhor desempenho do motor',
+            'Redução de ruídos',
+            'Controle de emissões poluentes',
+            'Economia de combustível',
+            'Conformidade ambiental'
+        ]
+    },
+    'revisao': {
+        titulo: 'Revisão Preventiva',
+        subtitulo: 'Manutenção Programada',
+        icon: 'fas fa-clipboard-check',
+        importancia: 'A revisão preventiva é fundamental para identificar problemas antes que se tornem graves, garantindo segurança, confiabilidade e valorização do veículo. Check-up completo previne surpresas desagradáveis e aumenta a vida útil do automóvel.',
+        beneficios: [
+            'Prevenção de problemas futuros',
+            'Maior segurança na direção',
+            'Economia em reparos',
+            'Valorização do veículo',
+            'Check-up completo de 50 itens'
+        ]
     }
 };
 
@@ -71,6 +175,8 @@ class NissaTechApp {
         this.isMenuOpen = false;
         this.isScrolling = false;
         this.scrollTimer = null;
+        this.currentSlide = 0;
+        this.totalSlides = 5;
         this.init();
     }
 
@@ -85,6 +191,94 @@ class NissaTechApp {
         this.setupAnimations();
         this.setupIntersectionObserver();
         this.setupScrollDetection();
+        this.setupCarousel();
+    }
+
+    // Configuração do carrossel
+    setupCarousel() {
+        this.carouselSlides = document.querySelectorAll('.carousel-slide');
+        this.carouselDots = document.querySelector('.carousel-dots');
+        this.prevBtn = document.querySelector('.carousel-prev');
+        this.nextBtn = document.querySelector('.carousel-next');
+        
+        if (!this.carouselSlides.length) return;
+
+        // Criar dots
+        this.carouselSlides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => this.goToSlide(index));
+            this.carouselDots.appendChild(dot);
+        });
+
+        // Event listeners para botões
+        this.prevBtn.addEventListener('click', () => this.prevSlide());
+        this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+        // Touch events para mobile
+        this.setupCarouselTouch();
+
+        // Auto slide
+        this.startAutoSlide();
+    }
+
+    setupCarouselTouch() {
+        const carousel = document.querySelector('.carousel');
+        let startX = 0;
+        let endX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', () => {
+            const diff = startX - endX;
+            if (Math.abs(diff) > 50) { // Threshold mínimo para swipe
+                if (diff > 0) {
+                    this.nextSlide();
+                } else {
+                    this.prevSlide();
+                }
+            }
+        }, { passive: true });
+    }
+
+    startAutoSlide() {
+        setInterval(() => {
+            this.nextSlide();
+        }, 5000); // Muda a cada 5 segundos
+    }
+
+    goToSlide(index) {
+        this.currentSlide = index;
+        this.updateCarousel();
+    }
+
+    nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+        this.updateCarousel();
+    }
+
+    prevSlide() {
+        this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+        this.updateCarousel();
+    }
+
+    updateCarousel() {
+        // Atualizar slides
+        this.carouselSlides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === this.currentSlide);
+        });
+
+        // Atualizar dots
+        const dots = document.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+        });
     }
 
     // CORREÇÃO COMPLETA: Detecção global de scroll
@@ -347,7 +541,7 @@ class NissaTechApp {
         });
     }
 
-    // Botões de serviços
+    // Botões de serviços - CORRIGIDO para todos os serviços
     setupServiceButtons() {
         const serviceButtons = document.querySelectorAll('.servico-btn');
         
@@ -455,7 +649,7 @@ class NissaTechApp {
         }
     }
 
-    // Configuração dos modais de serviço
+    // Configuração dos modais de serviço - CORRIGIDO para todos os serviços
     setupServiceModals() {
         const serviceCards = document.querySelectorAll('.servico-card');
         const modal = document.querySelector('.servico-modal');
