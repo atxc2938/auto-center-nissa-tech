@@ -2368,3 +2368,11 @@ body.loaded .animate-element {
         display: none;
     }
 }
+
+.hero-text {
+    grid-column: 1 / -1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -8,32 +8,58 @@ const CONFIG = {
     horarioFuncionamento: 'Seg-Sex: 7h-19h, Sáb: 8h-13h'
 };
 
-// Dados dos serviços - ATUALIZADO
+// Dados dos serviços - ATUALIZADO COM EMBREAGEM
 const SERVICOS_DATA = {
-    'bicos-velas': {
-        titulo: 'Troca e Limpeza de Bicos e Velas',
-        subtitulo: 'Performance do Motor',
-        icon: 'fas fa-spray-can',
-        importancia: 'A limpeza de bicos injetores e troca de velas são essenciais para manter a performance ideal do motor. Bicos sujos causam perda de potência, aumento no consumo de combustível e falhas na ignição. Velas em mau estado comprometem a queima eficiente do combustível.',
+    'oleo-cambio': {
+        titulo: 'Troca de Óleo de Câmbio',
+        subtitulo: 'Tecnologia e Segurança',
+        icon: 'fas fa-cogs',
+        importancia: 'A troca de óleo do câmbio com máquina especializada é fundamental para a durabilidade e segurança do sistema de transmissão. Utilizamos equipamento exclusivo que garante troca completa do fluido, removendo todas as impurezas e mantendo a lubrificação ideal das engrenagens.',
         beneficios: [
-            'Melhor performance do motor',
-            'Economia de combustível',
-            'Redução de emissões poluentes',
-            'Partida mais suave',
-            'Aumento da vida útil do motor'
+            'Troca completa com máquina especializada',
+            'Questão de segurança obrigatória',
+            'Aumento da vida útil do câmbio',
+            'Troca de marchas mais suave',
+            'Prevenção de reparos custosos'
         ]
     },
     'troca-oleo': {
         titulo: 'Troca de Óleo e Filtros',
         subtitulo: 'Performance do Motor',
         icon: 'fas fa-oil-can',
-        importancia: 'A troca regular de óleo e filtros é vital para a saúde do motor do seu veículo. O óleo lubrifica as peças móveis, reduz o atrito, previne o superaquecimento e remove impurezas. Filtros novos garantem que apenas ar e combustível limpos entrem no motor.',
+        importancia: 'A troca regular de óleo e filtros é vital para a saúde do motor do seu veículo. O óleo lubrifica as peças móveis, reduz o atrito, previne o superaquecimento e remove impurezas. Filtros novos garantem que apenas ar e combustível limpos entram no motor.',
         beneficios: [
             'Proteção contra desgaste do motor',
             'Melhor performance e economia',
             'Redução de consumo de combustível',
             'Prevenção de superaquecimento',
             'Aumento da vida útil do motor'
+        ]
+    },
+    'direcao': {
+        titulo: 'Direção Hidráulica',
+        subtitulo: 'Conforto na Direção',
+        icon: 'fas fa-tachometer-alt',
+        importancia: 'A direção hidráulica proporciona conforto e facilidade na condução do veículo. Manutenção adequada previne ruídos, endurecimento da direção e desgaste prematuro dos componentes, garantindo segurança e conforto ao dirigir.',
+        beneficios: [
+            'Direção mais suave e confortável',
+            'Prevenção de ruídos',
+            'Maior durabilidade do sistema',
+            'Segurança na condução',
+            'Troca de fluido especializada'
+        ]
+    },
+    'embreagem': {
+        titulo: 'Sistema de Embreagem',
+        subtitulo: 'Troca de Marchas Suave',
+        icon: 'fas fa-hand-paper',
+        importancia: 'O sistema de embreagem é fundamental para a transmissão de potência do motor para as rodas. Uma embreagem em bom estado garante trocas de marcha suaves, melhor controle do veículo e prevenção de desgaste prematuro do câmbio. A manutenção preventiva evita reparos custosos e garante segurança na direção.',
+        beneficios: [
+            'Troca de marchas mais suave e precisa',
+            'Maior durabilidade do sistema de transmissão',
+            'Melhor controle e segurança na direção',
+            'Prevenção de desgaste prematuro do câmbio',
+            'Economia em reparos futuros'
         ]
     },
     'suspensao': {
@@ -60,19 +86,6 @@ const SERVICOS_DATA = {
             'Prevenção de aquaplanagem',
             'Durabilidade do sistema',
             'Segurança para todos os ocupantes'
-        ]
-    },
-    'oleo-cambio': {
-        titulo: 'Troca de Óleo de Câmbio',
-        subtitulo: 'Tecnologia e Segurança',
-        icon: 'fas fa-cogs',
-        importancia: 'A troca de óleo do câmbio com máquina especializada é fundamental para a durabilidade e segurança do sistema de transmissão. Utilizamos equipamento exclusivo que garante troca completa do fluido, removendo todas as impurezas e mantendo a lubrificação ideal das engrenagens.',
-        beneficios: [
-            'Troca completa com máquina especializada',
-            'Questão de segurança obrigatória',
-            'Aumento da vida útil do câmbio',
-            'Troca de marchas mais suave',
-            'Prevenção de reparos custosos'
         ]
     },
     'arrefecimento': {
@@ -125,19 +138,6 @@ const SERVICOS_DATA = {
             'Redução de emissões poluentes',
             'Diagnóstico computadorizado',
             'Prevenção de falhas no sistema'
-        ]
-    },
-    'direcao': {
-        titulo: 'Direção Hidráulica',
-        subtitulo: 'Conforto na Direção',
-        icon: 'fas fa-tachometer-alt',
-        importancia: 'A direção hidráulica proporciona conforto e facilidade na condução do veículo. Manutenção adequada previne ruídos, endurecimento da direção e desgaste prematuro dos componentes, garantindo segurança e conforto ao dirigir.',
-        beneficios: [
-            'Direção mais suave e confortável',
-            'Prevenção de ruídos',
-            'Maior durabilidade do sistema',
-            'Segurança na condução',
-            'Troca de fluido especializada'
         ]
     },
     'escapamento': {
