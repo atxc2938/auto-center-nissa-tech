@@ -1,0 +1,15 @@
+<!-- Favicon para todos os navegadores -->
+<link rel="shortcut icon" href="images/logo/nissatech_aba.png" type="image/png">
+<link rel="icon" href="images/logo/nissatech_aba.png" type="image/png">
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" href="images/logo/nissatech_aba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/logo/nissatech_aba.png">
+
+<!-- Microsoft Tiles -->
+<meta name="msapplication-TileImage" content="images/logo/nissatech_aba.png">
+<meta name="msapplication-TileColor" content="#ff3b30">
+<meta name="msapplication-config" content="browserconfig.xml">
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="site.webmanifest">

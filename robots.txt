@@ -1,8 +1,9 @@
 # =============================================
-# ROBOTS.TXT - NISSATECH CENTRO AUTOMOTIVO
-# Oficina Mecânica Especializada Niterói
+# ROBOTS.TXT - NISSATECH OFICINA MECÂNICA
+# Oficina Mecânica Especializada Niterói - Itaipu
 # =============================================
-# Última atualização: 15/12/2024
+# Última atualização: 2024-12-15
+# SEO Otimizado para: oficina niteroi, oficina itaipu, troca oleo cambio
 # =============================================
 
 User-agent: *
@@ -11,34 +12,49 @@ Disallow: /admin/
 Disallow: /wp-admin/
 Disallow: /login/
 Disallow: /config/
-Crawl-delay: 2
+Disallow: /private/
+Crawl-delay: 1
 
 # =============================================
-# SITEMAP PRINCIPAL
+# SITEMAP PRINCIPAL OTIMIZADO
 # =============================================
 Sitemap: https://nissatech.com.br/sitemap.xml
 
 # =============================================
-# CONFIGURAÇÃO GOOGLEBOT ESPECÍFICA
+# CONFIGURAÇÃO GOOGLEBOT (OFICINA NITERÓI)
 # =============================================
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 Disallow: /admin/
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /images/logo/
+Allow: /images/servicos/
+Allow: /images/maps/
 
 User-agent: Googlebot-Image
 Allow: /images/
 Allow: /img/
+Allow: /images/logo/
+Allow: /images/servicos/
+Allow: /images/maps/
+Allow: /images/carrossel/
 Disallow: /admin/
 Host: nissatech.com.br
 
 # =============================================
-# CONFIGURAÇÃO BINGBOT
+# CONFIGURAÇÃO BINGBOT (MECÂNICA NITERÓI)
 # =============================================
 User-agent: bingbot
 Allow: /
 Crawl-delay: 1
 Disallow: /admin/
+
+User-agent: MSNBot
+Allow: /
+Crawl-delay: 2
 
 # =============================================
 # BLOQUEIO DE BOTS MALICIOSOS
@@ -48,24 +64,45 @@ User-agent: SemrushBot
 User-agent: MJ12bot
 User-agent: MegaIndex
 User-agent: dotbot
+User-agent: proximic
+User-agent: ZoominfoBot
 Disallow: /
 
 # =============================================
-# DIRETIVAS PARA CRAWLERS DE REDES SOCIAIS
+# CRAWLERS DE REDES SOCIAIS (OFICINA ITAIPU)
 # =============================================
 User-agent: FacebookBot
+User-agent: FacebookExternalHit
 User-agent: Twitterbot
 User-agent: LinkedInBot
+User-agent: LinkedInBot
 User-agent: Pinterest
+User-agent: Slackbot
 Allow: /
 Crawl-delay: 2
 
 # =============================================
-# INFORMAÇÕES DA EMPRESA
+# CRAWLERS ESPECÍFICOS PARA SERVIÇOS
 # =============================================
-# NissaTech - Centro Automotivo Niterói
-# Telefone: (21) 99018-8094
-# WhatsApp: (21) 99018-8094
+User-agent: Applebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# =============================================
+# INFORMAÇÕES DA OFICINA MECÂNICA
+# =============================================
+# Nome: NissaTech Centro Automotivo
+# Também conhecida como: Nissa Tech, Nissatec, Oficina Itaipu
+# Especialidade: Troca de Óleo de Câmbio com Máquina, Suspensão, Freios
+# Telefone Oficina: (21) 99018-8094 (WhatsApp)
 # Endereço: R. A, 11 - QR 2, Itaipu, Niterói - RJ
-# Horário: Seg-Sex 8h-18h | Sáb 8h-13h
+# Localização: Região Oceânica de Niterói
+# Horário: Segunda a Sexta 8h-18h | Sábado 8h-13h
 # Site: https://nissatech.com.br
+# Serviços: Oficina Mecânica Niterói, Oficina Itaipu, Centro Automotivo
+# Palavras-chave: oficina mecanica niteroi, oficina itaipu, troca oleo cambio
+# =============================================

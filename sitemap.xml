@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     
-    <!-- PÁGINAS PRINCIPAIS -->
+    <!-- PÁGINAS PRINCIPAIS - OFICINA NITERÓI OTIMIZADA -->
     <url>
         <loc>https://nissatech.com.br/</loc>
         <lastmod>2024-12-15</lastmod>
@@ -12,127 +12,137 @@
         <priority>1.0</priority>
     </url>
     
-    <!-- SERVIÇOS -->
+    <!-- SERVIÇOS PRINCIPAIS - OFICINA ITAIPU -->
     <url>
-        <loc>https://nissatech.com.br/servicos/</loc>
+        <loc>https://nissatech.com.br/#servicos</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     
+    <!-- SERVIÇOS INDIVIDUAIS COM SEO OTIMIZADO -->
     <url>
-        <loc>https://nissatech.com.br/servicos/troca-oleo-cambio/</loc>
+        <loc>https://nissatech.com.br/servicos/troca-oleo-cambio-niteroi-itaipu/</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://nissatech.com.br/servicos/troca-oleo-filtros/</loc>
+        <loc>https://nissatech.com.br/servicos/troca-oleo-filtros-niteroi/</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://nissatech.com.br/servicos/direcao-hidraulica/</loc>
+        <loc>https://nissatech.com.br/servicos/sistema-embreagem-niteroi/</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://nissatech.com.br/servicos/sistema-embreagem/</loc>
+        <loc>https://nissatech.com.br/servicos/suspensao-amortecedores-niteroi/</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://nissatech.com.br/servicos/suspensao-amortecedores/</loc>
+        <loc>https://nissatech.com.br/servicos/freios-niteroi-itaipu/</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://nissatech.com.br/servicos/sistema-freios/</loc>
+        <loc>https://nissatech.com.br/servicos/ar-condicionado-automotivo-niteroi/</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://nissatech.com.br/servicos/eletrica-bateria/</loc>
+        <loc>https://nissatech.com.br/servicos/eletrica-bateria-niteroi/</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
+    <!-- LOCALIZAÇÕES OTIMIZADAS -->
     <url>
-        <loc>https://nissatech.com.br/servicos/ar-condicionado/</loc>
-        <lastmod>2024-12-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://nissatech.com.br/servicos/sistema-arrefecimento/</loc>
-        <lastmod>2024-12-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://nissatech.com.br/servicos/injecao-eletronica/</loc>
-        <lastmod>2024-12-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://nissatech.com.br/servicos/escapamento/</loc>
-        <lastmod>2024-12-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://nissatech.com.br/servicos/revisao-preventiva/</loc>
-        <lastmod>2024-12-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- OUTRAS PÁGINAS -->
-    <url>
-        <loc>https://nissatech.com.br/sobre/</loc>
+        <loc>https://nissatech.com.br/oficina-mecanica-niteroi/</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://nissatech.com.br/contato/</loc>
+        <loc>https://nissatech.com.br/oficina-itaipu-niteroi/</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://nissatech.com.br/oficina-regiao-oceanica-niteroi/</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- CONTATO OTIMIZADO -->
+    <url>
+        <loc>https://nissatech.com.br/contato-oficina-niteroi/</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     
-    <!-- BLOG (para futuro) -->
+    <!-- SOBRE A OFICINA -->
     <url>
-        <loc>https://nissatech.com.br/blog/</loc>
+        <loc>https://nissatech.com.br/sobre-nissatech-oficina-niteroi/</loc>
         <lastmod>2024-12-15</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     
-    <!-- LOCALIZAÇÃO -->
+    <!-- NOMES ALTERNATIVOS (ERROS DE BUSCA) -->
     <url>
-        <loc>https://nissatech.com.br/localizacao/</loc>
+        <loc>https://nissatech.com.br/nissa-tech-oficina-niteroi/</loc>
         <lastmod>2024-12-15</lastmod>
-        <changefreq>yearly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://nissatech.com.br/nissatec-oficina-mecanica/</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- SERVIÇOS ESPECÍFICOS -->
+    <url>
+        <loc>https://nissatech.com.br/revisao-preventiva-niteroi/</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://nissatech.com.br/injecao-eletronica-niteroi/</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://nissatech.com.br/direcao-hidraulica-niteroi/</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
     </url>
     
 </urlset>
