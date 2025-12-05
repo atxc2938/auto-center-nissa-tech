@@ -1,0 +1,71 @@
+# =============================================
+# ROBOTS.TXT - NISSATECH CENTRO AUTOMOTIVO
+# Oficina Mecânica Especializada Niterói
+# =============================================
+# Última atualização: 15/12/2024
+# =============================================
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /login/
+Disallow: /config/
+Crawl-delay: 2
+
+# =============================================
+# SITEMAP PRINCIPAL
+# =============================================
+Sitemap: https://nissatech.com.br/sitemap.xml
+
+# =============================================
+# CONFIGURAÇÃO GOOGLEBOT ESPECÍFICA
+# =============================================
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+Disallow: /admin/
+
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /img/
+Disallow: /admin/
+Host: nissatech.com.br
+
+# =============================================
+# CONFIGURAÇÃO BINGBOT
+# =============================================
+User-agent: bingbot
+Allow: /
+Crawl-delay: 1
+Disallow: /admin/
+
+# =============================================
+# BLOQUEIO DE BOTS MALICIOSOS
+# =============================================
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: MegaIndex
+User-agent: dotbot
+Disallow: /
+
+# =============================================
+# DIRETIVAS PARA CRAWLERS DE REDES SOCIAIS
+# =============================================
+User-agent: FacebookBot
+User-agent: Twitterbot
+User-agent: LinkedInBot
+User-agent: Pinterest
+Allow: /
+Crawl-delay: 2
+
+# =============================================
+# INFORMAÇÕES DA EMPRESA
+# =============================================
+# NissaTech - Centro Automotivo Niterói
+# Telefone: (21) 99018-8094
+# WhatsApp: (21) 99018-8094
+# Endereço: R. A, 11 - QR 2, Itaipu, Niterói - RJ
+# Horário: Seg-Sex 8h-18h | Sáb 8h-13h
+# Site: https://nissatech.com.br
